@@ -68,9 +68,9 @@ export default function CardComponent() {
                             <p className="mb-2 leading-normal">
                             {items.content}
                             </p>
-                            <button className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
-                                View Details
-                            </button>
+                            <a href="event-details" className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
+                                View Event
+                            </a>
                         </div>
                     </div>
                 ))}

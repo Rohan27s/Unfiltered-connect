@@ -7,7 +7,7 @@ import {
 
 import 'aos/dist/aos.css';
 import './css/style.css';
-
+import './App.css'
 import AOS from 'aos';
 
 import Home from './pages/Home';
@@ -15,6 +15,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 import Events from './pages/Events';
+import EventDetails from './pages/EventDetails';
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/events" element={<Events />} />
-
+        <Route path="/event-details" element={<EventDetails />} />
       </Routes>
     </>
   );
