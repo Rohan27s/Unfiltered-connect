@@ -26,7 +26,7 @@ const SocietyDetails = () => {
           <header>
             <h1>{blog.title}</h1>
           </header>
-          <img src={blog.cover} alt='cover' />
+          <img  src={blog.cover} alt='cover' />
           <p className='blog-desc'>{blog.description}</p>
         </div>
       ) : (

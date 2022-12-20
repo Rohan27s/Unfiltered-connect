@@ -4,6 +4,8 @@ import BlogList from '../partials/Home/BlogList';
 import SearchBar from '../partials/Home/SearchBar';
 import { blogList } from '../partials/config/data';
 import Header from '../partials/Home/Header';
+import { Link } from 'react-router-dom';
+
 const RegisteredSocieties = () => {
   const [blogs, setBlogs] = useState(blogList);
   const [searchKey, setSearchKey] = useState('');
@@ -31,6 +33,9 @@ const RegisteredSocieties = () => {
 
   return (
     <div>
+        <Link className='blog-goBack' to='/'>
+        <span> &#8592;</span> <span>Go Back</span>
+      </Link>
         <Header/>
       <SearchBar
         value={searchKey}
