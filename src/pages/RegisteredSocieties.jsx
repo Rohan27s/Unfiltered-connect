@@ -3,7 +3,7 @@ import EmptyList from '../partials/common/EmptyList';
 import BlogList from '../partials/Home/BlogList';
 import SearchBar from '../partials/Home/SearchBar';
 import { blogList } from '../partials/config/data';
-import Header from '../partials/Header';
+import Header from '../partials/Home/Header';
 const RegisteredSocieties = () => {
   const [blogs, setBlogs] = useState(blogList);
   const [searchKey, setSearchKey] = useState('');
@@ -31,19 +31,18 @@ const RegisteredSocieties = () => {
 
   return (
     <div>
-      {/* Page Header */}
-      {/* <Header /> */}
-
-      {/* Search Bar */}
+        <Header/>
       <SearchBar
         value={searchKey}
         clearSearch={handleClearSearch}
         formSubmit={handleSearchBar}
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />
-
       {/* Blog List & Empty View */}
+      <div className='soc-card'>
+
       {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+      </div>
     </div>
   );
 };

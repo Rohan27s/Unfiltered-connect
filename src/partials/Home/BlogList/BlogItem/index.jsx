@@ -16,7 +16,7 @@ const BlogItem = ({
   },
 }) => {
   return (
-    <div className='blogItem-wrap'>
+    <div className='blogItem-wrap soc-single-card'>
       <img className='blogItem-cover' src={cover} alt='cover' />
       <Chip label={category} />
       <h3>{title}</h3>
