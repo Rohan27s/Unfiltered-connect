@@ -16,6 +16,8 @@ import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
+import RegisteredSocieties from './pages/RegisteredSocieties';
+import SocietyDetails from './pages/SocietyDetails';
 
 function App() {
 
@@ -45,6 +47,9 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/events" element={<Events />} />
         <Route path="/event-details" element={<EventDetails />} />
+        <Route path="/registered-societies" element={<RegisteredSocieties />} />
+        <Route path='/registered-societies/:id' component={SocietyDetails} />
+
       </Routes>
     </>
   );

@@ -38,15 +38,6 @@ export default function CardComponent() {
             title: "Event 8",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
             content: "Event Description"
-        },{
-            title: "Event 9",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        },
-        {
-            title: "Event 10",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
         },
     ];
     return (

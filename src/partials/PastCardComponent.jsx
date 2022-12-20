@@ -5,49 +5,28 @@ export default function PastCardComponent() {
         {
             title: "Event 1",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
+            content: "Event Description",
+            rating:3
         },
         {
             title: "Event 2",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
+            content: "Event Description",
+            rating:5
         },
         {
             title: "Event 3",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
+            content: "Event Description",
+            rating:4
         },
         {
             title: "Event 4",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
+            content: "Event Description",
+            rating:1
         },
-        {
-            title: "Event 5",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        }, {
-            title: "Event 6",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        }, {
-            title: "Event 7",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        }, {
-            title: "Event 8",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        }, {
-            title: "Event 9",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        },
-        {
-            title: "Event 10",
-            img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description"
-        },
+       
     ];
     const ratingChanged = (newRating) => {
   console.log(newRating);
@@ -74,10 +53,10 @@ export default function PastCardComponent() {
                                 <ReactStars
                                     count={5}
                                     onChange={ratingChanged}
-                                    size={24}
+                                    size={22}
                                     activeColor="#ffd700"
-                                    value={2}
-                                />,
+                                    value={items.rating}
+                                />
                             </div>
                         </div>
                     ))}
