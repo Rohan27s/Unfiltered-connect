@@ -48,7 +48,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/event-details" element={<EventDetails />} />
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
-        <Route path='/registered-societies/:id' component={SocietyDetails} />
+        <Route path='/registered-societies/:id' element={<SocietyDetails/>} />
 
       </Routes>
     </>
