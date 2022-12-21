@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../partials/Header';
 import CardComponent from '../partials/CardComponent';
 import PastCardComponent from '../partials/PastCardComponent';
+import { upcomingEvent } from '../partials/config/event';
 import { useState } from 'react';
 const Events = () => {
   let currCards = <CardComponent />;
@@ -9,7 +10,8 @@ const Events = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Header />
-      <div className="cards">
+      <div className="cards">       
+     
         {eventType}
         <div className="bg-white backdrop-blur-sm shadow-lg bottombar">
           <li>
@@ -24,3 +26,4 @@ const Events = () => {
 }
 
 export default Events
+

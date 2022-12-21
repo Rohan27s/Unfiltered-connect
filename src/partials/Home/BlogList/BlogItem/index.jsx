@@ -16,13 +16,9 @@ const BlogItem = ({
       <img className='blogItem-cover' src={cover} alt='cover' />
       <Chip label={category} />
       <h3>{title}</h3>
-      <footer>
-        <div className='blogItem-author'>
         <Link className='blogItem-link' to={`/registered-societies/${id}`}>
-          ➝
+          View More ➝
         </Link>
-        </div>
-      </footer>
     </div>
   );
 };

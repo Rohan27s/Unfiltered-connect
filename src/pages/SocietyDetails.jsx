@@ -13,6 +13,7 @@ const SocietyDetails = () => {
     let blog = blogList.find((blog) => blog.id === id);
     if (blog) {
       setBlog(blog);
+      console.log(blog);
     }
   }, []);
 

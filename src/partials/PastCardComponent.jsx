@@ -3,15 +3,15 @@ import ReactStars from "react-rating-stars-component";
 export default function PastCardComponent() {
     const posts = [
         {
-            title: "Event 1",
+            title: "Blackout",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description",
+            content: "Computer Society of India, Student Branch MSI", 
             rating:3
         },
         {
-            title: "Event 2",
+            title: "Pointer to Future",
             img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-            content: "Event Description",
+            content: "Computer Society of India, Student Branch MSI",
             rating:5
         },
         {
@@ -42,7 +42,7 @@ export default function PastCardComponent() {
                                 src={items.img}
                                 alt="image"
                             />
-                            <div className="p-4">
+                            <div className="p-2">
                                 <h4 className="text-xl font-semibold text-blue-600">
 
                                     {items.title}
@@ -57,6 +57,9 @@ export default function PastCardComponent() {
                                     activeColor="#ffd700"
                                     value={items.rating}
                                 />
+                                <a href="event-details" className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
+                                Review
+                            </a>
                             </div>
                         </div>
                     ))}

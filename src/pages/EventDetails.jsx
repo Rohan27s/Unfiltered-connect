@@ -1,52 +1,65 @@
 import React from 'react'
 import FAQ from '../partials/FAQ';
 import Header from '../partials/Header';
-import { useState } from "react";
+import { useState ,useEffect} from "react";
+import { upcomingEvent } from '../partials/config/event';
+import { useParams } from 'react-router';
+
 const EventDetails = () => {
-    const [faqs, setFaqs] = useState([
-        {
-          question: "Question 1",
-          answer:
-            "Answer 1 ",
-          open: false
-        },
-        {
-          question: "Question 2",
-          answer: "Answer 2",
-          open: false
-        },
-        {
-          question:
-            "Question 3",
-          answer: "Answer 3",
-          open: false
+  const toggleFAQ = index => {
+    setFaqs(
+      faqs.map((faq, i) => {
+        if (i === index) {
+          faq.open = !faq.open;
+        } else {
+          faq.open = false;
         }
-      ]);
+
+        return faq;
+      })
+    );
+  };
+  const [faqs, setFaqs] = useState([
+    {
+      question: "Question 1",
+      answer:
+        "Answer 1 ",
+      open: false
+    },
+    {
+      question: "Question 2",
+      answer: "Answer 2",
+      open: false
+    },
+    {
+      question:"Question 3",
+      answer: "Answer 3",
+      open: false
+    }
+  ]);
+  const { title } = useParams();
+
+  const [event, setEvent] = useState({});
+  useEffect(() => {
+    let event = upcomingEvent.find((event) => event.title === title);
+    if (event) {
+      setEvent(event);
+      console.log(event);
+    }
+  }, []);
     
-      const toggleFAQ = index => {
-        setFaqs(
-          faqs.map((faq, i) => {
-            if (i === index) {
-              faq.open = !faq.open;
-            } else {
-              faq.open = false;
-            }
     
-            return faq;
-          })
-        );
-      };
+      
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Header />
-      {/* <Footer /> */}
       <main className="flex-grow">
       <div className="cover">
         <img className='banner-details' src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
         <div className="overlay">
-            <h1>Society Name</h1>
+            <h1>{event.societies}</h1>
             <h2>Presents</h2>
-            <h1>Event Name</h1>
+            <h1>{title}</h1>
             <button>Register Now</button>
             <a href="#about1">View More Details</a>
         </div>        

@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
 }
-.emptyList-wrap img {
-  max-width: 250px;
-  width: 100%;
+.emptyList-wrap h1{
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

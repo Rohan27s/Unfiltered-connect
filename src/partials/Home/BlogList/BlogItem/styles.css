@@ -16,9 +16,12 @@
   margin-bottom: 0.5rem;
 }
 .blogItem-wrap h3 {
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 2px 1rem 2px;
   flex: 1;
-  padding: 0 7px 0 7px;
+  padding: 0 7px 0 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: large;
 }
 
 .blogItem-desc {
@@ -38,18 +41,12 @@
   right: 0;
 }
 
-.blogItem-wrap footer {
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
-  justify-content: space-between;
-  padding: 7px;
-}
-
 .blogItem-link {
   text-decoration: none;
   color: inherit;
-  margin-right: 7px;
+  padding:0 0 3% 5%;
+  font-weight: 500;
+
 }
 
 .blogItem-author {

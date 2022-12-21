@@ -19,6 +19,7 @@ import EventDetails from './pages/EventDetails';
 import RegisteredSocieties from './pages/RegisteredSocieties';
 import SocietyDetails from './pages/SocietyDetails';
 
+
 function App() {
 
   const location = useLocation();
@@ -46,9 +47,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/event-details" element={<EventDetails />} />
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:id' element={<SocietyDetails/>} />
+        <Route path='/event-details/:title' element={<EventDetails/>} />
+
 
       </Routes>
     </>
