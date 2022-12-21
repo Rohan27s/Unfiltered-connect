@@ -29,7 +29,7 @@ export const blogList = [
       President: 'Ms. Tanya Khurana',
        VicePresident: 'Mr. Raghav Sharma',
        GeneralSecretary: '',
-       EventsHead: 'Mr.  Parth Chawla',
+       EventsHead: 'Mr. Parth Chawla',
        DeputyEventsHead: 'Mr. Chaitanya Agrawal',
        DesignHead: 'Mr. Kashish Arora',
        DeputyDesignHead: 'Mr. Ashutosh Sharma',

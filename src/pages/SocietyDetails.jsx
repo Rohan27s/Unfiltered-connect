@@ -24,15 +24,26 @@ const SocietyDetails = () => {
       {blog ? (
         <div className='blog-wrap'>
           <div className="soc-banner">
-
-          <img  src={blog.cover} alt='cover' />
-          <header>
-            <h1>{blog.title}</h1>
-          </header>
+            <img src={blog.cover} alt='cover' />
+            <header>
+              <h1>{blog.title}</h1>
+            </header>
           </div>
           <p className='blog-desc'>{blog.description}</p>
-          <h4 className='blog-desc'>{blog.members.President}</h4>
-
+          <div className="about-soc">
+            <h1>Core Team</h1>
+            <ul>
+              <li className="blog-desc"><h3>President : </h3>{blog.members.President}</li>
+              <li className="blog-desc"><h3>Vice President : </h3>{blog.members.VicePresident}</li>
+              <li className="blog-desc"><h3>General Secretary : </h3>{blog.members.GeneralSecretary}</li>
+              <li className="blog-desc"><h3>Events Head : </h3>{blog.members.EventsHead}</li>
+              <li className="blog-desc"><h3>Deputy Events Head : </h3>{blog.members.DeputyEventsHead}</li>
+              <li className="blog-desc"><h3>Design Head : </h3>{blog.members.DesignHead}</li>
+              <li className="blog-desc"><h3>Deputy Design Head : </h3>{blog.members.DeputyDesignHead}</li>
+              <li className="blog-desc"><h3>PR and Out reach Head : </h3>{blog.members.PRandOutreachHead}</li>
+              <li className="blog-desc"><h3>Deputy PR and Out reach Head : </h3>{blog.members.DeputyPRandOutreachHead}</li>
+            </ul>
+          </div>
         </div>
       ) : (
         <EmptyList />
