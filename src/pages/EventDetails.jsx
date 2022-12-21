@@ -69,9 +69,9 @@ const EventDetails = () => {
         <h1 >About the Event</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?</p>
         <ul>
-            <li><b>Event Date : </b>20th December 2022</li>
-            <li><b>Event Timmings :  </b>10:00 AM to 02:00 PM</li>
-            <li><b>Event Venue :  </b>Auditorium</li>
+            <li><b>Event Date : </b>{event.date}</li>
+            <li><b>Event Timmings :  </b>{event.time}</li>
+            <li><b>Event Venue :  </b>{event.venue}</li>
 
         </ul>
         <h2></h2>
