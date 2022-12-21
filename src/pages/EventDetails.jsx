@@ -75,17 +75,15 @@ const EventDetails = () => {
             <li><b>Event Date : </b>{event.date}</li>
             <li><b>Event Timmings :  </b>{event.time}</li>
             <li><b>Event Venue :  </b>{event.venue}</li>
-
         </ul>
-        <h2></h2>
-      </div>
-
       <div className="faqs">
         <h2>FAQs</h2>
         {faqs.map((faq, index) => (
           <FAQ faq={faq} index={index} key={index} toggleFAQ={toggleFAQ} />
         ))}
       </div>
+      </div>
+
       </main>
       </div>
   )
