@@ -18,7 +18,7 @@ import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
 import RegisteredSocieties from './pages/RegisteredSocieties';
 import SocietyDetails from './pages/SocietyDetails';
-
+import PastEventDetails from './pages/PastEventDetails';
 
 function App() {
 
@@ -50,6 +50,8 @@ function App() {
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:id' element={<SocietyDetails/>} />
         <Route path='/event-details/:title' element={<EventDetails/>} />
+        <Route path='/past-event-details/:title' element={<PastEventDetails/>} />
+
 
 
       </Routes>
