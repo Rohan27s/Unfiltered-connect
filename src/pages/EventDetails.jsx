@@ -70,7 +70,7 @@ const EventDetails = () => {
       <div className="gap" id="about1"></div>
       <div className="content" >
         <h1 >About {title}</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?</p>
+        <p>{event.description}</p>
         <ul>
             <li><b>Event Date : </b>{event.date}</li>
             <li><b>Event Timmings :  </b>{event.time}</li>

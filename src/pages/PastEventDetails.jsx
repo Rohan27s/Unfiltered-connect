@@ -4,7 +4,7 @@ import Header from '../partials/Header';
 import { useState ,useEffect} from "react";
 import { pastEvent } from '../partials/config/event';
 import { useParams } from 'react-router';
-
+import Carousel from 'carousel-react-rcdev'
 const PastEventDetails = () => {  
   const { id } = useParams();
   const [event, setEvent] = useState({});
@@ -33,7 +33,7 @@ const PastEventDetails = () => {
       <div className="gap" id="about1"></div>
       <div className="content" >
         <h1 >Event Summary</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusamus sapiente voluptate minus magnam, qui autem error velit provident soluta! Eos placeat minus maiores reiciendis, aliquam voluptas corporis dolore incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a architecto magnam, excepturi nam unde dolor eos laboriosam quod aliquam in beatae pariatur voluptas quos quas autem alias, dolore cumque?</p>
+        <p>{event.description}</p>
         <ul>
             <li><b>Event Date : </b>{event.date}</li>
             <li><b>Event Timmings :  </b>{event.time}</li>
@@ -42,10 +42,14 @@ const PastEventDetails = () => {
         </ul>
         <h2 className='winner-head'>{event.title} Winner Details </h2>
         <ul>
-            <li>1st Position: {event.First} </li>
-            <li>2nd Position: {event.Second}</li>
-            <li>3rd Position: {event.Third}</li>
+            <li><img className='medals' 
+              src="https://res.cloudinary.com/rohangotwal/image/upload/v1671647978/Blog/medal_b7kshr.png" alt="" />{event.First} </li>
+            <li><img className='medals' 
+              src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648007/Blog/medal_1_ulhtt4.png" alt="" />{event.Second}</li>
+            <li><img className='medals' 
+              src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648038/Blog/medal_2_gzoket.png" alt="" />{event.Third}</li>
         </ul>
+       
       </div>      
       </main>
       </div>
