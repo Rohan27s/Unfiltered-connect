@@ -10,8 +10,8 @@ export default function PastCardComponent() {
         <>
             <section className="relative" style={{ marginTop: "10%", width: "80%", margin: "auto" }}>
                 <div style={{ marginTop: "15%" }} className="grid gap-8 lg:grid-cols-4">
-                    {pastEvent.map((items, title) => (
-                        <div className="eventcards w-full rounded-lg shadow-md lg:max-w-sm" key={title}>
+                    {pastEvent.map((items, id) => (
+                        <div className="eventcards w-full rounded-lg shadow-md lg:max-w-sm" key={id}>
                             <img
                                 className="object-cover w-full h-60"
                                 src={items.img}
@@ -22,7 +22,7 @@ export default function PastCardComponent() {
 
                                     {items.title}
                                 </h4>
-                                <p className="mb-2 leading-normal">
+                                <p className="leading-normal">
                                     {items.societies}
                                 </p>
                                 <ReactStars
@@ -32,7 +32,7 @@ export default function PastCardComponent() {
                                     activeColor="#ffd700"
                                     value={items.rating}
                                 />
-                                <a href={`/past-event-details/${items.title}`} className="px-4  py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
+                                <a href={`/past-event-details/${items.id}`} className="px-4  py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
                                 Review
                             </a>
                             </div>

@@ -50,7 +50,7 @@ function App() {
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:id' element={<SocietyDetails/>} />
         <Route path='/event-details/:title' element={<EventDetails/>} />
-        <Route path='/past-event-details/:title' element={<PastEventDetails/>} />
+        <Route path='/past-event-details/:id' element={<PastEventDetails/>} />
 
 
 

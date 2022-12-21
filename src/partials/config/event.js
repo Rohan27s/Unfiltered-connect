@@ -27,6 +27,8 @@ export const upcomingEvent = [
 ];
 export const pastEvent = [
     {
+        id: 'Blackout',
+
         title: 'Blackout',
         content: "Code Fest",
         societies: ['CSI'],
@@ -37,13 +39,14 @@ export const pastEvent = [
         venue: 'Lab 1 and 4',
         time: '10:30 AM',
         img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-        rating: 3,
-        winners: { 
+        rating: 3,         
             First: 'Sheersh Jaiswal', 
             Second: 'Aditya Mogha', 
-            Third: 'Pranshu Mittal',},
-    }, 
+            Third: 'Pranshu Mittal',
+    },
     {
+        id: 'Pointer to Future',
+
         title: 'Pointer to Future',
         content: "CSI",
         societies: ['CSI'],
@@ -55,9 +58,8 @@ export const pastEvent = [
         time: '10:30 AM',
         img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
         rating: 4,
-        winners: { 
             First: 'Yash Jolly', 
             Second: 'Sarthak Gaurav', 
-            Third: 'Krish Vohra',},
+            Third: 'Krish Vohra',
     }
 ];

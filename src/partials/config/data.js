@@ -7,7 +7,7 @@ export const blogList = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg',
     members: { 
-      President: 'Mr. Akshat Jain',
+       President: 'Mr. Akshat Jain',
        VicePresident: 'Mr. Abhishek Gupta',
        GeneralSecretary: 'Mr. Mayank Kalra',
        EventsHead: 'Mr. Karan Banjade',

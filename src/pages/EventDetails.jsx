@@ -4,6 +4,7 @@ import Header from '../partials/Header';
 import { useState ,useEffect} from "react";
 import { upcomingEvent } from '../partials/config/event';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const EventDetails = () => {
   const toggleFAQ = index => {
@@ -51,8 +52,8 @@ const EventDetails = () => {
       
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-
       <main className="flex-grow">
+
       <div className="cover">
         <img className='banner-details' src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
         <div className="overlay">
@@ -80,7 +81,7 @@ const EventDetails = () => {
       </div>
 
       <div className="faqs">
-        <h2>FAQ</h2>
+        <h2>FAQs</h2>
         {faqs.map((faq, index) => (
           <FAQ faq={faq} index={index} key={index} toggleFAQ={toggleFAQ} />
         ))}
