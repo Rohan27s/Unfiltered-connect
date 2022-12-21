@@ -5,11 +5,7 @@ import './styles.css';
 
 const BlogItem = ({
   blog: {
-    description,
     title,
-    createdAt,
-    authorName,
-    authorAvatar,
     cover,
     category,
     id,
