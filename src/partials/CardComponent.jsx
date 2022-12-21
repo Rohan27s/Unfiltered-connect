@@ -8,7 +8,7 @@ export default function CardComponent() {
             <div style={{marginTop: "15%"}} className="grid gap-8 lg:grid-cols-4">
             
                 {upcomingEvent.map((items,key) => (
-                    <div className="w-full rounded-lg shadow-md lg:max-w-sm" key={items.title}>
+                    <div className="eventcards w-full rounded-lg shadow-md lg:max-w-sm" key={items.title}>
                         <img
                             className="object-cover w-full h-60"
                             src={items.img}

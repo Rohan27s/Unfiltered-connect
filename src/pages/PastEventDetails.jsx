@@ -28,7 +28,9 @@ const PastEventDetails = () => {
       <div className="cover">
         <img className='banner-details' src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
         <div className="overlay">
-            <div className="soc-names"><h1>{event.societies}</h1></div>
+          
+            <div className="soc-names"><img className='soc-event-avatar' src={event.cover} alt='cover' />
+              <h1>{event.societies}</h1></div>
             <h2>organized</h2>
             <h3>{title}</h3>
             <a href="#about1">View Highlights</a>

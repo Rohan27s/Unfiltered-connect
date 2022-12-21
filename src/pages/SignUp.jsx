@@ -19,7 +19,7 @@ function SignUp() {
 
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">Welcome. We exist to make entrepreneurism easier.</h1>
+                <h1 className="h1">Welcome. We exist to make event hosting easier</h1>
               </div>
 
               {/* Form */}
@@ -80,7 +80,7 @@ function SignUp() {
                   </div>
                 </form>
                 <div className="text-gray-600 text-center mt-6">
-                  Already using Simple? <Link to="/signin" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
+                  Already using Society Portal? <Link to="/signin" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
                 </div>
               </div>
 

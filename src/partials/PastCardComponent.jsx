@@ -11,7 +11,7 @@ export default function PastCardComponent() {
             <section className="relative" style={{ marginTop: "10%", width: "80%", margin: "auto" }}>
                 <div style={{ marginTop: "15%" }} className="grid gap-8 lg:grid-cols-4">
                     {pastEvent.map((items, title) => (
-                        <div className="w-full rounded-lg shadow-md lg:max-w-sm" key={title}>
+                        <div className="eventcards w-full rounded-lg shadow-md lg:max-w-sm" key={title}>
                             <img
                                 className="object-cover w-full h-60"
                                 src={items.img}
@@ -28,7 +28,7 @@ export default function PastCardComponent() {
                                 <ReactStars
                                     count={5}
                                     onChange={ratingChanged}
-                                    size={22}
+                                    size={24}
                                     activeColor="#ffd700"
                                     value={items.rating}
                                 />
