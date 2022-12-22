@@ -10,12 +10,12 @@ import './App.css'
 import AOS from 'aos';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
-import ResetPassword from './pages/ResetPassword';
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
 import RegisteredSocieties from './pages/RegisteredSocieties';
 import SocietyDetails from './pages/SocietyDetails';
 import PastEventDetails from './pages/PastEventDetails';
+import Admin from './pages/Admin';
 
 function App() {
   const location = useLocation();
@@ -37,8 +37,9 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/admin" element={<SignIn />} />
+        <Route path="/adminPanel" element={<Admin />} />
+
         <Route path="/events" element={<Events />} />
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:id' element={<SocietyDetails/>} />

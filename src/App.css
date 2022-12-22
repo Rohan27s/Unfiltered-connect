@@ -561,3 +561,42 @@ article.nextSlide {
 .smalimg {
   width: 150px
 }
+.main-admin{
+  background: #006dff;
+  height: 100vh;
+}
+.admin-head h1{
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  text-transform: uppercase;
+}
+.admin-nav{
+  background-color: white;
+}
+.admin-nav ul{
+  width: 100%;
+  display: flex;
+justify-content: center;
+padding: 10px;
+}
+.admin-nav ul li{
+font-size: 20px;
+margin-right: 3%;
+  display: inline-block;
+  
+}
+.register-event h1{
+  font-size: 30px;
+text-align: center;
+}
+.event-form li{
+text-transform: uppercase;
+font-weight: 600;
+}
+.event-form li input{
+  border-radius: 15px;
+}
