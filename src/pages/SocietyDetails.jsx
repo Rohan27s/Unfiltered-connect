@@ -24,11 +24,11 @@ const SocietyDetails = () => {
           <div className="soc-banner">
             <img src={blog.cover} alt='cover' />
             <header>
-              <h1 style={{color:'#006dff'}}>{blog.title}</h1>
+              <h1 style={{color:'#006dff'}}>{blog.id}</h1>
             </header>
           </div>
           <div className='about-soc-div'>
-          <h2 className='about-soc-head'>What {blog.title} is about?</h2>
+          <h2 className='about-soc-head'>What {blog.id} is about?</h2>
           <p className='blog-desc'>{blog.description}</p>            
           </div>
           <div className="about-soc">

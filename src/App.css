@@ -562,20 +562,20 @@ article.nextSlide {
   width: 150px
 }
 .main-admin{
-  background: #006dff;
-  height: 100vh;
+  
+  background: #c0d3ec;
 }
 .admin-head h1{
   text-align: center;
   font-size: 50px;
-  color: white;
+  color: rgb(0, 22, 59);
   font-weight: 700;
   letter-spacing: 2px;
   word-spacing: 4px;
   text-transform: uppercase;
 }
 .admin-nav{
-  background-color: white;
+  background-color: rgb(114, 180, 234);
 }
 .admin-nav ul{
   width: 100%;
@@ -589,6 +589,9 @@ margin-right: 3%;
   display: inline-block;
   
 }
+.register-event{
+  padding: 20px;
+}
 .register-event h1{
   font-size: 30px;
 text-align: center;
@@ -596,7 +599,18 @@ text-align: center;
 .event-form li{
 text-transform: uppercase;
 font-weight: 600;
+list-style: lower-roman;
+margin-bottom: 2%;
 }
 .event-form li input{
   border-radius: 15px;
+  margin-left: 5%;
+}
+.event-submit{
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 12px;
+  margin-left: 150px;
+  margin-top: 10px;
 }
