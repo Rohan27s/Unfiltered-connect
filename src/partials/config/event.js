@@ -9,8 +9,8 @@ export const upcomingEvent = [
         date: '28-12-2022',
         venue: 'MSI Auditorium',
         time: '11:00 AM',
-        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-        registerLink:"https://qml7rtuomnw.typeform.com/to/IkRIJ68R",
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671709492/WhatsApp_Image_2022-12-22_at_17.14.11_ipdylp.jpg",
+        registerLink:"https://qml7rtuomnw.typeform.com/to/ZpH5c6SE",
         questions:[{
             question: "People to Contact for the Same",
             answer:
@@ -114,7 +114,64 @@ export const upcomingEvent = [
             answer: "60% plus or equivalent in Computer Science/Information Technology, 60% plus in 10th and 12th and No active backlogs",
             open: false
           }],
-    }
+    }, 
+    {
+        title: 'Workshop',
+        content: "CSI",
+        societies: [{Name:'CSI',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
+        description:
+            "“Your mobile device has quickly become the easiest portal into your digital self.” – Phil Nickinson, Editor of Android Central The Department of Computer Applications and the Computer Society of India, Student branch, Maharaja Surajmal Institute invites you all to a workshop on “Industrial Application Development for Web and Mobile” on 17th September 2019 during 11:30 A.M to 2:30 P.M in MSI Auditorium. The Resource Person for the Workshop will be Mr. Devanshu Shukla, Founder of Hackveda, VMDD Technologies. He started Hackveda under VMDD Technologies back in August 2011. Everyone who attends the workshop will be given an online certificate by Hackveda Ltd. The workshop will impart knowledge and awareness about mobile and web development.",
+        
+        date: '17-02-2023',
+        venue: 'MSI Auditorium',
+        time: '11:30 AM to 02:30 PM',
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671709887/Workshop_on_Industrial_Application_Development_for_Web_and_Mobile_Poster_wjd8mr_ss8ljc.png",
+        registerLink:"https://qml7rtuomnw.typeform.com/to/TRUeyChB",
+        questions:[{
+            question: "People to Contact for the Same",
+            answer:
+              "Mr. Akshay Sharma (+919813311394) and Ms. Ishita Gupta (+919990378278)",
+            open: false
+          },]
+    }, 
+    {
+        title: 'SIH Internal Hackathon',
+        content: "CSI",
+        societies: [{Name:'CSI',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
+        description:
+            "Time is what determines security. With enough time nothing is unhackable - Aniekee Ezekiel The Computer Society of India, Student Branch, Maharaja Surajmal Institute invites you to Internal Smart India Hackathon 2022 in association with the Software Development Cell of Maharaja Surajmal Institute on 24th March 2022. The objective of this Internal Hackathon is to select the top 10 teams which will be then nominated on SIH Portal. The event will be carried out under the guidance of SPOC-SIH, SBC-CSI Ms. Rhythm Chaudhary, Assistant Professor MSI. The event will give the students an opportunity to combine their technical knowledge and creativity and open new avenues for innovation and information. The jury panel will include Mr. Devanshu Shukla (Founder of Hack Veda), Dr. Nishtha Jatana (Assistant Professor in CSE Dept - MSIT) and Dr. Neetu Narwal (Associate Professor, BCA Dept. MSI).",
+        
+        date: '24-03-2022',
+        venue: 'MSIT Seminar Hall - 06',
+        time: '10:00 AM onwards',
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671711578/WhatsApp_Image_2022-12-22_at_17.45.02_1_jwdlio.jpg",
+        registerLink:"https://qml7rtuomnw.typeform.com/to/jGF6vB5R",
+        questions:[{
+            question: "Point of contact",
+            answer:
+              "Mr. Akshat Jain (+919891041626) and Mr. Raghav Sharma (+918527583232)",
+            open: false
+          },]
+    }, 
+    {
+        title: 'Virtual Power Seminar',
+        content: "CSI",
+        societies: [{Name:'CSI',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
+        description:
+            "'The more value we add to our ecosystem, the more valuable we become,'            Computer Society of India, Student Branch, Maharaja Surajmal Institute, in association with ICT Academy, invites you to a virtual power seminar on “Ecosystem for Developing A Sustainable Start-up” on 28th August 2023. Eminent speakers from the industry, Ms. Shailaja Gupta and Ms. Sana Devan will share their valuable knowledge and enlighten the students with industry relevant insights for developing a Start-up.",
+        
+        date: '24-03-2023',
+        venue: 'MS Teams',
+        time: '12:00 AM onwards',
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671712291/Virtual_Seminar_on_Ecosystem_for_Development_Poster_kbvcef_vttaqq.jpg",
+        registerLink:"https://qml7rtuomnw.typeform.com/to/TquuwQQd",
+        questions:[{
+            question: "Point of contact",
+            answer:
+              "Mr. Akshay Sharma (+919813311394) and Ms. Ishita Gupta (+919990378278)",
+            open: false
+          },]
+    }, 
 ];
 export const pastEvent = [
     {
@@ -137,12 +194,11 @@ export const pastEvent = [
     },
     {
         id: 'Pointer to Future',
-
         title: 'Pointer to Future',
         content: "CSI",
         societies: [{Name:'CSI',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
         description:
-            "Pointer to future: Debate-A-Thon, an Inter College Debate Contest sponsored and organized by Computer Society of India, Student Branch, Maharaja Surajmal Institute on 28th November 2022 in Seminar Hall 06 (MSIT) from 10 A.M to 1:30 P.M. The event started after with the welcome of our esteemed Judges - Dr. Savita Ahlawat (Associate Professor) and Dr. Sangeeta Malik (Assistant Professor) of CSE Department - Maharaja Surajmal Institute of Technology (MSIT), Faculty organizers and participants. The debate was aimed at instilling the spirit of analysis of future technologies - AI and Cryptocurrency respectively. The debate focused on how the interlocutors wanted to implement these technologies. Each team was given a time limit of 5 minutes to present their opening stances, followed by 5 rebuttals from the other teams and audience.There was a total of 15 teams present in the debate, each comprising two members. There were participants from different colleges like Delhi School of Journalism, Jagannath Institute of Management Studies, Amity University, etc.Teams talked about their vision of the future related to Artificial Intelligence and Cryptocurrency. One team talked about how we can use Artificial Intelligence in overcoming communication barriers for Neurodivergent children and adults, another team talked about how we can implement Artificial Intelligence (A.I.) in the same way it is implemented in capturing vehicles violating traffic rules and regulations - to identify victims of accidents and crimes on the road and get them help for the same. One team talked about the idea of cryptocurrency replacing current currencies of countries to remove currency exchange barriers and globalize money and trading, and daunted upon the importance of investing in Cryptocurrency.The teams were judged by the panelists on the basis of their Organization and Structure of Speech, Dynamic Innovation of the selected technology, Rebuttals and Response to Rebuttals.The event involved certificates and two amazing cash prizes worth ₹3000/-, one for the Best Team (₹2000/-) that went to Team “Dynamic” comprising Yash Jolly, (B.Tech. ECE, Ist Year) and Sarthak Gaurav, (B.Tech. ECE, Ist Year) from Maharaja Surajmal Institute of Technology. The second prize was awarded for The Best Solo Orator (₹1000/-), which went to Krish Vohra (BCA, Ist Year) from Maharaja Surajmal Institute. All the participants of this event were sent E-Certificates for their participation",
+            "Pointer to future: Debate-A-Thon, an Inter College Debate Contest sponsored and organized by Computer Society of India, Student Branch, Maharaja Surajmal Institute on 28th November 2022 in Seminar Hall 06 (MSIT) from 10 A.M to 1:30 P.M. The event started after with the welcome of our esteemed Judges - Dr. Savita Ahlawat (Associate Professor) and Dr. Sangeeta Malik (Assistant Professor) of CSE Department - Maharaja Surajmal Institute of Technology (MSIT), Faculty organizers and participants. The debate was aimed at instilling the spirit of analysis of future technologies - AI and Cryptocurrency respectively. The debate focused on how the interlocutors wanted to implement these technologies. Each team was given a time limit of 5 minutes to present their opening stances, followed by 5 rebuttals from the other teams and audience One team talked about the idea of cryptocurrency replacing current currencies of countries to remove currency exchange barriers and globalize money and trading, and daunted upon the importance of investing in Cryptocurrency.The teams were judged by the panelists on the basis of their Organization and Structure of Speech, Dynamic Innovation of the selected technology, Rebuttals and Response to Rebuttals.The event involved certificates and two amazing cash prizes worth ₹3000/-, one for the Best Team (₹2000/-) that went to Team “Dynamic” comprising Yash Jolly, (B.Tech. ECE, Ist Year) and Sarthak Gaurav, (B.Tech. ECE, Ist Year) from Maharaja Surajmal Institute of Technology. The second prize was awarded for The Best Solo Orator (₹1000/-), which went to Krish Vohra (BCA, Ist Year) from Maharaja Surajmal Institute. All the participants of this event were sent E-Certificates for their participation",
         
         date: '28-11-2022',
         venue: 'MSIT Seminar Hall - 06',
@@ -152,5 +208,22 @@ export const pastEvent = [
         First: 'Yash Jolly',
         Second: 'Sarthak Gaurav',
         Third: 'Krish Vohra',
+    },
+    {
+        id: 'Guessathon',
+        title: 'Guessathon',
+        content: "Synergy",
+        societies: [{Name:'Synergy',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671698955/WhatsApp_Image_2022-12-22_at_14.14.26_1_pyruvh.jpg'}],
+        description:
+            "Design department of synergy is hosting Guessathon : A quizzing event including some fun rounds hope to see you all there. There are different types of quizzes for every quizzer out there. Hoping to see all synergians there!Round 1-Dedicated to all memers in the house, Round 2- Quizzing around drama",
+        
+        date: '09-02-2022',
+        venue: 'Google meet',
+        time: '05:00 PM',
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671707380/WhatsApp_Image_2022-12-22_at_14.26.08_1_rqydiy.jpg",
+        rating: 2,
+        First: 'Rakshit Chhabra',
+        Second: 'Janvi',
+        Third: 'Vanshaj Jain',
     },
 ];

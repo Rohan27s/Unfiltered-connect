@@ -39,8 +39,8 @@ function Newsletter() {
 
               {/* CTA content */}
               <div className="text-center lg:text-left lg:max-w-xl">
-                <h3 className="h3 text-white mb-2">Get your society registered with society portal</h3>
-                <p className="text-gray-300 text-lg mb-6">If you want your events to get featured on society portal then just drop your email-id and we will get in contact with you</p>
+                <h3 className="h3 text-white mb-2">Never miss any event!</h3>
+                <p className="text-gray-300 text-lg mb-6">If you never want to miss any upcoming events then make sure to subscribe to our newsletter by just submitting your e-mail id</p>
 
                 {/* CTA form */}
                 <form className="w-full lg:w-auto">
