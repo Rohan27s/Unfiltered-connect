@@ -27,36 +27,7 @@ export const upcomingEvent = [
             answer: "Should register for the event and should have a genral overview how financial market works",
             open: false
           }],
-    }, {
-        title: 'Blackout 2',
-        content: "CSI",
-        societies: [{Name:'CSI',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
-        description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg',
-        date: '31-12-2022',
-        venue: 'MSI Auditorium',
-        time: '10:00 AM',
-        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
-        registerLink:"https://qml7rtuomnw.typeform.com/to/IkRIJ68R",
-        questions:[{
-            question: "People to Contact for the Same",
-            answer:
-              "Parth Chawla : +919967590330 Or Chaitanya Agarwal : +919582217458",
-            open: false
-          },
-            {
-            question: "Prizes",
-            answer: "Certificates for all the participants,Goodies for the Runner ups and Cash prize for winners worth Rs.5000",
-            open: false
-          },
-          {
-            question:"Eligibility Criteria",
-            answer: "Should register for the event and should have a genral overview how financial market works",
-            open: false
-          }],
-
-    },
+    }, 
     {
         title: 'Take the Stake',
         content: "Synergy X Advertere",
@@ -83,6 +54,64 @@ export const upcomingEvent = [
           {
             question:"Eligibility Criteria",
             answer: "Should register for the event and should have a genral overview how financial market works",
+            open: false
+          }],
+    }, 
+    {
+        title: 'Recruitments',
+        content: "Synergy",
+        societies: [{Name:'Synergy',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
+        description:
+            "Synergy: A place where 1+1 is not 2, it will out-turn in 11,where the raw substance transforms into an everlasting beauty. This is the society dedicated towards achieving gratification in associated people and create an environment for the development of each individual.A commerce society, specialized in every domain correlated with it. This may touch the heights in core skills and on the other hand, instilling each member with beauty of soft skills. A perfect amalgamation of brain and personality is the vision of Synergy.This society is being headed by Tanya Khurana (President) and Raghav Sharma (Vice President)",
+        cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg',
+        date: '15-01-2023',
+        venue: 'MSI Auditorium',
+        time: '12 Noon',
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
+        registerLink:"https://qml7rtuomnw.typeform.com/to/GlR9OQar",
+        questions:[{
+            question: "Eligibility Criteria",
+            answer:
+              "No boundaries of streams. Any course can apply and General interest of an individual in any field.",
+            open: false
+          },
+            {
+            question: "Departments",
+            answer: "Content, Design, Events, Sponsorship, PR and outreach",
+            open: false
+          },
+          {
+            question:"Contact Information",
+            answer: "Nimisha  : 8052157030  and   Rahul : 9024599254",
+            open: false
+          }],
+    }, 
+    {
+        title: 'MAQ Software Hiring',
+        content: "BCA Placement Cell",
+        societies: [{Name:'BCA Placement Cell',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
+        description:
+            "We are a team of software experts who accelerate data-driven transformations for Global 2000 companies. Using data analytics, cloud technology, and data science, we accelerate software initiatives that enable our customers to transform their industries. We are committed to customer growth and meeting client objectives. 90% of our clients are repeat customers. We are awarded as 2021 Microsoft partner of the year for delivering innovative business intelligence and analytics solutions using Microsoft Power BI. We are hiring for 2023 passing out batch and would like to interact with your students.",
+        cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg',
+        date: '5-01-2023',
+        venue: 'Online',
+        time: '10:00 AM',
+        img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671028731/Blog/2_nigkbt.jpg",
+        registerLink:"https://qml7rtuomnw.typeform.com/to/coUgcJpa",
+        questions:[{
+            question: "Designation",
+            answer:
+              "Software Engineer 1",
+            open: false
+          },
+            {
+            question: "Eligible Branches",
+            answer: "B.Tech (CSE/ IT) and BCA",
+            open: false
+          },
+          {
+            question:"Eligibility criteria",
+            answer: "60% plus or equivalent in Computer Science/Information Technology, 60% plus in 10th and 12th and No active backlogs",
             open: false
           }],
     }
