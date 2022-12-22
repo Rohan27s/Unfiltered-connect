@@ -19,9 +19,6 @@ const SocietyDetails = () => {
 
   return (
     <>
-      <Link className='blog-goBack' to='/registered-societies'>
-        <span> &#8592;</span> <span>Go Back</span>
-      </Link>
       {blog ? (
         <div className='blog-wrap'>
           <div className="soc-banner">

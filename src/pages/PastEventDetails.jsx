@@ -28,7 +28,7 @@ const PastEventDetails = () => {
                 {society.map((items, key) => (
                   <>
                     <span>
-                      <img className='soc-event-avatar' src={items.Logo} alt='cover' /><h1>{items.Name}</h1>
+                      <img className='soc-event-avatar' src={items.Logo} alt='cover' />
                     </span>
                   </>
                 ))}

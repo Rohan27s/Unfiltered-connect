@@ -23,7 +23,7 @@ export const blogList = [
     category: 'Commerce',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671561045/Blog/285990370_178786201253846_6543112328762093762_n_rafdeb.jpg',
+    cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671698955/WhatsApp_Image_2022-12-22_at_14.14.26_1_pyruvh.jpg',
     members: { 
       President: 'Tanya Khurana (+917520720224)',
        VicePresident: 'Raghav Sharma	(+918527583232)',
@@ -40,7 +40,7 @@ export const blogList = [
     category: 'Cultural',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671560957/Blog/305589116_1104800217091785_8428007337901629851_n_eyx8cc.jpg',
+    cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671698959/WhatsApp_Image_2022-12-22_at_14.14.26_aeqmse.jpg',
     members: { 
       President: 'Mr. Kartikey Bhatia (+919818605165)',
        VicePresident: 'Ms. Nandini Agarwal',
@@ -52,4 +52,22 @@ export const blogList = [
       },
 
   },
+  {
+    id: 'NSS',
+    title: 'NSS',
+    category: 'Cultural',
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    cover: 'https://res.cloudinary.com/rohangotwal/image/upload/v1671698959/WhatsApp_Image_2022-12-22_at_14.14.26_aeqmse.jpg',
+    members: { 
+      President: 'Mr. Kartikey Bhatia (+919818605165)',
+       VicePresident: 'Ms. Nandini Agarwal',
+       GeneralSecretary: 'Ms. Sneha Kashyap (+918076110035)',
+       EventsHead: 'Mr. Sanchay Mehta and Mr. Kartik Sharma',
+       DesignHead: 'Mr. Ashhad and Ms. Yashika Dureja',
+       PRandOutreachHead: 'Mr. Tanishq Vasudeva and Mr. Tushar Singh',
+       ContentHead: 'Mr. Pranav Munjal',
+      },
+
+  }
 ];

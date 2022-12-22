@@ -33,9 +33,6 @@ const RegisteredSocieties = () => {
 
   return (
     <div>
-        <Link className='blog-goBack' to='/'>
-        <span> &#8592;</span> <span>Go Back</span>
-      </Link>
         <Header/>
       <SearchBar
         value={searchKey}

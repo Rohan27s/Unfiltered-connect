@@ -1,9 +1,11 @@
 .chip {
-  font-size: 0.7rem;
-  background: linear-gradient(to right, #6190e8, #a7bfe8);
+  font-size: 12px;
+  background: linear-gradient(to right, #6190e8, #001c73);
   color: #fff;
   padding: 0.3rem 0.5rem;
   border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   text-transform: capitalize;
   margin-left: 7px;

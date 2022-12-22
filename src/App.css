@@ -16,20 +16,21 @@
 }
 .overlay{
   height: 100vh;
-    width: 80%;
+  width: 100vw;
   background: rgba(0,0,0,0.6);
-    backdrop-filter: saturate(180%) blur(30px);
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 5;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* padding-right: 5%;  */
-    padding-top: 3%; 
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(3px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* padding-right: 5%; */
+  padding-top: 3%;
 
 }
 .soc-names{
@@ -52,59 +53,58 @@
     letter-spacing: 5px;
 }
 .overlay h2{
-    margin-top: 3%;
-    margin-bottom: 3%;
-    font-size: 30px;
-    letter-spacing: 10px;
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
+  margin-top: 16px;
+  margin-bottom: 1%;
+  font-size: 30px;
+  letter-spacing: 6px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
 
 }
 .overlay h3{
-  font-size: 60px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 82px;
   color: aliceblue;
-  padding: 6px 15px 6px 15px;
   border-radius: 20px;
-  text-transform: uppercase;
+  text-transform: initial;
   font-weight: 700;
   letter-spacing: 7px;
-
 }
 .overlay button{
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: capitalize;
-    width:280px;
-    background: white;
-    padding:5px;
-    margin: 2% auto 0 auto ;
-    border-radius: 0.5rem;
-    box-shadow: 5px 4px 4px #8c8585;
-    letter-spacing: 1px;
-    border: 1px solid black;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: capitalize;
+  width: 252px;
+  background: white;
+  padding: 5px;
+  margin: 2% auto 0 auto;
+  border-radius: 2.5rem;
+  letter-spacing: 1px;
+  border: 1px solid #000000;
 }
 .overlay button:hover{
-  background: rgba(0,0,0,0.3);
-
+  /* background: rgba(0,0,0,0.3); */
+  background-color: rgb(0 100 218 / var(--tw-bg-opacity));
     color: aliceblue;
     border: 1px solid white;
 }
 .overlay a{
-    border: 1px solid black;
-    letter-spacing: 1px;
-    font-size: 20px;
-    font-weight: 600;
-    text-transform: capitalize;
-    box-shadow: 5px 4px 4px #8c8585;
-    width: 220px;
-    background: white;
-    padding:5px;
-    border-radius: 0.5rem;
-    margin: 3% auto 7% auto ;
+  font-size: 19px;
+  text-transform: capitalize;
+  width: 212px;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  margin: 2% auto 0 auto;
+  border-radius: 2.5rem;
+  /* box-shadow: 5px 4px 4px #8c8585; */
+  letter-spacing: 1px;
+  border: 1px solid #ffffff;
 }
 .overlay a:hover{
     border: 1px solid white;
-    background: #000;
+    background-color: rgb(0 100 218 / var(--tw-bg-opacity));
     color: aliceblue;
 }
 .content{
@@ -295,10 +295,11 @@ width: 100vw;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.soc-single-card{
+.soc-single-card {
   border-radius: 20px;
-  
-  box-shadow: 2px 2px #888888;
+  box-shadow: 0 3px 7px 4px #888888;
+  width: 280px;
+  /* height: 127px; */
 }
 
 .about-soc h1{
@@ -337,13 +338,13 @@ font-weight: 800;
   letter-spacing: 1px;
 
 }
-.eventcards{
+.eventcards {
   box-shadow: 5px 4px 4px #8c8585;
-
+  width: 250px;
 }
 .soc-event-avatar{
-  width: 70px;
-  border-radius: 50px;  
+  width: 103px;
+  border-radius: 50px;
   margin-left: auto;
   margin-right: auto;
 
