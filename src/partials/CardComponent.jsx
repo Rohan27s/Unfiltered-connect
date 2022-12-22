@@ -20,7 +20,7 @@ export default function CardComponent() {
                                 {items.title}
                             </h4>
                             <p className="mb-2 leading-normal">
-                            {items.societies}
+                            {items.content}
                             </p>
                             <p className="mb-2 leading-normal font-semibold">
                             Date: {items.date}

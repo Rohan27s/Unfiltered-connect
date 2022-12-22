@@ -38,11 +38,9 @@ const SocietyDetails = () => {
               <li className="blog-desc"><h3>Vice President : </h3>{blog.members.VicePresident}</li>
               <li className="blog-desc"><h3>General Secretary : </h3>{blog.members.GeneralSecretary}</li>
               <li className="blog-desc"><h3>Events Head : </h3>{blog.members.EventsHead}</li>
-              <li className="blog-desc"><h3>Deputy Events Head : </h3>{blog.members.DeputyEventsHead}</li>
               <li className="blog-desc"><h3>Design Head : </h3>{blog.members.DesignHead}</li>
-              <li className="blog-desc"><h3>Deputy Design Head : </h3>{blog.members.DeputyDesignHead}</li>
               <li className="blog-desc"><h3>PR and Out reach Head : </h3>{blog.members.PRandOutreachHead}</li>
-              <li className="blog-desc"><h3>Deputy PR and Out reach Head : </h3>{blog.members.DeputyPRandOutreachHead}</li>
+              <li className="blog-desc"><h3>Content Head : </h3>{blog.members.ContentHead}</li>
             </ul>
           </div>
         </div>

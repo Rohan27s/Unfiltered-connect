@@ -23,7 +23,7 @@ export default function PastCardComponent() {
                                     {items.title}
                                 </h4>
                                 <p className="leading-normal">
-                                    {items.societies}
+                                    {items.content}
                                 </p>
                                 <ReactStars
                                     count={5}
