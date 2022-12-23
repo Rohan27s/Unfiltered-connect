@@ -2,11 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../partials/Header';
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 function SignIn() {
   let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = `/adminPanel`; 
-    navigate(path);
+  
+  const [auth, setAuth] = useState({
+    email:"",
+    password:""
+  });
+  const handleValue=(e)=>{
+    const { name, value } = e.target;
+      setAuth({
+          ...auth,
+          [name]: value,
+      });
+  }
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if(auth.email==="admin" && auth.password==="admin"){
+      let path = `/adminPanel`; 
+      navigate(path);
+    }
+    else{
+      alert("Enter Valid Email/Password");
+    }
   }
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -29,7 +48,7 @@ function SignIn() {
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                      <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
+                      <input id="email" type="email" name="email"className="form-input w-full text-gray-800" onChange={handleValue} placeholder="Enter your email address" required />
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
@@ -37,7 +56,7 @@ function SignIn() {
                       <div className="flex justify-between">
                         <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password</label>
                       </div>
-                      <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
+                      <input id="password" type="password" name="password" className="form-input w-full text-gray-800" onChange={handleValue} placeholder="Enter your password" required />
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
@@ -52,7 +71,7 @@ function SignIn() {
                   </div>
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
-                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full" onClick={routeChange}>Sign in</button>
+                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full" onClick={handleSubmit}>Sign in</button>
                     </div>
                   </div>
                 </form>

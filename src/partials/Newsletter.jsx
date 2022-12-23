@@ -1,6 +1,20 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 function Newsletter() {
+  const form = useRef();
+  const submitEmail=(e)=>{
+    e.preventDefault(e);
+
+    emailjs.sendForm('rohan27s', 'template_rn00i4j', form.current, 'IzhHvKXIND2eDZuyD')
+      .then((result) => {
+        alert("Subcription Successfull!");
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+        alert("Enter Valid email!");
+
+      });
+  }
   return (
     <section style={{marginTop: "7%"}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -43,10 +57,10 @@ function Newsletter() {
                 <p className="text-gray-300 text-lg mb-6">If you never want to miss any upcoming events then make sure to subscribe to our newsletter by just submitting your e-mail id</p>
 
                 {/* CTA form */}
-                <form className="w-full lg:w-auto">
+                <form ref={form} onSubmit={submitEmail} className="w-full lg:w-auto">
                   <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:mx-0">
-                    <input type="email" className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
-                    <a className="btn text-white bg-blue-600 hover:bg-blue-700 shadow" href="#0">Subscribe</a>
+                    <input type="email" name="user_email"className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
+                    <button className="btn text-white bg-blue-600 hover:bg-blue-700 shadow" >Subscribe</button>
                   </div>
                 </form>
               </div>
