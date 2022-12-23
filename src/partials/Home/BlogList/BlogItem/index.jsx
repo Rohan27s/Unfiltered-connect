@@ -15,7 +15,7 @@ const BlogItem = ({
     <div className='blogItem-wrap soc-single-card'>
       <img className='blogItem-cover' src={cover} alt='cover' />
       <Chip label={category} />
-      <h3>{title}</h3>
+      <h3>{id}</h3>
         <Link className='blogItem-link' to={`/registered-societies/${id}`}>
           View More ➝
         </Link>

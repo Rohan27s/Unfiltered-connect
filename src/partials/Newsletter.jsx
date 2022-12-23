@@ -11,7 +11,7 @@ function Newsletter() {
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
-        alert("Enter Valid email!");
+        alert("Please come back another time to use this feature.");
 
       });
   }

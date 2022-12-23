@@ -4,7 +4,7 @@ export const upcomingEvent = [
         content: "CSI",
         societies: [{Name:'CSI',Logo:'https://res.cloudinary.com/rohangotwal/image/upload/v1671559670/Blog/131210953_905343756870234_1122747852493756031_n_zb7gvd.jpg'}],
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "'It's through curiosity and looking at opportunities in new ways that we've always mapped our path.'Hello Everyone,Welcome and Warm Greetings from Computer Society of India, Student Branch, Maharaja Surajmal Institute.As we're about to enter a new year, we at CSI, Student Branch, MSI bring to you a whole lot of new opportunities. The Computer Society of India is a non-profit professional meet to exchange views and information, learn and share ideas. An organization spread all over India, with 70+ chapters and more than 10000 members, we invite you to be a part of this family.  With an inaugural orientation where you will learn more about CSI, its departments, core team and faculty members. We are excited to meet you all there. Stay tuned for the trivia and fun filled performances.",
         
         date: '28-12-2022',
         venue: 'MSI Auditorium',
@@ -12,21 +12,12 @@ export const upcomingEvent = [
         img: "https://res.cloudinary.com/rohangotwal/image/upload/v1671709492/WhatsApp_Image_2022-12-22_at_17.14.11_ipdylp.jpg",
         registerLink:"https://qml7rtuomnw.typeform.com/to/ZpH5c6SE",
         questions:[{
-            question: "People to Contact for the Same",
+            question: "Point of Contact",
             answer:
-              "Parth Chawla : +919967590330 Or Chaitanya Agarwal : +919582217458",
+              "Mr. Akshay Sharma (+919813311394) and Ms. Ishita Gupta (+919990378278)",
             open: false
           },
-            {
-            question: "Prizes",
-            answer: "Certificates for all the participants,Goodies for the Runner ups and Cash prize for winners worth Rs.5000",
-            open: false
-          },
-          {
-            question:"Eligibility Criteria",
-            answer: "Should register for the event and should have a genral overview how financial market works",
-            open: false
-          }],
+            ],
     }, 
     {
         title: 'Take the Stake',
