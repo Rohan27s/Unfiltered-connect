@@ -5,6 +5,8 @@ import Chip from '../partials/common/Chip';
 import EmptyList from '../partials/common/EmptyList';
 import { Link } from 'react-router-dom';
 import '../App.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 const SocietyDetails = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -23,15 +25,27 @@ const SocietyDetails = () => {
         <div className='blog-wrap'>
           <div className="soc-banner">
             <img src={blog.cover} alt='cover' />
-            <header>
-              <h1 style={{color:'#006dff'}}>{blog.id}</h1>
-            </header>
           </div>
+          {/* <Carousel>  
+                <div>  
+                    <img src="https://images.unsplash.com/photo-1672530928013-bbefbf96a88a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />  
+                    <p className="legend">Legend 1</p>  
+                </div>  
+                <div>  
+                    <img src="https://images.unsplash.com/photo-1672530928013-bbefbf96a88a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />  
+                    <p className="legend">Legend 2</p>  
+                </div>  
+                <div>  
+                    <img src="https://images.unsplash.com/photo-1672530928013-bbefbf96a88a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />  
+                    <p className="legend">Legend 3</p>  
+                </div>  
+            </Carousel>   */}
           <div className='about-soc-div'>
-          <h2 className='about-soc-head'>What {blog.id} is about?</h2>
-          <p className='blog-desc'>{blog.description}</p>            
+            <h2 className='about-soc-head'>What {blog.id} is about?</h2>
+            <p className='blog-desc'>{blog.description}</p>
           </div>
           <div className="about-soc">
+            
             <h1>Core Team</h1>
             <ul>
               <li className="blog-desc"><h3>President : </h3>{blog.members.President}</li>

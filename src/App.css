@@ -623,9 +623,11 @@ margin-bottom: 2%;
   align-items: center;
 
 }
+
 .default-admin h1{
-  font-size: 50px;
-  margin-top: 22%;
+  font-size: 90px;
+  margin-top: 18%;
+  font-family: 'Dancing Script', cursive;
 }
 .main-admin form{
   margin: auto;
@@ -665,5 +667,16 @@ min-height: 300px;
   border-radius: 10px;
   font-size: 20px;
   margin-top: 10px;
+  float: right;
+}
+.addMore{
+  background-color: #006dff;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+cursor: pointer;
   float: right;
 }
