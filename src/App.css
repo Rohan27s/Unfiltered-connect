@@ -667,9 +667,10 @@ min-height: 300px;
   border-radius: 10px;
   font-size: 20px;
   margin-top: 10px;
-  float: right;
+  float: left;
 }
 .addMore{
+  
   background-color: #006dff;
   color: white;
   padding: 0.5rem;
