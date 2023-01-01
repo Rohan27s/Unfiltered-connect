@@ -6,7 +6,7 @@ const BlogList = ({ blogs }) => {
   return (
     <div className='blogList-wrap'>
       {blogs.map((blog) => (
-        <BlogItem blog={blog} />
+        <BlogItem blog={blog} key={blog.name}/>
       ))}
     </div>
   );

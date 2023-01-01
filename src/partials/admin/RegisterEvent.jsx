@@ -4,17 +4,18 @@ import { useState } from 'react'
 const RegisterEvent = () => {
 
   const [details, setDetails] = useState({
-    id: "",
-    category: "",
+    title: "",
+    content: "",
+    Name: "",
+    Logo: "",
     description: "",
-    President: "",
-    VicePresident: "",
-    GeneralSecretary: "",
-    EventsHead: "",
-    DesignHead: "",
-    PRandOutreachHead: "",
-    ContentHead: ""
+    date: "",
+    venue: "",
+    time: "",
+    img: "",
+    questions: ""
   })
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDetails({
@@ -34,12 +35,13 @@ const RegisterEvent = () => {
     return <><h3>Question:</h3><input type="text" name="question" placeholder='Enter the question' onChange={handleChange} required />
       <h3>Answer:</h3><input type="text" name="answer" placeholder='Enter the answer for the above question' onChange={handleChange} required /></>
   }
+  const [societyDetails, setSocietyDetails] = useState([{}]);
+
   const [societies, setSocieties] = useState([])
   const [faqs, setFaqs] = useState([])
 
   const addMore = () => {
     setSocieties(societies.concat(<Field />));
-    console.log(societies);
   }
   const addMorefaq = () => {
     setFaqs(faqs.concat(<Faq />));
@@ -52,7 +54,6 @@ const RegisterEvent = () => {
         <h3>Event Presenters:</h3><input type="text" name="content" placeholder='Enter the names of the societies/presenters' onChange={handleChange} required />
         <h2>Names of the Societies with their logo:</h2>
         <a className='addMore' onClick={addMore}>Add more</a>
-
         <h3>Society Name:</h3><input type="text" name="Name" placeholder='Enter the names of the society' onChange={handleChange} required />
         <h3>Logo:</h3><input type="text" name="Logo" placeholder='Enter the url for logo of the society' onChange={handleChange} required />
         {societies}

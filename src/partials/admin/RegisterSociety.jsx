@@ -3,9 +3,10 @@ import { useState } from 'react'
 const RegisterSociety = () => {
   
   const [details, setDetails] = useState({
-    id: "",
+    name: "",
     category: "",
     description: "",
+    cover: "",
     President: "",
     VicePresident: "",
     GeneralSecretary: "",
@@ -29,7 +30,7 @@ const RegisterSociety = () => {
     <div className='register-event'>
       <h1>Register Society</h1>
       <form onSubmit={handleSubmit}>
-        <h3>Society Name</h3><input type="text" name="id" placeholder='Enter the name of the society' onChange={handleChange} required />
+        <h3>Society Name</h3><input type="text" name="name" placeholder='Enter the name of the society' onChange={handleChange} required />
         <h3>Category:</h3><input type="text" name="category" placeholder='Enter the category of the society' onChange={handleChange} required />
         <h3>Description:</h3><textarea type="text" name="description" placeholder='Enter the description of the society' onChange={handleChange} required />
         <h3>Logo:</h3><input type="text" name="cover" placeholder='Enter the url of the logo' onChange={handleChange} required />

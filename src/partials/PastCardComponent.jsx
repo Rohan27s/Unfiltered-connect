@@ -25,14 +25,7 @@ export default function PastCardComponent() {
                                 <p className="leading-normal">
                                     {items.content}
                                 </p>
-                                <ReactStars
-                                    count={5}
-                                    onChange={ratingChanged}
-                                    size={24}
-                                    activeColor="#ffd700"
-                                    value={items.rating}
-                                />
-                                <a href={`/past-event-details/${items.id}`} className="px-4  py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
+                                <a href={`/past-event-details/${items.id}`} className="px-4  py-2 my-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
                                 Review
                             </a>
                             </div>

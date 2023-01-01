@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import EmptyList from '../partials/common/EmptyList';
 import BlogList from '../partials/Home/BlogList';
 import SearchBar from '../partials/Home/SearchBar';
-import { blogList } from '../partials/config/data';
 import Header from '../partials/Home/Header';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const RegisteredSocieties = () => {
-  const [blogs, setBlogs] = useState(blogList);
+  const [blogs, setBlogs] = useState({});
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'https://unfiltered-connect-backend.vercel.app/api/societies',
+  })
+  .then(response => {
+    setBlogs(response.data);
+    setLoading(false);
+  }).catch(response=>{
+    console.log(response)
+  })
+  },)
+  
+  
   const [searchKey, setSearchKey] = useState('');
 
   // Search submit
@@ -18,32 +34,29 @@ const RegisteredSocieties = () => {
 
   // Search for blog by category
   const handleSearchResults = () => {
-    const allBlogs = blogList;
+    const allBlogs = blogs;
     const filteredBlogs = allBlogs.filter((blog) =>
       blog.category.toLowerCase().includes(searchKey.toLowerCase().trim())
     );
     setBlogs(filteredBlogs);
   };
 
-  // Clear search and show all blogs
   const handleClearSearch = () => {
-    setBlogs(blogList);
+    setBlogs(blogs);
     setSearchKey('');
   };
 
   return (
     <div>
-        <Header/>
+      <Header />
       <SearchBar
         value={searchKey}
         clearSearch={handleClearSearch}
         formSubmit={handleSearchBar}
         handleSearchKey={(e) => setSearchKey(e.target.value)}
-      />
-      {/* Blog List & Empty View */}
+      />  
       <div className='soc-card'>
-
-      {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+        {!blogs.length? <EmptyList /> : <BlogList blogs={blogs} />}        
       </div>
     </div>
   );

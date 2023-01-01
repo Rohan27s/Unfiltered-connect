@@ -5,18 +5,18 @@ import './styles.css';
 
 const BlogItem = ({
   blog: {
-    title,
     cover,
     category,
-    id,
+    name,
+    _id,
   },
 }) => {
   return (
     <div className='blogItem-wrap soc-single-card'>
       <img className='blogItem-cover' src={cover} alt='cover' />
       <Chip label={category} />
-      <h3>{id}</h3>
-        <Link className='blogItem-link' to={`/registered-societies/${id}`}>
+      <h3>{name}</h3>
+        <Link className='blogItem-link' to={`/registered-societies/${_id}`}>
           View More ➝
         </Link>
     </div>

@@ -3,15 +3,17 @@
 }
 
 .home-header h2 {
+  font-family: 'Dancing Script', cursive;
+
   color: black;
   font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
   word-spacing: 2px;
   font-weight: 800;
 }
 
 .home-header h1 {
+  font-family: 'Dancing Script', cursive;
+
   font-size: 4rem;
   color: #006dff;
   /* margin-bottom: 0.5rem; */
