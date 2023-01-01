@@ -238,12 +238,29 @@
 .back-event {
   width: 10px;
 }
-
+.logout{
+  display: flex;
+  background-color: #000000;
+  color: white;
+  padding: 0.5rem;
+  border-radius:10px ;
+  margin: 0.5rem 0.5rem;
+}
 .faqs h2 {
   font-size: 40px;
   text-align: center;
 }
+.logo{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo h2{
+  font-size: 30px;
+  font-family: 'Dancing Script';
+  color: #000000;
 
+}
 .nav-logo {
   width: 80px;
 }
@@ -563,19 +580,13 @@ article.nextSlide {
 }
 .main-admin{
   
-  background: #c0d3ec;
+  background: #ffffff;
 }
-.admin-head h1{
-  text-align: center;
-  font-size: 50px;
-  color: rgb(0, 22, 59);
-  font-weight: 700;
-  letter-spacing: 2px;
-  word-spacing: 4px;
-  text-transform: uppercase;
-}
+
 .admin-nav{
-  background-color: rgb(114, 180, 234);
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(41, 148, 237);
 }
 .admin-nav ul{
   width: 100%;
@@ -583,11 +594,15 @@ article.nextSlide {
 justify-content: center;
 padding: 10px;
 }
+.admin-container{
+  width: 90%;
+  margin: auto;
+}
 .admin-nav ul li{
 font-size: 20px;
 margin-right: 3%;
   display: inline-block;
-  
+  color: white;
 }
 .register-event{
   padding: 20px;
@@ -602,9 +617,38 @@ font-weight: 600;
 list-style: lower-roman;
 margin-bottom: 2%;
 }
-.event-form li input{
-  border-radius: 15px;
-  margin-left: 5%;
+.default-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.default-admin h1{
+  font-size: 50px;
+  margin-top: 22%;
+}
+.main-admin form{
+  margin: auto;
+    width: 80%;
+}
+.main-admin  input,textarea{
+  border-radius: 29px!important;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  
+}
+.main-admin  textarea{
+min-height: 300px;
+}
+.main-admin h3{
+  font-size: 20px;
+}
+.main-admin h2{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 20px 0;
+
 }
 .event-submit{
   background-color: white;
@@ -613,4 +657,13 @@ margin-bottom: 2%;
   border-radius: 12px;
   margin-left: 150px;
   margin-top: 10px;
+}
+#submit-form{
+  background-color: #006dff;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+  float: right;
 }

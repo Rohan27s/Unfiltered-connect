@@ -14,12 +14,9 @@ const Admin = () => {
     }
     const [curr, setCurr] = useState(<Default/>);  
     return (
-        <div className='main-admin'>
-            <div className="admin-head">
-                <button onClick={handleLogout}>Logout</button>
-                <h1>Welcome Back Admin</h1>
-            </div>
+        <div className='main-admin'>           
             <div className="admin-nav">
+                <button className="logout"onClick={handleLogout}>Logout</button>
                 <ul>
                     <li><button onClick={() => setCurr(<RegisterEvent />)}>Register Event</button></li>
                     <li><button onClick={() => setCurr(<RegisterSociety />)}>Register Society</button></li>

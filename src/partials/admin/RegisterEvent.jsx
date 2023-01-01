@@ -7,7 +7,7 @@ const RegisterEvent = () => {
           <div>
             <h1>Register Event</h1>
             <div>id:</div>
-            <input type="text" placeholder="Enter the name of the society" required />
+            <input type="text" name="id" placeholder="Enter the name of the society" required />
           </div>
           <div>
             <div>category:</div>
