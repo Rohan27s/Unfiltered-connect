@@ -56,7 +56,7 @@ const RegisteredSocieties = () => {
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />  
       <div className='soc-card'>
-        {!blogs.length? <EmptyList /> : <BlogList blogs={blogs} />}        
+        {!blogs.length?"" : <BlogList blogs={blogs} />}        
       </div>
     </div>
   );

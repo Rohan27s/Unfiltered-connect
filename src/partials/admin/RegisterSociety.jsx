@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios'
 const RegisterSociety = () => {
   
   const [details, setDetails] = useState({
@@ -24,7 +25,20 @@ const RegisterSociety = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(details);
+    var config = {
+      method: 'post',
+      url: 'https://unfiltered-connect-backend.vercel.app/api/societyadd',
+      data : details
+    };
+    
+    axios(config)
+    .then(function (response) {
+      alert("Society Added Successfully");
+    })
+    .catch(function (error) {
+      alert("Error! Try Again");
+    });
+    
   }
   return (
     <div className='register-event'>
