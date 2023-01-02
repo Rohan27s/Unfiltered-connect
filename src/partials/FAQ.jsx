@@ -1,14 +1,13 @@
 import React from "react";
 
-const FAQ = ({ faq, index, toggleFAQ }) => {
+const FAQ = ({ faq}) => {
   return (
     <div
-      className={"faq " + (faq.open ? "open" : "")}
-      key={index}
-      onClick={() => toggleFAQ(index)}
+      className={"faq " + (false ? "open" : "")}
+      onClick={() => toggleFAQ(1)}
     >
-      <div className="faq-question">{faq.question}</div>
-      <div className="faq-answer">{faq.answer}</div>
+      <div className="faq-question">{faq.question1}</div>
+      <div className="faq-answer">{faq.answer1}</div>
     </div>
   );
 };

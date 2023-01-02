@@ -133,27 +133,29 @@ body{
   width: 85%;
   margin: 5% auto 8% auto;
   text-align: center;
-  box-shadow: 7px 7px 7px 7px #8c8585;
-  border: 10px solid #0070f4;
-  background: #216dd44a;
-  padding: 3%;
+  box-shadow: 2px 2px 2px 2px #615b5b;
+  border-radius: 12px;
+  border: 6px solid #006dff;
+  padding: 1rem;
 }
 
 .content h1 {
-  font-size: 50px;
   margin-bottom: 2%;
-  font-weight: 800;
-  color: white;
+  font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-weight: 800;
+    font-size: 60px;
+    color: #000000;
 }
 
 .content ul {
-  border: 2px solid #d7d7d7;
+  border: 4px solid #2b2a2a;
   padding: 20px;
   margin-top: 5%;
   font-weight: 600;
   font-size: 20px;
   border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px 2px #d5d0d0;
+  box-shadow: 2px 2px 2px 2px #a9a5a5;
 
 }
 
@@ -164,11 +166,11 @@ body{
 }
 
 .content p {
-  font-size: 17px;
+  font-weight: 500;
+  font-size: large;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
   text-align: justify;
-  letter-spacing: 1px;
-  font-weight: 700;
-
 }
 
 
@@ -259,9 +261,12 @@ body{
   margin: 0.5rem 0.5rem;
 }
 .faqs h2 {
-  color: white;
-  font-size: 40px;
-  text-align: center;
+  margin-bottom: 2%;
+  font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    color: #000000;
 }
 .logo{
   display:flex;
