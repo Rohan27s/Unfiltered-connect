@@ -33,13 +33,13 @@ const SocietyDetails = () => {
           <div className="about-soc">
 
             <h1>Core Team</h1>
-            <ul>
+            <ul style={{border: '1px solid gray'}}>
               <li className="blog-desc"><h3>President : </h3>{blog.President}</li>
               <li className="blog-desc"><h3>Vice President : </h3>{blog.VicePresident}</li>
               <li className="blog-desc"><h3>General Secretary : </h3>{blog.GeneralSecretary}</li>
               <li className="blog-desc"><h3>Events Head : </h3>{blog.EventsHead}</li>
               <li className="blog-desc"><h3>Design Head : </h3>{blog.DesignHead}</li>
-              <li className="blog-desc"><h3>PR and Out reach Head : </h3>{blog.PRandOutreachHead}</li>
+              <li className="blog-desc"><h3>PR and Outreach Head : </h3>{blog.PRandOutreachHead}</li>
               <li className="blog-desc"><h3>Content Head : </h3>{blog.ContentHead}</li>
             </ul>
           </div>

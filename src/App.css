@@ -5,11 +5,14 @@
 
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
 body{
-  background: url('https://images.unsplash.com/photo-1530293959042-0aac487c21e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
+  background: url('https://res.cloudinary.com/rohangotwal/image/upload/v1672657967/Blog/Background_4_btkrgn.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -131,8 +134,8 @@ body{
   margin: 5% auto 8% auto;
   text-align: center;
   box-shadow: 7px 7px 7px 7px #8c8585;
-
-  border: 5px solid rgb(53, 53, 53);
+  border: 10px solid #0070f4;
+  background: #216dd44a;
   padding: 3%;
 }
 
@@ -140,16 +143,17 @@ body{
   font-size: 50px;
   margin-bottom: 2%;
   font-weight: 800;
+  color: white;
 }
 
 .content ul {
-  border: 2px solid gray;
+  border: 2px solid #d7d7d7;
   padding: 20px;
   margin-top: 5%;
   font-weight: 600;
   font-size: 20px;
   border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px 2px #8c8585;
+  box-shadow: 2px 2px 2px 2px #d5d0d0;
 
 }
 
@@ -163,6 +167,7 @@ body{
   font-size: 17px;
   text-align: justify;
   letter-spacing: 1px;
+  font-weight: 700;
 
 }
 
@@ -254,6 +259,7 @@ body{
   margin: 0.5rem 0.5rem;
 }
 .faqs h2 {
+  color: white;
   font-size: 40px;
   text-align: center;
 }
@@ -281,7 +287,7 @@ body{
   justify-content: center;
   gap: 40px;
   border-bottom: 1px solid gray;
-  top: 12%;
+  top: 11%;
   position: fixed;
   width: 100vw;
 }
@@ -321,10 +327,10 @@ body{
 }
 
 .blog-wrap img {
-  width: 102px;
+  width: 178px;
   border: 2px solid gray;
   text-align: center;
-  border-radius: 50px;
+  border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -342,8 +348,8 @@ body{
   font-weight: 500;
   font-size: large;
   padding: 1rem;
-  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  text-align: justify;
 }
 
 .soc-single-card {
@@ -352,10 +358,11 @@ body{
   width: 280px;
 }
 .about-soc-head{
+  font-family: 'Pacifico', cursive;
   text-align: center;
   font-weight: 800;
-  font-size: 50px;
-  color: #006dff;
+  font-size: 60px;
+  color: #000000;
 }
 .about-soc h1 {
   display: inline-block;
@@ -370,10 +377,8 @@ body{
 }
 .about-soc-div{
   border-radius: 12px;
-  border: 9px solid #006dff;
+  border: 6px solid #006dff;
   padding: 1rem;
-  background: #216dd44a;
-
 }
 .about-soc {
   margin-bottom: 5%;
@@ -381,13 +386,13 @@ body{
 }
 
 .about-soc ul li {
+  font-family: 'Domine', serif;
   width: 100%;
   font-size: 23px;
   border-bottom: 1px solid gray;
   margin: 0;
   color: black;
   border-radius: 0;
-  background: #216dd44a;
 }
 
 .about-soc ul h3 {
@@ -406,8 +411,9 @@ body{
 }
 
 .eventcards {
-  box-shadow: 5px 4px 4px #8c8585;
+  box-shadow: 5px 4px 4px #a09f9f;;
   width: 250px;
+  background: white;
 }
 
 .soc-event-avatar {
