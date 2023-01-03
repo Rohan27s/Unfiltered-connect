@@ -5,9 +5,7 @@ import PastCardComponent from '../partials/PastCardComponent';
 import { useState } from 'react';
 const Events = () => {
   const [isActive, setActive] = useState(false);
-  const [isActive1, setActive1] = useState(true);
-
-  
+  const [isActive1, setActive1] = useState(true);  
   const [eventType, setEventType] = useState(<CardComponent />)
   const handleClick =()=>{
     setEventType(<PastCardComponent />);

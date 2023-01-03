@@ -111,31 +111,36 @@ body {
   background-position: right bottom;
   transition: all .5s ease-out;
 }
-.loading{
+
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
- 
+
 }
-.loading h1{
+
+.loading h1 {
   display: absolute;
   font-size: 50px;
   top: 50%;
   left: 50%;
   /* transform: translate(-50%,50%); */
 }
+
 .overlay button:hover {
   color: aliceblue;
   border: 1px solid white;
   background-position: left bottom;
 }
-.slider{
+
+.slider {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .overlay a {
   font-size: 19px;
   text-transform: capitalize;
@@ -634,10 +639,6 @@ article.nextSlide {
   width: 150px
 }
 
-.main-admin {
-
-  background: #ffffff;
-}
 
 .admin-nav {
   display: flex;
@@ -649,7 +650,7 @@ article.nextSlide {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  align-items: center;
 }
 
 .admin-container {
@@ -658,6 +659,9 @@ article.nextSlide {
 }
 
 .admin-nav ul li {
+  border-right: white 2px solid;
+  border-left: white 2px solid;
+  padding: 0 1rem;
   font-size: 20px;
   margin-right: 3%;
   display: inline-block;
