@@ -14,7 +14,10 @@ const RegisterSociety = () => {
     EventsHead: "",
     DesignHead: "",
     PRandOutreachHead: "",
-    ContentHead: ""
+    ContentHead: "",
+    url1:"",
+    url2:"",
+    url3:"",
   })
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,6 +36,7 @@ const RegisterSociety = () => {
     
     axios(config)
     .then(function (response) {
+      console.log(details);
       alert("Society Added Successfully");
     })
     .catch(function (error) {
@@ -56,6 +60,11 @@ const RegisterSociety = () => {
         <h3>Design Head: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="DesignHead" placeholder='Please enter the details in the following format: Name (+91 XXXXXXXXXX)' onChange={handleChange} required />
         <h3>PR & Out reach Head: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="PRandOutreachHead" placeholder='Please enter the details in the following format: Name (+91 XXXXXXXXXX)' onChange={handleChange} required />
         <h3>Content Head: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="ContentHead" placeholder='Please enter the details in the following format: Name (+91 XXXXXXXXXX)' onChange={handleChange} required />
+
+        <h2>Image Slider Section</h2>
+        <h3>Image 1:</h3><input type="text" name="url1" placeholder='Enter the image url' onChange={handleChange} required />
+        <h3>Image 2:</h3><input type="text" name="url2" placeholder='Enter the image url' onChange={handleChange} required />
+        <h3>Image 3:</h3><input type="text" name="url3" placeholder='Enter the image url' onChange={handleChange} required />
         <div><button type="submit" id="submit-form">Submit</button></div>
       </form>
     </div>

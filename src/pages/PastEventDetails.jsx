@@ -1,20 +1,20 @@
 import React from 'react'
-import FAQ from '../partials/FAQ';
-import Header from '../partials/Header';
 import { useState, useEffect } from "react";
-import { pastEvent } from '../partials/config/event';
 import { useParams } from 'react-router';
+import axios from 'axios';
 const PastEventDetails = () => {
-  const { id } = useParams();
-  const [event, setEvent] = useState({});
-  const [society, setSociety] = useState([{}]);
-
+  const [pastevent, setPastEvent] = useState([]);
+  const { _id } = useParams();
   useEffect(() => {
-    let event = pastEvent.find((event) => event.id === id);
-    if (event) {
-      setEvent(event);
-      setSociety(event.societies);
-    }
+    axios({
+      method: 'get',
+      url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${_id}`,
+    }).then(response => {
+      setPastEvent(response.data);
+      console.log(pastevent);
+    }).catch(response => {
+      console.log(response);
+    })
   }, []);
   return (
     <>
@@ -25,37 +25,33 @@ const PastEventDetails = () => {
             <div className="overlay">
 
               <div className="soc-names">
-                {society.map((items, key) => (
-                  <>
-                    <span>
-                      <img className='soc-event-avatar' src={items.Logo} alt='cover' />
-                    </span>
-                  </>
-                ))}
+                <span>
+                  <img className='soc-event-avatar' src={pastevent.Logo} alt='cover' />
+                </span>
               </div>
               <h2>organized</h2>
-              <h3>{event.title}</h3>
+              <h3>{pastevent.title}</h3>
               <a href="#about1">View Highlights</a>
             </div>
           </div>
           <div className="gap" id="about1"></div>
           <div className="content" >
             <h1 >Event Summary</h1>
-            <p>{event.description}</p>
+            <p>{pastevent.description}</p>
             <ul>
-              <li><b>Event Date : </b>{event.date}</li>
-              <li><b>Event Timmings :  </b>{event.time}</li>
-              <li><b>Event Venue :  </b>{event.venue}</li>
+              <li><b>Event Date : </b>{pastevent.date}</li>
+              <li><b>Event Timmings :  </b>{pastevent.time}</li>
+              <li><b>Event Venue :  </b>{pastevent.venue}</li>
 
             </ul>
-            <h2 className='winner-head'>{event.title} Winner Details </h2>
+            <h2 className='winner-head'>{pastevent.title} Winner Details </h2>
             <div className='oneline' style={{ display: "flex" }}>
               <span><img className='medals'
-                src="https://res.cloudinary.com/rohangotwal/image/upload/v1671647978/Blog/medal_b7kshr.png" alt="" />{event.First} </span>
+                src="https://res.cloudinary.com/rohangotwal/image/upload/v1671647978/Blog/medal_b7kshr.png" alt="" />{pastevent.First} </span>
               <span><img className='medals'
-                src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648007/Blog/medal_1_ulhtt4.png" alt="" />{event.Second}</span>
+                src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648007/Blog/medal_1_ulhtt4.png" alt="" />{pastevent.Second}</span>
               <span><img className='medals'
-                src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648038/Blog/medal_2_gzoket.png" alt="" />{event.Third}</span>
+                src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648038/Blog/medal_2_gzoket.png" alt="" />{pastevent.Third}</span>
             </div>
 
           </div>

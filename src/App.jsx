@@ -44,7 +44,7 @@ function App() {
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:_id' element={<SocietyDetails/>} />
         <Route path='/event-details/:_id' element={<EventDetails/>} />
-        <Route path='/past-event-details/:id' element={<PastEventDetails/>} />
+        <Route path='/past-event-details/:_id' element={<PastEventDetails/>} />
       </Routes>
     </>
   );

@@ -4,7 +4,7 @@ import RegisterEvent from '../partials/admin/RegisterEvent';
 import RegisterSociety from '../partials/admin/RegisterSociety';
 import Default from '../partials/admin/Default';
 import { useNavigate } from "react-router-dom";
-
+import RegisterPastEvent from '../partials/admin/RegisterPastEvent';
 const Admin = () => {
   let navigate = useNavigate(); 
 
@@ -18,7 +18,8 @@ const Admin = () => {
             <div className="admin-nav">
                 <button className="logout"onClick={handleLogout}>Logout</button>
                 <ul>
-                    <li><button onClick={() => setCurr(<RegisterEvent />)}>Register Event</button></li>
+                    <li><button onClick={() => setCurr(<RegisterEvent />)}>Register new Event</button></li>
+                    <li><button onClick={() => setCurr(<RegisterPastEvent />)}>Register Past Event</button></li>
                     <li><button onClick={() => setCurr(<RegisterSociety />)}>Register Society</button></li>
                 </ul>
             </div>

@@ -1,7 +1,5 @@
 import React from 'react'
-import FAQ from '../partials/FAQ';
 import { useState, useEffect } from "react";
-import { upcomingEvent } from '../partials/config/event';
 import { useParams } from 'react-router';
 import axios from 'axios'
 const EventDetails = () => {
@@ -13,28 +11,28 @@ const EventDetails = () => {
       url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${_id}`,
     }).then(response => {
       setUpcomingEvent(response.data);
-        console.log(upcomingEvent);
-      }).catch(response => {
-        console.log(response);
-      })
+      console.log(upcomingEvent);
+    }).catch(response => {
+      console.log(response);
+    })
   }, []);
 
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
-    const [faqs, setFaqs] = useState(upcomingEvent);
-    const toggleFAQ = index => {
-      setFaqs(
-        faqs.map((faq, i) => {
-          if (i === index) {
-            faq.open = !faq.open;
-          } else {
-            faq.open = false;
-          }
-          return faq;
-        })
-      );
-    };
+  const [faqs, setFaqs] = useState(upcomingEvent);
+  const toggleFAQ = index => {
+    setFaqs(
+      faqs.map((faq, i) => {
+        if (i === index) {
+          faq.open = !faq.open;
+        } else {
+          faq.open = false;
+        }
+        return faq;
+      })
+    );
+  };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
@@ -42,9 +40,9 @@ const EventDetails = () => {
           <img className='banner-details' src="https://res.cloudinary.com/rohangotwal/image/upload/v1671699702/WhatsApp_Image_2022-12-22_at_14.30.39_k7pl8a.jpg" alt="" />
           <div className="overlay">
             <div className="soc-names">
-                  <span >
-                    <img className='soc-event-avatar' src={upcomingEvent.Logo} alt='cover' />
-                  </span>
+              <span >
+                <img className='soc-event-avatar' src={upcomingEvent.Logo} alt='cover' />
+              </span>
             </div>
 
             <h2>Presents</h2>
@@ -65,7 +63,13 @@ const EventDetails = () => {
           </ul>
           <div className="faqs">
             <h2>FAQs</h2>
-              <FAQ faq={upcomingEvent}  toggleFAQ={toggleFAQ} />
+            <div
+              className={"faq " + (false ? "open" : "")}
+              onClick={() => toggleFAQ(1)}
+            >
+              <div className="faq-question">{upcomingEvent.question1}</div>
+              <div className="faq-answer">{upcomingEvent.answer1}</div>
+            </div>
           </div>
         </div>
 
