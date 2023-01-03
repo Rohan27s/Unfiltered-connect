@@ -12,7 +12,6 @@ function Newsletter() {
     e.preventDefault(e);
     emailjs.sendForm('unfilteredconnect', 'template_rn00i4j', form.current, 'IzhHvKXIND2eDZuyD')
       .then((result) => {
-        alert("Subcription Successfull!");
         var data = JSON.stringify({
           "email": email
         });
@@ -27,10 +26,12 @@ function Newsletter() {
         
         axios(config)
         .then(function (response) {
+        alert("Subcription Successfull!");
+
           console.log(JSON.stringify(response.data));
         })
         .catch(function (error) {
-          console.log(error);
+          alert("You are already subscribed")
         });
           console.log(result.text);
       }, (error) => {
