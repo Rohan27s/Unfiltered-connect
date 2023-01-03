@@ -1,13 +1,37 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import emailjs from '@emailjs/browser';
+import axios from 'axios';
 function Newsletter() {
   const form = useRef();
+  const [email, setEmail] = useState("");
+  const handleInput=(e)=>{
+    e.preventDefault(e);
+    setEmail(e.target.value);
+  }
   const submitEmail=(e)=>{
     e.preventDefault(e);
-
     emailjs.sendForm('unfilteredconnect', 'template_rn00i4j', form.current, 'IzhHvKXIND2eDZuyD')
       .then((result) => {
         alert("Subcription Successfull!");
+        var data = JSON.stringify({
+          "email": email
+        });
+        var config = {
+          method: 'post',
+          url: 'https://unfiltered-connect-backend.vercel.app/api/email',
+          headers: { 
+            'Content-Type': 'application/json'
+          },
+          data : data
+        };
+        
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
@@ -59,7 +83,7 @@ function Newsletter() {
                 {/* CTA form */}
                 <form ref={form} onSubmit={submitEmail} className="w-full lg:w-auto">
                   <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:mx-0">
-                    <input type="email" name="user_email"className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
+                    <input type="email" onChange={handleInput}name="user_email"className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
                     <button className="btn text-white bg-blue-600 hover:bg-blue-700 shadow" >Subscribe</button>
                   </div>
                 </form>
