@@ -643,9 +643,11 @@ margin-bottom: 2%;
 }
 
 .default-admin h1{
-  font-size: 90px;
-  margin-top: 18%;
-  font-family: 'Dancing Script', cursive;
+font-size: 90px;
+    /* margin-top: 18%; */
+    position: absolute;
+    top: 40%;
+    font-family: 'Dancing Script', cursive;
 }
 .main-admin form{
   margin: auto;

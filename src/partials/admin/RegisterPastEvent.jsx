@@ -37,9 +37,12 @@ const RegisterPastEvent = () => {
     
     axios(config)
     .then(function (response) {
+        alert("Past Event Registered Successfully");
       console.log(JSON.stringify(response.data));
     })
     .catch(function (error) {
+      alert("Error! Please Try Again")
+
       console.log(error);
     });
   }
