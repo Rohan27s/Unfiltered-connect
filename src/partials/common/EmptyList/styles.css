@@ -2,8 +2,18 @@
   display: flex;
   justify-content: center;
 }
-.emptyList-wrap h1{
+
+.emptyList-wrap h1 {
   font-size: 50px;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 500px) {
+  .emptyList-wrap {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    text-align: center;
+  }
 }

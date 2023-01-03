@@ -24,6 +24,9 @@ const [isOpen, setIsOpen] = useState(false)
   const toggleFAQ = () => {
     setIsOpen(!isOpen);
   };
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
   return (
     <>
     {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
