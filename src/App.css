@@ -106,15 +106,22 @@ body {
   border-radius: 2.5rem;
   letter-spacing: 1px;
   border: 1px solid #000000;
+  background: linear-gradient(to right, rgb(21, 106, 224) 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .5s ease-out;
 }
 
 .overlay button:hover {
-  /* background: rgba(0,0,0,0.3); */
-  background-color: rgb(0 100 218 / var(--tw-bg-opacity));
   color: aliceblue;
   border: 1px solid white;
+  background-position: left bottom;
 }
-
+.slider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .overlay a {
   font-size: 19px;
   text-transform: capitalize;

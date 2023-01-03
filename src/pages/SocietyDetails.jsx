@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { blogList } from '../partials/config/data';
-import EmptyList from '../partials/common/EmptyList';
+import SimpleImageSlider from "react-simple-image-slider";
 import '../App.css'
 import axios from 'axios';
 const SocietyDetails = () => {
   const { _id } = useParams();
   const [blog, setBlog] = useState(null);
-  useEffect(() => {    
+  
+  useEffect(() => {
     axios({
       method: 'get',
       url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${_id}`,
     }).then(response => {
-        setBlog(response.data);
-        console.log(blog);
-      }).catch(response => {
-        console.log(response);
-      })
+      setBlog(response.data);
+      console.log(blog);
+    }).catch(response => {
+      console.log(response);
+    })
   }, []);
+  const images = [
+    { url: "https://images.unsplash.com/photo-1671725779260-8d17bc0e3f8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
+    { url: "https://images.unsplash.com/photo-1671725779260-8d17bc0e3f8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
+    { url: "https://images.unsplash.com/photo-1671725779260-8d17bc0e3f8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
 
+  ];
   return (
     <>
       {blog ? (
@@ -30,10 +35,18 @@ const SocietyDetails = () => {
             <h2 className='about-soc-head'>About {blog.name}</h2>
             <p className='blog-desc'>{blog.description}</p>
           </div>
+          <div className='slider'>
+            <SimpleImageSlider
+              width={896}
+              height={504}
+              images={images}
+              showBullets={true}
+              showNavs={true}
+            />
+          </div>
           <div className="about-soc">
-
             <h1>Core Team</h1>
-            <ul style={{border: '1px solid gray'}}>
+            <ul style={{ border: '1px solid gray' }}>
               <li className="blog-desc"><h3>President : </h3>{blog.President}</li>
               <li className="blog-desc"><h3>Vice President : </h3>{blog.VicePresident}</li>
               <li className="blog-desc"><h3>General Secretary : </h3>{blog.GeneralSecretary}</li>
@@ -46,7 +59,7 @@ const SocietyDetails = () => {
         </div>
       ) : (
         <>
-        <div><h1>Loading....</h1></div>        
+          <div><h1>Loading....</h1></div>
         </>
       )}
     </>

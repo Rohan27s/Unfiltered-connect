@@ -16,22 +16,9 @@ const EventDetails = () => {
       console.log(response);
     })
   }, []);
-
-  const openInNewTab = url => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-  const [faqs, setFaqs] = useState(upcomingEvent);
-  const toggleFAQ = index => {
-    setFaqs(
-      faqs.map((faq, i) => {
-        if (i === index) {
-          faq.open = !faq.open;
-        } else {
-          faq.open = false;
-        }
-        return faq;
-      })
-    );
+const [isOpen, setIsOpen] = useState(false)
+  const toggleFAQ = () => {
+    setIsOpen(!isOpen);
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -64,8 +51,8 @@ const EventDetails = () => {
           <div className="faqs">
             <h2>FAQs</h2>
             <div
-              className={"faq " + (false ? "open" : "")}
-              onClick={() => toggleFAQ(1)}
+              className={"faq " + (isOpen ? "open" : "")}
+              onClick={toggleFAQ}
             >
               <div className="faq-question">{upcomingEvent.question1}</div>
               <div className="faq-answer">{upcomingEvent.answer1}</div>
