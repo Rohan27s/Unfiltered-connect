@@ -57,11 +57,13 @@ const SocietyDetails = () => {
           </div>
           <div className='slider'>
             <SimpleImageSlider
-              width={896}
-              height={504}
+              width={"90%"}
+              height={"90vh"}
               images={images}
               showBullets={true}
               showNavs={true}
+              style={{display:"flex",justifyContent:"center"}
+            }
             />
           </div>
         </div>
