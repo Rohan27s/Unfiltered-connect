@@ -16,7 +16,7 @@ const RegisterEvent = () => {
   const ref9 = useRef(null);
   const ref10 = useRef(null);
   const ref11 = useRef(null);
-  const [emails, setEmails] = useState([{}]);
+  const [emails, setEmails] = useState([]);
   const [details, setDetails] = useState({
     title: "",
     content: "",
@@ -39,21 +39,25 @@ const RegisterEvent = () => {
       [name]: value,
     });
   }
+ useEffect(() => {
+  var config1 = {
+    method: 'get',
+    url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
+  };
+  axios(config1)
+    .then(function (response) {
+      setEmails(response.data);
+      console.log(emails);
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+ }, [emails && 5000])
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    var config1 = {
-      method: 'get',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
-    };
-    axios(config1)
-      .then(function (response) {
-        setEmails(response.data);
-        console.log(emails);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+   
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
