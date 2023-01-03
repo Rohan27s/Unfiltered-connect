@@ -36,7 +36,7 @@ export default function PastCardComponent() {
                                     {items.content}
                                 </p>
                                 <a href={`/past-event-details/${items._id}`} className="px-4  py-2 my-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
-                                Review
+                                Know more
                             </a>
                             </div>
                         </div>

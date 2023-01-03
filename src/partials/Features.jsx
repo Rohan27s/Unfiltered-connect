@@ -23,10 +23,7 @@ function Features() {
 
   return (
     <section className="relative">
-
-      {/* Section background (needs .relative class on parent and next sibling elements) */}
-      <div className="absolute inset-0 bg-gray-100 pointer-events-none mb-16" aria-hidden="true"></div>
-      <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2"></div>
+      <div className="absolute inset-0 bg-gray-100 pointer-events-none" aria-hidden="true"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-12 md:pt-20">
@@ -58,7 +55,7 @@ function Features() {
                     <div className="text-gray-600">Click on "Check out the Events button on the homepage"</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
-                  <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M11.854.146a.5.5 0 00-.525-.116l-11 4a.5.5 0 00-.015.934l4.8 1.921 1.921 4.8A.5.5 0 007.5 12h.008a.5.5 0 00.462-.329l4-11a.5.5 0 00-.116-.525z" fillRule="nonzero" />
                     </svg>
                   </div>
@@ -88,7 +85,7 @@ function Features() {
                     <div className="text-gray-600">Click on "Register Now" button to finally register for the event</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
-                  <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M11.854.146a.5.5 0 00-.525-.116l-11 4a.5.5 0 00-.015.934l4.8 1.921 1.921 4.8A.5.5 0 007.5 12h.008a.5.5 0 00.462-.329l4-11a.5.5 0 00-.116-.525z" fillRule="nonzero" />
                     </svg>
                   </div>
@@ -97,7 +94,7 @@ function Features() {
             </div>
 
             {/* Tabs items */}
-            <div style={{marginTop: "37%"}} className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="zoom-y-out" ref={tabs}>
+            <div style={{ marginTop: "37%" }} className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="zoom-y-out" ref={tabs}>
               <div className="relative flex flex-col text-center lg:text-right">
                 {/* Item 1 */}
                 <Transition
@@ -112,7 +109,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img  className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/rohangotwal/image/upload/v1671718021/Untitled_design_3_htuq5o.png" width="500" height="462" alt="Features bg" />
+                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/rohangotwal/image/upload/v1671718021/Untitled_design_3_htuq5o.png" width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
                 {/* Item 2 */}

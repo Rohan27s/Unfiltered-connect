@@ -41,7 +41,7 @@ const Admin = () => {
             <div className="admin-nav">
                 <button className="logout"onClick={handleLogout}>Logout</button>
                 <ul>
-                    <li><button className={isActive ? "active" : null} onClick={handleClick}>Register new Event</button></li>
+                    <li><button className={isActive ? "active" : null} onClick={handleClick}>Register New Event</button></li>
                     <li><button className={isActive1 ? "active" : null} onClick={handleClick1}>Register Past Event</button></li>
                     <li><button className={isActive2 ? "active" : null} onClick={handleClick2}>Register Society</button></li>
                 </ul>

@@ -61,10 +61,10 @@ const RegisterSociety = () => {
         <h3>PR & Out reach Head: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="PRandOutreachHead" placeholder='Please enter the details in the following format: Name (+91 XXXXXXXXXX)' onChange={handleChange} required />
         <h3>Content Head: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="ContentHead" placeholder='Please enter the details in the following format: Name (+91 XXXXXXXXXX)' onChange={handleChange} required />
 
-        <h2>Image Slider Section</h2>
-        <h3>Image 1:</h3><input type="text" name="url1" placeholder='Enter the image url' onChange={handleChange} required />
-        <h3>Image 2:</h3><input type="text" name="url2" placeholder='Enter the image url' onChange={handleChange} required />
-        <h3>Image 3:</h3><input type="text" name="url3" placeholder='Enter the image url' onChange={handleChange} required />
+        <h2>Photo Gallery Section </h2>
+        <h3>Image 1: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="url1" placeholder='Please enter the image url' onChange={handleChange} required />
+        <h3>Image 2: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="url2" placeholder='Please enter the image url' onChange={handleChange} required />
+        <h3>Image 3: <p style={{color:'red',display:'inline'}}>*</p></h3><input type="text" name="url3" placeholder='Please enter the image url' onChange={handleChange} required />
         <div><button type="submit" id="submit-form">Submit</button></div>
       </form>
     </div>

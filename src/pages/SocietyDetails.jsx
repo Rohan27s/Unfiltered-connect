@@ -6,7 +6,10 @@ import axios from 'axios';
 const SocietyDetails = () => {
   const { _id } = useParams();
   const [blog, setBlog] = useState(null);
-  
+  const [url1, setUrl1] = useState("");
+  const [url2, setUrl2] = useState("");
+  const [url3, setUrl3] = useState("");
+
   useEffect(() => {
     axios({
       method: 'get',
@@ -14,16 +17,19 @@ const SocietyDetails = () => {
     }).then(response => {
 
       setBlog(response.data);
+      setUrl1(response.data.url1);
+      setUrl2(response.data.url2);
+      setUrl3(response.data.url3);
+
       console.log(blog);
     }).catch(response => {
       console.log(response);
     })
   }, []);
   const images = [
-    { url: "https://images.unsplash.com/photo-1671725779260-8d17bc0e3f8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
-    { url: "https://images.unsplash.com/photo-1671725779260-8d17bc0e3f8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
-    { url: "https://images.unsplash.com/photo-1671725779260-8d17bc0e3f8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
-
+    { url: url1 },
+    { url: url2 },
+    { url: url3 },
   ];
   return (
     <>
@@ -36,15 +42,7 @@ const SocietyDetails = () => {
             <h2 className='about-soc-head'>About {blog.name}</h2>
             <p className='blog-desc'>{blog.description}</p>
           </div>
-          <div className='slider'>
-            <SimpleImageSlider
-              width={896}
-              height={504}
-              images={images}
-              showBullets={true}
-              showNavs={true}
-            />
-          </div>
+
           <div className="about-soc">
             <h1>Core Team</h1>
             <ul style={{ border: '1px solid gray' }}>
@@ -56,6 +54,15 @@ const SocietyDetails = () => {
               <li className="blog-desc"><h3>PR and Outreach Head : </h3>{blog.PRandOutreachHead}</li>
               <li className="blog-desc"><h3>Content Head : </h3>{blog.ContentHead}</li>
             </ul>
+          </div>
+          <div className='slider'>
+            <SimpleImageSlider
+              width={896}
+              height={504}
+              images={images}
+              showBullets={true}
+              showNavs={true}
+            />
           </div>
         </div>
       ) : (

@@ -659,8 +659,8 @@ article.nextSlide {
 }
 
 .admin-nav ul li {
-  border-right: white 2px solid;
-  border-left: white 2px solid;
+  /* border-right: white 2px solid; */
+  /* border-left: white 2px solid; */
   padding: 0 1rem;
   font-size: 20px;
   margin-right: 3%;
