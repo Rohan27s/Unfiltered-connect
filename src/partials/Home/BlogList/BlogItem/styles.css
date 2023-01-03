@@ -69,3 +69,12 @@
   color: #a9a9a9;
   font-weight: 600;
 }
+@media only screen and (max-width: 600px) {
+
+  .blogItem-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    background: white;
+  }
+}

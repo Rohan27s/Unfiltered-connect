@@ -762,3 +762,143 @@ textarea {
   cursor: pointer;
   float: right;
 }
+.event-card-compo{
+   width: 80%;
+   display: flex;
+   justify-content: center;
+}
+/* Mobile view css */
+@media only screen and (max-width: 500px) {
+  .home-a {
+    margin: 20px 0;
+  }
+
+  .steps-h3 {
+    text-align: center;
+  }
+
+  .about-soc-head {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-weight: 800;
+    font-size: 38px;
+    color: #000000;
+  }
+
+  .blog-wrap img {
+    width: 132px;
+    border: 2px solid gray;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-soc-div {
+    border-radius: 12px;
+    border: 3px solid #006dff;
+    padding: 0.2rem;
+  }
+
+  .about-soc h1 {
+    display: inline-block;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+    background: #006dff;
+  }
+
+  .about-soc ul li {
+    font-size: 23px;
+  }
+
+  .slider {
+    width: 100%;
+  }
+
+  .bottombar {
+    padding: 18px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    border-bottom: 1px solid gray;
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    z-index: 99;
+}
+
+  .bottombar li button {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .event-card-compo{
+    margin: auto;
+    width: 80%;
+    padding: 12% 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+  .overlay h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    color: aliceblue;
+    border-radius: 20px;
+    text-transform: initial;
+    font-weight: 700;
+    letter-spacing: 7px;
+}
+.soc-names {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  margin-top: 30%;
+}
+.overlay h2 {
+  margin-top: 16px;
+  margin-bottom: 1%;
+  font-size: 25px;
+  letter-spacing: 6px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+.content h1 {
+  margin-bottom: 1%;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-weight: 800;
+  font-size: 32px;
+  color: #000000;
+}
+.content {
+  width: 90%;
+  margin: 18% auto 8% auto;
+  text-align: center;
+  box-shadow: 1px 1px 1px 1px #615b5b;
+  border-radius: 12px;
+  border: 3px solid #006dff;
+  padding: 0.5rem;
+}
+.content ul {
+  border: 2px solid #2b2a2a;
+  padding: 14px;
+  margin-top: 5%;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px 2px #a9a5a5;
+}
+.faqs {
+  width: 100%;
+  margin-top: 33px;
+  padding: 0;
+}
+}

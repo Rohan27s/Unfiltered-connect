@@ -29,7 +29,7 @@ const Events = () => {
           <li>
             <button className={isActive ? "active" : null} onClick={handleClick} >Past Events</button>
         </li>
-        |
+        <li>|</li>
         <li> <button className={isActive1 ? "active" : null} onClick={handleClick1}>Upcoming Events</button>   </li>
       </div>
     </div>

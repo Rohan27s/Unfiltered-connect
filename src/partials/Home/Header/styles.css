@@ -28,3 +28,19 @@
   color: #a9a9a9;
   font-weight: 500;
 }
+@media only screen and (max-width: 600px){
+  .home-header h1 {
+    font-size: 2.5rem;
+  }
+  .searchBar-wrap form {
+    display: flex;
+    align-items: center;
+    width: 288px;
+}
+.blogItem-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  background: white;
+}
+  }

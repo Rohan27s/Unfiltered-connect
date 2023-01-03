@@ -10,7 +10,7 @@
 .searchBar-wrap form {
   display: flex;
   align-items: center;
-  width:500px;
+  width: 500px;
   /* font-size: 47px; */
 }
 
@@ -37,4 +37,19 @@
   background-color: #0063fd;
   color: #fff;
   font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .searchBar-wrap form {
+    display: flex;
+    align-items: center;
+    width: 288px;
+  }
+
+  .blogItem-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    background: white;
+  }
 }

@@ -40,7 +40,7 @@ function Features() {
             {/* Content */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">How to Register for events?</h3>
+                <h3 className="steps-h3 h3 mb-3">How to Register for events?</h3>
                 <p className="text-xl text-gray-600">Follow 3 simple steps to book a seat for upcoming events</p>
               </div>
               {/* Tabs buttons */}

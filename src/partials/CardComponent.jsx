@@ -19,7 +19,7 @@ export default function CardComponent() {
         <>
     {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
 
-            <section className="relative" style={{ marginTop: "10%", width: "80%", margin: "auto" }}>
+            <section className="relative event-card-compo" >
                 <div style={{ marginTop: "15%" }} className="grid gap-8 lg:grid-cols-4">
 
                     {post.map((items, key) => (
