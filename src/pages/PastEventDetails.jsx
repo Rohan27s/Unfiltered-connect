@@ -48,6 +48,8 @@ const PastEventDetails = () => {
               <li><b>Event Venue :  </b>{pastevent.venue}</li>
 
             </ul>
+            {pastevent.First?
+            <>
             <h2 className='winner-head'>{pastevent.title} Winner Details </h2>
             <div className='oneline' style={{ display: "flex" }}>
               <span><img className='medals'
@@ -57,7 +59,7 @@ const PastEventDetails = () => {
               <span><img className='medals'
                 src="https://res.cloudinary.com/rohangotwal/image/upload/v1671648038/Blog/medal_2_gzoket.png" alt="" />{pastevent.Third}</span>
             </div>
-
+            </>:""}
           </div>
         </main>
       </div>}
