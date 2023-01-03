@@ -5,19 +5,23 @@ import axios from 'axios';
 const PastEventDetails = () => {
   const [pastevent, setPastEvent] = useState([]);
   const { _id } = useParams();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios({
       method: 'get',
       url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${_id}`,
     }).then(response => {
       setPastEvent(response.data);
-      console.log(pastevent);
+      setLoading(false);
     }).catch(response => {
       console.log(response);
     })
   }, []);
   return (
     <>
+    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
+
       <div className="flex flex-col min-h-screen overflow-hidden">
         <main className="flex-grow">
           <div className="cover">
@@ -56,7 +60,7 @@ const PastEventDetails = () => {
 
           </div>
         </main>
-      </div>
+      </div>}
     </>
   )
 }

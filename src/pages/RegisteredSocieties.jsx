@@ -38,7 +38,10 @@ const RegisteredSocieties = () => {
   }, [])
 
   return (
+    <>
+    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
     <div>
+
       <Header />
       <SearchBar
         value={searchKey}
@@ -47,10 +50,11 @@ const RegisteredSocieties = () => {
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />
       <div className='soc-card'>
-        {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+        {!blogs.length && !loading ? <EmptyList /> : <BlogList blogs={blogs} />}
 
       </div>
-    </div>
+    </div>}
+    </>
   );
 };
 

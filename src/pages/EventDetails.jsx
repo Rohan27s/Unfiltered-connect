@@ -5,12 +5,16 @@ import axios from 'axios'
 const EventDetails = () => {
   const [upcomingEvent, setUpcomingEvent] = useState([]);
   const { _id } = useParams();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios({
       method: 'get',
       url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${_id}`,
     }).then(response => {
       setUpcomingEvent(response.data);
+      setLoading(false);
+
       console.log(upcomingEvent);
     }).catch(response => {
       console.log(response);
@@ -21,6 +25,9 @@ const [isOpen, setIsOpen] = useState(false)
     setIsOpen(!isOpen);
   };
   return (
+    <>
+    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
+
     <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
         <div className="cover">
@@ -61,7 +68,8 @@ const [isOpen, setIsOpen] = useState(false)
         </div>
 
       </main>
-    </div>
+    </div>}
+    </>
   )
 }
 

@@ -12,6 +12,7 @@ const SocietyDetails = () => {
       method: 'get',
       url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${_id}`,
     }).then(response => {
+
       setBlog(response.data);
       console.log(blog);
     }).catch(response => {
@@ -59,7 +60,7 @@ const SocietyDetails = () => {
         </div>
       ) : (
         <>
-          <div><h1>Loading....</h1></div>
+          <div className='loading'> <h1 >Loading...</h1></div>
         </>
       )}
     </>

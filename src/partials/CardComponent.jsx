@@ -3,16 +3,22 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom";
 export default function CardComponent() {
+  const [loading, setLoading] = useState(true);
+
     const [post, setPost] = React.useState([]);
     React.useEffect(() => {
         axios.get('https://unfiltered-connect-backend.vercel.app/api/allevent').then((response) => {
             setPost(response.data);
+        setLoading(false);
+
         });
     }, []);
 
     return (
 
         <>
+    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
+
             <section className="relative" style={{ marginTop: "10%", width: "80%", margin: "auto" }}>
                 <div style={{ marginTop: "15%" }} className="grid gap-8 lg:grid-cols-4">
 
@@ -41,7 +47,7 @@ export default function CardComponent() {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section>}
         </>
     );
 }

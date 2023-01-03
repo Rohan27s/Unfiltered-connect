@@ -5,7 +5,7 @@ function Newsletter() {
   const submitEmail=(e)=>{
     e.preventDefault(e);
 
-    emailjs.sendForm('rohan27s', 'template_rn00i4j', form.current, 'IzhHvKXIND2eDZuyD')
+    emailjs.sendForm('unfilteredconnect', 'template_rn00i4j', form.current, 'IzhHvKXIND2eDZuyD')
       .then((result) => {
         alert("Subcription Successfull!");
           console.log(result.text);
