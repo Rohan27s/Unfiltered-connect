@@ -1,24 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Transition from '../utils/Transition';
-
-import FeaturesBg from '../images/features-bg.png';
-import FeaturesElement from '../images/features-element.png';
-
 function Features() {
-
   const [tab, setTab] = useState(1);
-
   const tabs = useRef(null);
-
   const heightFix = () => {
     if (tabs.current.children[tab]) {
       tabs.current.style.height = tabs.current.children[tab - 1].offsetHeight + 'px'
     }
   }
-
   useEffect(() => {
     heightFix()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab])
 
   return (
@@ -146,9 +137,7 @@ function Features() {
                 </Transition>
               </div>
             </div >
-
           </div >
-
         </div >
       </div >
     </section >
