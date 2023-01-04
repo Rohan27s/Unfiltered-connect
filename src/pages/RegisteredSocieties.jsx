@@ -7,17 +7,17 @@ import axios from 'axios';
 
 const RegisteredSocieties = () => {
   const [searchKey, setSearchKey] = useState('');
-  const [blogs, setBlogs] = useState([]);
+  const [societies, setSocieties] = useState([]);
   const [loading, setLoading] = useState(true);
   const handleSearchResults = () => {
-    const allBlogs = blogs;
+    const allBlogs = societies;
     const filteredBlogs = allBlogs.filter((blog) =>
       blog.category.toLowerCase().includes(searchKey.toLowerCase().trim())
     );
-    setBlogs(filteredBlogs);
+    setSocieties(filteredBlogs);
   };
   const handleClearSearch = () => {
-    setBlogs(blogs);
+    setSocieties(societies);
     setSearchKey('');
   };
   const handleSearchBar = (e) => {
@@ -30,7 +30,7 @@ const RegisteredSocieties = () => {
       url: 'https://unfiltered-connect-backend.vercel.app/api/societies',
     })
       .then(response => {
-        setBlogs(response.data);
+        setSocieties(response.data);
         setLoading(false);
       }).catch(response => {
         console.log(response)
@@ -50,7 +50,7 @@ const RegisteredSocieties = () => {
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />
       <div className='soc-card'>
-        {!blogs.length && !loading ? <EmptyList /> : <BlogList blogs={blogs} />}
+        {!societies.length && !loading ? <EmptyList /> : <BlogList blogs={societies} />}
 
       </div>
     </div>}
