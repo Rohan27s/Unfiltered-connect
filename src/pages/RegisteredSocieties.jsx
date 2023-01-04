@@ -9,6 +9,9 @@ const RegisteredSocieties = () => {
   const [searchKey, setSearchKey] = useState('');
   const [societies, setSocieties] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [post, setPost] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
+
   const handleSearchResults = () => {
     const allSocieties = societies;
     const filteredSocieties = allSocieties.filter((society) =>
@@ -30,6 +33,9 @@ const RegisteredSocieties = () => {
       url: 'https://unfiltered-connect-backend.vercel.app/api/societies',
     })
       .then(response => {
+        setPost(response.data);
+        setSearchResult(response.data);
+        console.log(searchResult);
         setSocieties(response.data);
         setLoading(false);
       }).catch(response => {
@@ -44,14 +50,11 @@ const RegisteredSocieties = () => {
 
       <Header />
       <SearchBar
-        value={searchKey}
-        clearSearch={handleClearSearch}
-        formSubmit={handleSearchBar}
-        handleSearchKey={(e) => setSearchKey(e.target.value)}
+        post={post}
+        setSearchResult={setSearchResult}
       />
       <div className='soc-card'>
-        {!societies.length && !loading ? <EmptyList /> : <BlogList blogs={societies} />}
-
+        <BlogList searchResult={searchResult}/>
       </div>
     </div>}
     </>
