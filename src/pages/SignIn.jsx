@@ -4,8 +4,7 @@ import Header from '../partials/Header';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 function SignIn() {
-  let navigate = useNavigate(); 
-  
+  let navigate = useNavigate();   
   const [auth, setAuth] = useState({
     email:"",
     password:""
@@ -19,7 +18,7 @@ function SignIn() {
   }
   const handleSubmit=(e)=>{
     e.preventDefault();
-    if(auth.email==="admin" && auth.password==="admin"){
+    if(auth.email==="admin" && auth.password==="SocialLife@008"){
       let path = `/adminPanel`; 
       navigate(path);
     }

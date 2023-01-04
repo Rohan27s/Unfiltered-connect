@@ -10,6 +10,7 @@ function Newsletter() {
   }
   const submitEmail=(e)=>{
     e.preventDefault(e);
+    //API Call to send post email to email.js
     emailjs.sendForm('unfilteredconnect', 'template_rn00i4j', form.current, 'IzhHvKXIND2eDZuyD')
       .then((result) => {
         var data = JSON.stringify({

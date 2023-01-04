@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios'
 import { useState, useEffect } from "react";
-
+// Past Events Component
 export default function PastCardComponent() {
     const [pastEvent, setPastEvent] = React.useState([]);
   const [loading, setLoading] = useState(true);

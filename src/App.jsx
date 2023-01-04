@@ -36,10 +36,10 @@ function App() {
   return (
     <>
       <Routes>
+        {/* Routes/Urls to all the pages */}
         <Route exact path="/" element={<Home />} />
         <Route path="/admin" element={<SignIn />} />
         <Route path="/adminPanel" element={<Admin />} />
-
         <Route path="/events" element={<Events />} />
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:_id' element={<SocietyDetails/>} />
