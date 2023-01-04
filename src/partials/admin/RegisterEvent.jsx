@@ -16,7 +16,7 @@ const RegisterEvent = () => {
   const ref9 = useRef(null);
   const ref10 = useRef(null);
   const ref11 = useRef(null);
-  const [emails, setEmails] = useState([]);
+  const [emails, setEmails] = useState();
   const [details, setDetails] = useState({
     title: "",
     content: "",
