@@ -763,7 +763,6 @@ textarea {
   float: right;
 }
 .event-card-compo{
-   width: 80%;
    display: flex;
    justify-content: center;
 }
@@ -928,5 +927,17 @@ textarea {
   margin-right: 1%;
   display: inline-block;
   color: white;
+}
+.default-admin h1 {
+  font-size: 74px;
+  position: relative;
+  text-align: center;
+  margin-top: 20vh;
+  height: 100vh;
+  font-family: 'Dancing Script', cursive;
+}
+.admin-container {
+  width: 100%;
+  margin: auto;
 }
 }
