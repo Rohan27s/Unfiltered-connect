@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Chip from '../../../common/Chip';
 import './styles.css';
 
-const BlogItem = ({
+const SocietyItem = ({
   blog: {
     cover,
     category,
@@ -23,4 +23,4 @@ const BlogItem = ({
   );
 };
 
-export default BlogItem;
+export default SocietyItem;

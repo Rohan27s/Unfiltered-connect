@@ -1,10 +1,10 @@
 import React from 'react';
-import BlogItem from './BlogItem';
+import SocietyItem from './SocietyItem';
 import './styles.css';
 import EmptyList from '../../common/EmptyList';
-const BlogList = ({ searchResult }) => {
+const SocietyList = ({ searchResult }) => {
   const results=searchResult.map((society) => (
-    <BlogItem blog={society} key={society.name}/>
+    <SocietyItem blog={society} key={society.name}/>
   ))
   const content = results?.length ? results : <EmptyList />
   return (
@@ -14,4 +14,4 @@ const BlogList = ({ searchResult }) => {
   );
 };
 
-export default BlogList;
+export default SocietyList;

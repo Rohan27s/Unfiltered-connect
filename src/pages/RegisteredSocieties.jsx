@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BlogList from '../partials/Home/BlogList';
+import SocietyList from '../partials/Home/SocietyList';
 import SearchBar from '../partials/Home/SearchBar';
 import Header from '../partials/Home/Header';
 import axios from 'axios';
@@ -53,7 +53,7 @@ const RegisteredSocieties = () => {
         setSearchResult={setSearchResult}
       />
       <div className='soc-card'>
-        <BlogList searchResult={searchResult}/>
+        <SocietyList searchResult={searchResult}/>
       </div>
     </div>}
     </>
