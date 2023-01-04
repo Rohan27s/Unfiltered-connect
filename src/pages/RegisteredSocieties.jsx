@@ -10,11 +10,11 @@ const RegisteredSocieties = () => {
   const [societies, setSocieties] = useState([]);
   const [loading, setLoading] = useState(true);
   const handleSearchResults = () => {
-    const allBlogs = societies;
-    const filteredBlogs = allBlogs.filter((blog) =>
-      blog.category.toLowerCase().includes(searchKey.toLowerCase().trim())
+    const allSocieties = societies;
+    const filteredSocieties = allSocieties.filter((society) =>
+      society.category.toLowerCase().includes(searchKey.toLowerCase().trim())
     );
-    setSocieties(filteredBlogs);
+    setSocieties(filteredSocieties);
   };
   const handleClearSearch = () => {
     setSocieties(societies);
