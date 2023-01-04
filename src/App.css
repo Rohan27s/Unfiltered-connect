@@ -922,4 +922,11 @@ textarea {
   font-size: 15px;
   font-weight: 700;
 }
+.admin-nav ul li {
+  padding: 0;
+  font-size: 18px;
+  margin-right: 1%;
+  display: inline-block;
+  color: white;
+}
 }
