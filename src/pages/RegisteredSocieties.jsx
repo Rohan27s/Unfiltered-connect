@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import EmptyList from '../partials/common/EmptyList';
 import BlogList from '../partials/Home/BlogList';
 import SearchBar from '../partials/Home/SearchBar';
 import Header from '../partials/Home/Header';

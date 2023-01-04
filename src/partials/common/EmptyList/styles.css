@@ -1,19 +1,22 @@
 .emptyList-wrap {
   display: flex;
+  width: 100vw;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  font-size: 50px;
+}
+.emptyList-wrap h1{
+  margin-left:12%
 }
 
-.emptyList-wrap h1 {
-  font-size: 50px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
+
 
 @media only screen and (max-width: 500px) {
   .emptyList-wrap {
-    display: flex;
-    justify-content: center;
     height: 90vh;
-    text-align: center;
   }
+  .emptyList-wrap h1 {
+    margin-left: 0;
+}
 }
