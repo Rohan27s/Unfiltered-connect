@@ -7,12 +7,14 @@ const Events = () => {
   const [isActive, setActive] = useState(false);
   const [isActive1, setActive1] = useState(true);  
   const [eventType, setEventType] = useState(<CardComponent />)
+  //Underlining the selected nav links
   const handleClick =()=>{
     setEventType(<PastCardComponent />);
      setActive(true)
      setActive1(false)
 
   }
+  //Underlining the selected nav links
   const handleClick1 =()=>{
     setEventType(<CardComponent />);
     setActive1(true)

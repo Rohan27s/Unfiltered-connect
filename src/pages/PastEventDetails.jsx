@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router';
 import axios from 'axios';
 const PastEventDetails = () => {
-  const [pastevent, setPastEvent] = useState([]);
-  const { _id } = useParams();
+  const [pastevent, setPastEvent] = useState([]);  
+  const { _id } = useParams(); //Getting id from the url
   const [loading, setLoading] = useState(true);
 
+  //Api call for finding individual past event
   useEffect(() => {
     axios({
       method: 'get',

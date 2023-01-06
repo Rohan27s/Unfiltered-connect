@@ -11,10 +11,12 @@ const Admin = () => {
   const [isActive1, setActive1] = useState(false);
   const [isActive2, setActive2] = useState(false);
 
+  //Redirect to admin login
     const handleLogout=()=>{
         let path = `/admin`; 
         navigate(path);
     }
+    //Set Underline under active headings
     const handleClick =()=>{
         setCurr(<RegisterEvent />)
          setActive(true)
@@ -32,7 +34,7 @@ const Admin = () => {
         setCurr(<RegisterSociety />)
         setActive(false)
         setActive1(false)
-        setActive2(true)   
+        setActive2(true)  
     
       }
     const [curr, setCurr] = useState(<Default/>);  

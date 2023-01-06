@@ -9,6 +9,7 @@ function SignIn() {
     email:"",
     password:""
   });
+  //Saving login details in the auth useState
   const handleValue=(e)=>{
     const { name, value } = e.target;
       setAuth({

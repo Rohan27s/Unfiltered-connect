@@ -26,6 +26,7 @@ const RegisteredSocieties = () => {
     e.preventDefault();
     handleSearchResults();
   };
+  //API call for getting all the societies
   useEffect(() => {
     axios({
       method: 'get',

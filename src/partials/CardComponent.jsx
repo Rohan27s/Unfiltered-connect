@@ -4,6 +4,7 @@ import axios from 'axios'
 export default function CardComponent() {
     const [loading, setLoading] = useState(true);
     const [post, setPost] = React.useState([]);
+    //API call for getting info about all the events
     React.useEffect(() => {
         axios.get('https://unfiltered-connect-backend.vercel.app/api/allevent').then((response) => {
             setPost(response.data);

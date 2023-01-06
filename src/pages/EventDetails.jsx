@@ -7,6 +7,7 @@ const EventDetails = () => {
   const { _id } = useParams();
   const [loading, setLoading] = useState(true);
 
+  //API call for finding individual event by id
   useEffect(() => {
     axios({
       method: 'get',
@@ -20,10 +21,12 @@ const EventDetails = () => {
       console.log(response);
     })
   }, []);
+  //Toggle faq section onclick
 const [isOpen, setIsOpen] = useState(false)
   const toggleFAQ = () => {
     setIsOpen(!isOpen);
   };
+  //Opening the registration form on a new page
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
