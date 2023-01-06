@@ -42,6 +42,7 @@ const RegisterSociety = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    // API call for adding society in our mongo db
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/societyadd',

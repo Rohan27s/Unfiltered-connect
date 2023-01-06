@@ -39,6 +39,7 @@ const RegisterEvent = () => {
       [name]: value,
     });
   }
+  //API call for getting all the emails which all subscribed to our newsletter
  useEffect(() => {
   var config1 = {
     method: 'get',
@@ -57,7 +58,7 @@ const RegisterEvent = () => {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+  //API call for saving the new event in our MongoDB
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
@@ -80,7 +81,7 @@ const RegisterEvent = () => {
             })
         ))
         setDetails("");
-        ref.current.value = '';
+        ref.current.value = ''; //For clearing the input field after a event is successfully registered
         ref1.current.value = '';
         ref2.current.value = '';
         ref3.current.value = '';

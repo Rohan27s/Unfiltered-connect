@@ -39,6 +39,7 @@ const RegisterPastEvent = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    //API call for adding past event in our MongoDB
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/pasteventadd',
