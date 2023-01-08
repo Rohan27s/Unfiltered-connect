@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router';
 import axios from 'axios'
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
 const EventDetails = () => {
   const [upcomingEvent, setUpcomingEvent] = useState([]);
   const { _id } = useParams();
@@ -32,6 +34,7 @@ const [isOpen, setIsOpen] = useState(false)
   };
   return (
     <>
+    <Header/>
     {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
 
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -75,6 +78,8 @@ const [isOpen, setIsOpen] = useState(false)
 
       </main>
     </div>}
+    <Footer/>
+
     </>
   )
 }
