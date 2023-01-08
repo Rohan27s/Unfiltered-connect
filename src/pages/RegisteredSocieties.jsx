@@ -7,6 +7,7 @@ import Footer from '../partials/Footer';
 
 
 import axios from 'axios';
+import Loading from '../partials/Loading';
 
 const RegisteredSocieties = () => {
   const [searchKey, setSearchKey] = useState('');
@@ -49,7 +50,7 @@ const RegisteredSocieties = () => {
 
   return (
     <>
-    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
+    {loading ? <Loading/> :
     <div>
       <Header/>
       <Header1 />

@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import axios from 'axios'
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
+import Loading from '../partials/Loading';
 const EventDetails = () => {
   const [upcomingEvent, setUpcomingEvent] = useState([]);
   const { _id } = useParams();
@@ -34,8 +35,9 @@ const [isOpen, setIsOpen] = useState(false)
   };
   return (
     <>
+    {loading ? <Loading/> :
+    <>
     <Header/>
-    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
 
     <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
@@ -80,8 +82,10 @@ const [isOpen, setIsOpen] = useState(false)
         </div>
 
       </main>
-    </div>}
     <Footer/>
+    </div>
+    </>
+    }
 
     </>
   )

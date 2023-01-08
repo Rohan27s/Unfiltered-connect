@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
+import Loading from '../partials/Loading';
 const PastEventDetails = () => {
   const [pastevent, setPastEvent] = useState([]);  
   const { _id } = useParams(); //Getting id from the url
@@ -23,9 +24,10 @@ const PastEventDetails = () => {
   }, []);
   return (
     <>
-    <Header/>
 
-    {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
+    {loading ? <Loading/> :
+    <>
+    <Header/>
 
       <div className="flex flex-col min-h-screen overflow-hidden">
         <main className="flex-grow">
@@ -68,8 +70,10 @@ const PastEventDetails = () => {
             </>:""}
           </div>
         </main>
-      </div>}
+      </div>
     <Footer/>
+      </>
+      }
 
     </>
   )

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from 'axios'
+import Loading from "./Loading";
 export default function CardComponent() {
     const [loading, setLoading] = useState(true);
     const [post, setPost] = React.useState([]);
@@ -13,7 +14,7 @@ export default function CardComponent() {
     }, []);
     return (
         <>
-            {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
+            {loading ? <Loading/> :
                 <section className="relative event-card-compo" >
                     <div style={{ marginTop: "15%" }} className="grid gap-8 lg:grid-cols-4">
 
