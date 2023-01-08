@@ -3,6 +3,8 @@ import { useParams } from 'react-router';
 import SimpleImageSlider from "react-simple-image-slider";
 import '../App.css'
 import axios from 'axios';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
 const SocietyDetails = () => {
   const { _id } = useParams(); //Getting id from the url
   const [society, setSociety] = useState(null);
@@ -34,6 +36,8 @@ const SocietyDetails = () => {
   ];
   return (
     <>
+      <Header/>
+
       {society ? (
         <div className='blog-wrap'>
           <div className="soc-banner">
@@ -73,6 +77,8 @@ const SocietyDetails = () => {
           <div className='loading'> <h1 >Loading...</h1></div>
         </>
       )}
+      <Footer/>
+
     </>
   );
 };
