@@ -26,9 +26,9 @@ const PastEventDetails = () => {
       <div className="flex flex-col min-h-screen overflow-hidden">
         <main className="flex-grow">
           <div className="cover">
-            <img className='banner-details' src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
+            <img className='banner-details' src="https://res.cloudinary.com/rohangotwal/image/upload/v1671699702/WhatsApp_Image_2022-12-22_at_14.30.39_k7pl8a.jpg" alt="" />
             <div className="overlay">
-
+              <div className='pastEvent'>
               <div className="soc-names">
                 <span>
                   <img className='soc-event-avatar' src={pastevent.Logo} alt='cover' />
@@ -37,6 +37,7 @@ const PastEventDetails = () => {
               <h2>organized</h2>
               <h3>{pastevent.title}</h3>
               <a href="#about1">View Highlights</a>
+              </div>
             </div>
           </div>
           <div className="gap" id="about1"></div>

@@ -75,14 +75,12 @@ body {
 }
 
 .overlay h2 {
-  margin-top: 16px;
-  margin-bottom: 1%;
+  margin-top: 21px;
   font-size: 30px;
   letter-spacing: 6px;
   font-weight: 900;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
-
 }
 
 .overlay h3 {
@@ -293,7 +291,13 @@ body {
   border-radius: 10px;
   margin: 0.5rem 0.5rem;
 }
-
+.pastEvent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
 .faqs h2 {
   margin-bottom: 2%;
   font-family: 'Pacifico', cursive;
@@ -463,11 +467,10 @@ body {
 }
 
 .soc-event-avatar {
-  width: 103px;
-  border-radius: 50px;
+  width: 166px;
+  border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 .right-arrow {
@@ -631,7 +634,7 @@ article.nextSlide {
 
 .medals {
   width: 150px;
-  margin-left: 27%;
+  margin-left: 31%;
 }
 
 .smalimg {
@@ -880,7 +883,6 @@ textarea {
     display: flex;
     justify-content: center;
     gap: 5%;
-    margin-top: 30%;
   }
 
   .overlay h2 {
