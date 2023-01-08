@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../partials/Header';
+import Footer from '../partials/Footer';
+
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 function SignIn() {
@@ -34,11 +36,11 @@ function SignIn() {
       <main className="flex-grow">
 
         <section >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="admin-signin max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
 
               {/* Page header */}
-              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+              <div className="max-w-3xl mx-auto text-center pb-2">
                 <h1 className="h1">Admin Login</h1>
               </div>
 
@@ -76,7 +78,7 @@ function SignIn() {
         </section>
 
       </main>
-
+      <Footer/>
     </div>
   );
 }
