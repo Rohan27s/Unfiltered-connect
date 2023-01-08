@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles.css';
 
-const Header = () => (
-  <header className='home-header' style={{marginTop:"10px"}}>
+const Header1 = () => (
+  <header className='home-header'>
     <h2>Presenting the societies of</h2>
     <h1>
       <span>“</span> Maharaja Surajmal Institute <span>”</span>
@@ -10,4 +10,4 @@ const Header = () => (
   </header>
 );
 
-export default Header;
+export default Header1;

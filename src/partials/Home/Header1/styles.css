@@ -1,10 +1,10 @@
 .home-header {
   text-align: center;
+  padding-top: 5%;
 }
 
 .home-header h2 {
   font-family: 'Dancing Script', cursive;
-
   color: black;
   font-size: 2rem;
   word-spacing: 2px;
@@ -16,7 +16,6 @@
 
   font-size: 4rem;
   color: #006dff;
-  /* margin-bottom: 0.5rem; */
   font-weight: 800;
 }
 
@@ -28,19 +27,27 @@
   color: #a9a9a9;
   font-weight: 500;
 }
-@media only screen and (max-width: 600px){
+
+@media only screen and (max-width: 600px) {
   .home-header h1 {
     font-size: 2.5rem;
   }
+
   .searchBar-wrap form {
     display: flex;
     align-items: center;
     width: 288px;
-}
-.blogItem-wrap {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
-  background: white;
-}
   }
+
+  .blogItem-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    background: white;
+  }
+
+  .home-header {
+    text-align: center;
+    padding-top: 23%;
+  }
+}
