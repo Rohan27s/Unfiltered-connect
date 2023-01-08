@@ -12,13 +12,13 @@ const SocietyItem = ({
   },
 }) => {
   return (
-        <Link className='blogItem-link' to={`/registered-societies/${_id}`}>
-    <div className='blogItem-wrap soc-single-card'>
-      <img className='blogItem-cover' src={cover} alt='cover' />
-      <Chip label={category} />
-      <h3>{name}</h3>
-    </div>
-        </Link>
+    <Link className='blogItem-link' to={`/registered-societies/${_id}`}>
+      <div className='blogItem-wrap soc-single-card'>
+        <img className='blogItem-cover' src={cover} alt='cover' />
+        <Chip label={category} />
+        <h3 style={{marginBottom:"7px"}}>{name}</h3>
+      </div>
+    </Link>
   );
 };
 
