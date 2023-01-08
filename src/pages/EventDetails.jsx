@@ -42,6 +42,8 @@ const [isOpen, setIsOpen] = useState(false)
         <div className="cover">
           <img className='banner-details' src="https://res.cloudinary.com/rohangotwal/image/upload/v1671699702/WhatsApp_Image_2022-12-22_at_14.30.39_k7pl8a.jpg" alt="" />
           <div className="overlay">
+              <div className='pastEvent'>
+
             <div className="soc-names">
               <span >
                 <img className='soc-event-avatar' src={upcomingEvent.Logo} alt='cover' />
@@ -53,6 +55,7 @@ const [isOpen, setIsOpen] = useState(false)
 
             <button onClick={() => openInNewTab(upcomingEvent.registerLink)}>Register Now</button>
             <a href="#about1">View More Details</a>
+            </div>
           </div>
         </div>
         <div className="gap" id="about1"></div>
