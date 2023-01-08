@@ -3,6 +3,8 @@ import emailjs from '@emailjs/browser';
 import axios from 'axios';
 function Newsletter() {
   const form = useRef();
+  const ref = useRef(null);
+
   const [email, setEmail] = useState("");
   const handleInput=(e)=>{
     e.preventDefault(e);
@@ -30,9 +32,12 @@ function Newsletter() {
         alert("Subcription Successfull!");
 
           console.log(JSON.stringify(response.data));
+          ref.current.value = '';
         })
         .catch(function (error) {
           alert("You are already subscribed")
+          ref.current.value = '';
+
         });
           console.log(result.text);
       }, (error) => {
@@ -85,7 +90,7 @@ function Newsletter() {
                 {/* CTA form */}
                 <form ref={form} onSubmit={submitEmail} className="w-full lg:w-auto">
                   <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:mx-0">
-                    <input type="email" onChange={handleInput}name="user_email"className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
+                    <input type="email" ref={ref} onChange={handleInput}name="user_email"className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
                     <button className="btn text-white bg-blue-600 hover:bg-blue-700 shadow" >Subscribe</button>
                   </div>
                 </form>

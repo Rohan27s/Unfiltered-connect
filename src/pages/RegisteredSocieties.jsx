@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import SocietyList from '../partials/Home/SocietyList';
 import SearchBar from '../partials/Home/SearchBar';
 import Header from '../partials/Home/Header';
+import Header1 from '../partials/Header';
+import Footer from '../partials/Footer';
+
+
 import axios from 'axios';
 
 const RegisteredSocieties = () => {
@@ -47,7 +51,7 @@ const RegisteredSocieties = () => {
     <>
     {loading ? <div className='loading'> <h1 >Loading...</h1></div> :
     <div>
-
+      <Header1/>
       <Header />
       <SearchBar
         post={post}
@@ -56,6 +60,7 @@ const RegisteredSocieties = () => {
       <div className='soc-card'>
         <SocietyList searchResult={searchResult}/>
       </div>
+      <Footer/>
     </div>}
     </>
   );

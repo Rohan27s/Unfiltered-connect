@@ -762,12 +762,30 @@ textarea {
   cursor: pointer;
   float: right;
 }
-.event-card-compo{
-   display: flex;
-   justify-content: center;
+
+.event-card-compo {
+  display: flex;
+  justify-content: center;
 }
+
+.stepimg {
+  margin-top: 50%;
+}
+
+.hero-container {
+  height: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Mobile view css */
 @media only screen and (max-width: 500px) {
+  .stepimg {
+    margin-top: 15%;
+  }
+
   .home-a {
     margin: 20px 0;
   }
@@ -830,7 +848,7 @@ textarea {
     position: fixed;
     width: 100vw;
     z-index: 99;
-}
+  }
 
   .bottombar li button {
     text-transform: uppercase;
@@ -838,13 +856,15 @@ textarea {
     font-weight: 600;
     font-size: 17px;
   }
-  .event-card-compo{
+
+  .event-card-compo {
     margin: auto;
     width: 80%;
     padding: 12% 0 0 0;
     display: flex;
     justify-content: center;
   }
+
   .overlay h3 {
     font-family: 'Dancing Script', cursive;
     font-size: 50px;
@@ -853,91 +873,102 @@ textarea {
     text-transform: initial;
     font-weight: 700;
     letter-spacing: 7px;
-}
-.soc-names {
-  display: flex;
-  justify-content: center;
-  gap: 5%;
-  margin-top: 30%;
-}
-.overlay h2 {
-  margin-top: 16px;
-  margin-bottom: 1%;
-  font-size: 25px;
-  letter-spacing: 6px;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-  text-transform: uppercase;
-}
-.content h1 {
-  margin-bottom: 1%;
-  font-family: 'Pacifico', cursive;
-  text-align: center;
-  font-weight: 800;
-  font-size: 32px;
-  color: #000000;
-}
-.content {
-  width: 90%;
-  margin: 18% auto 8% auto;
-  text-align: center;
-  box-shadow: 1px 1px 1px 1px #615b5b;
-  border-radius: 12px;
-  border: 3px solid #006dff;
-  padding: 0.5rem;
-}
-.content ul {
-  border: 2px solid #2b2a2a;
-  padding: 14px;
-  margin-top: 5%;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px 2px #a9a5a5;
-}
-.faqs {
-  width: 100%;
-  margin-top: 33px;
-  padding: 0;
-}
-.winner-head {
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 4%;
-  margin-bottom: 4%;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+  }
 
-.medals {
-  width: 150px;
-  margin-left: 0;
-}
-.oneline span {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  float: inline-start;
-  font-size: 15px;
-  font-weight: 700;
-}
-.admin-nav ul li {
-  padding: 0;
-  font-size: 18px;
-  margin-right: 1%;
-  display: inline-block;
-  color: white;
-}
-.default-admin h1 {
-  font-size: 74px;
-  position: relative;
-  text-align: center;
-  margin-top: 20vh;
-  height: 100vh;
-  font-family: 'Dancing Script', cursive;
-}
-.admin-container {
-  width: 100%;
-  margin: auto;
-}
+  .soc-names {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 30%;
+  }
+
+  .overlay h2 {
+    margin-top: 16px;
+    margin-bottom: 1%;
+    font-size: 25px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+  }
+
+  .content h1 {
+    margin-bottom: 1%;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-weight: 800;
+    font-size: 32px;
+    color: #000000;
+  }
+
+  .content {
+    width: 90%;
+    margin: 18% auto 8% auto;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px #615b5b;
+    border-radius: 12px;
+    border: 3px solid #006dff;
+    padding: 0.5rem;
+  }
+
+  .content ul {
+    border: 2px solid #2b2a2a;
+    padding: 14px;
+    margin-top: 5%;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 2px 2px #a9a5a5;
+  }
+
+  .faqs {
+    width: 100%;
+    margin-top: 33px;
+    padding: 0;
+  }
+
+  .winner-head {
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .medals {
+    width: 150px;
+    margin-left: 0;
+  }
+
+  .oneline span {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    float: inline-start;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .admin-nav ul li {
+    padding: 0;
+    font-size: 18px;
+    margin-right: 1%;
+    display: inline-block;
+    color: white;
+  }
+
+  .default-admin h1 {
+    font-size: 74px;
+    position: relative;
+    text-align: center;
+    margin-top: 20vh;
+    height: 100vh;
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .admin-container {
+    width: 100%;
+    margin: auto;
+  }
 }

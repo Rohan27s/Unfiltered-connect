@@ -13,7 +13,7 @@ function Features() {
   }, [tab])
 
   return (
-    <section className="relative">
+    <section className="relative" style={{ paddingBottom: "3.5%"}}>
       <div className="absolute inset-0 bg-gray-100 pointer-events-none" aria-hidden="true"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -85,7 +85,7 @@ function Features() {
             </div>
 
             {/* Tabs items */}
-            <div style={{ marginTop: "37%" }} className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="zoom-y-out" ref={tabs}>
+            <div  className="stepimg max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="zoom-y-out" ref={tabs}>
               <div className="relative flex flex-col text-center lg:text-right">
                 {/* Item 1 */}
                 <Transition

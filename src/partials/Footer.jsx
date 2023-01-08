@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-full mx-auto px-1 sm:px-6">
 
         {/* Top area: Blocks */}
         <div className="grid sm:grid-cols-12 gap-8 py-8 md:py-12 border-t border-gray-200">
@@ -27,7 +27,7 @@ function Footer() {
 
 
           {/* Copyrights note */}
-          <div className="text-sm text-wheat-600 mr-4">Made by Rohan, Akshat Jain & Raghav Sharma <br />All rights reserved.</div>
+          <div className="text-sm text-wheat-600 mr-4">Made by Akshat Jain, Raghav Sharma & Rohan.<br />All rights reserved.</div>
 
         </div>
 

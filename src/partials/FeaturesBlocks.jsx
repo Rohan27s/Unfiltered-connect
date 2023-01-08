@@ -2,8 +2,8 @@ import React from 'react';
 
 function FeaturesBlocks() {
   return (
-    <section className="relative" style={{marginTop: "7%"}}>
-      <div className="absolute inset-0  md:mt-24 lg:mt-0 bg-gray-900 pointer-events-none" aria-hidden="true"></div>
+    <section className="relative" >
+      <div style={{paddingTop:"4.5%"}}className="absolute inset-0  md:mt-24 lg:mt-0 bg-gray-900 pointer-events-none" aria-hidden="true"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
