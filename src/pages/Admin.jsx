@@ -5,6 +5,8 @@ import RegisterSociety from '../partials/admin/RegisterSociety';
 import Default from '../partials/admin/Default';
 import { useNavigate } from "react-router-dom";
 import RegisterPastEvent from '../partials/admin/RegisterPastEvent';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
 const Admin = () => {
   let navigate = useNavigate(); 
   const [isActive, setActive] = useState(false);
@@ -39,6 +41,8 @@ const Admin = () => {
       }
     const [curr, setCurr] = useState(<Default/>);  
     return (
+      <>
+      {/* <Header/> */}
         <div className='main-admin'>           
             <div className="admin-nav">
                 <button className="logout"onClick={handleLogout}>Logout</button>
@@ -55,6 +59,9 @@ const Admin = () => {
                 {curr}
             </div>
         </div>
+      {/* <Footer/> */}
+
+        </>
     )
 }
 
