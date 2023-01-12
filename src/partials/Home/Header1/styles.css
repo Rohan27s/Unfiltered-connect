@@ -36,7 +36,8 @@
   .searchBar-wrap form {
     display: flex;
     align-items: center;
-    width: 288px;
+    width: 90%;
+    margin:auto;
   }
 
   .blogItem-wrap {

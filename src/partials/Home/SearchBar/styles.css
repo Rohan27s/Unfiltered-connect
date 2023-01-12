@@ -43,7 +43,7 @@
   .searchBar-wrap form {
     display: flex;
     align-items: center;
-    width: 288px;
+    width: 90%;
   }
 
   .blogItem-wrap {
@@ -52,4 +52,11 @@
     margin-bottom: 0;
     background: white;
   }
+  .searchBar-wrap input {
+    background-color: #f0f0f0;
+    border: none;
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+}
 }

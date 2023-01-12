@@ -19,6 +19,8 @@ export default function CardComponent() {
                     <div style={{ marginTop: "15%" }} className="grid gap-8 lg:grid-cols-4">
 
                         {post.map((items, key) => (
+                                    <a href={`/event-details/${items._id}`} >
+
                             <div className="eventcards w-full rounded-lg shadow-md lg:max-w-sm" key={items.title}>
                                 <img
                                     className="object-cover w-full h-60"
@@ -36,11 +38,11 @@ export default function CardComponent() {
                                     <p className="mb-2 leading-normal font-semibold">
                                         Date: {items.date}
                                     </p>
-                                    <a href={`/event-details/${items._id}`} className="px-4  py-2 my-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
-                                        View Event ➝
-                                    </a>
+                                        
                                 </div>
                             </div>
+                            </a>
+
                         ))}
                     </div>
                 </section>}

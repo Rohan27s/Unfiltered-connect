@@ -461,7 +461,13 @@ body {
 
 .eventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  ;
+  height: 60vh;
+  width: 250px;
+  background: white;
+}
+.pasteventcards {
+  box-shadow: 5px 4px 4px #a09f9f;
+  height: 47vh;
   width: 250px;
   background: white;
 }
@@ -982,6 +988,18 @@ textarea {
 }
 .admin-signin{
   margin-top: 20%;
+}
+.eventcards {
+  box-shadow: 5px 4px 4px #a09f9f;
+  height: 51vh;
+  width: 250px;
+  background: white;
+}
+.pasteventcards {
+  box-shadow: 5px 4px 4px #a09f9f;
+  height: 41vh;
+  width: 250px;
+  background: white;
 }
 }
 .center{
