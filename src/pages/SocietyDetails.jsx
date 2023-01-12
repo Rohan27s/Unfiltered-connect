@@ -35,6 +35,18 @@ const SocietyDetails = () => {
     { url: url2 },
     { url: url3 },
   ];
+  const hasWindow = typeof window !== 'undefined';
+  const width1 = hasWindow ? window.innerWidth : null;
+  const height1 = hasWindow ? window.innerHeight : null;
+  var width,height;
+  if(height1>width1){
+    width=width1;
+    height='20vh';
+  }
+  else{
+    width=width1;
+    height='80vh';
+  }
   return (
     <>
 
@@ -65,8 +77,8 @@ const SocietyDetails = () => {
             </div>
             <div className='slider'>
               <SimpleImageSlider
-                width={"90%"}
-                height={"90vh"}
+                width={width}
+                height={height}
                 images={images}
                 showBullets={true}
                 showNavs={true}
