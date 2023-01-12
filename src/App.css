@@ -461,13 +461,13 @@ body {
 
 .eventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 60vh;
+  height: 438px;
   width: 250px;
   background: white;
 }
 .pasteventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 47vh;
+  height: 345px;
   width: 250px;
   background: white;
 }
@@ -991,13 +991,13 @@ textarea {
 }
 .eventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 51vh;
+  height: 428px;
   width: 250px;
   background: white;
 }
 .pasteventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 41vh;
+  height: 352px;
   width: 250px;
   background: white;
 }
