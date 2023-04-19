@@ -18,7 +18,7 @@ select:focus {
 
 body {
   background: url('https://res.cloudinary.com/rohangotwal/image/upload/v1672657967/Blog/Background_4_btkrgn.jpg');
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 
@@ -29,6 +29,9 @@ body {
 .cover {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+.head-admin{
   position: relative;
 }
 
@@ -290,6 +293,11 @@ body {
   padding: 0.5rem;
   border-radius: 10px;
   margin: 0.5rem 0.5rem;
+  
+}
+.bottom-nav-admin{
+  display: flex;
+  justify-content: center;
 }
 .pastEvent{
   display: flex;
@@ -650,8 +658,13 @@ article.nextSlide {
 
 .admin-nav {
   display: flex;
-  flex-direction: row;
-  background-color: rgb(41, 148, 237);
+  flex-direction: column;
+  background-color: rgba(64, 157, 232, 0.514);
+  position: fixed;
+  left: 0;
+  width: 20vw;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 .admin-nav ul {
@@ -659,11 +672,19 @@ article.nextSlide {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .admin-container {
-  width: 90%;
+  position: absolute;
+  width: 80vw;
   margin: auto;
+  right: 0;
+}
+.main-admin{
+  display: flex;
+  /* flex-direction: row; */
 }
 
 .admin-nav ul li {

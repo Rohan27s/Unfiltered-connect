@@ -2,7 +2,9 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import emailjs from '@emailjs/browser';
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
 const RegisterEvent = () => {
   const ref = useRef(null);
   const ref1 = useRef(null);
@@ -119,7 +121,7 @@ const RegisterEvent = () => {
         <h3>Question: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref10} type="text" name="question1" placeholder='Please enter the  question' onChange={handleChange} required />
         <h3>Answer: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref11} type="text" name="answer1" placeholder='Please enter the answer for the above question' onChange={handleChange} required />
 
-        <div><button type="submit" id="submit-form">Submit</button></div>
+        <div><button type="submit" id="submit-form">Publish</button></div>
       </form>
     </div>
   )
