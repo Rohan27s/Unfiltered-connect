@@ -1,6 +1,10 @@
 import React from 'react'
 import { useState,useRef } from 'react'
 import axios from  'axios'
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const RegisterPastEvent = () => {
   const ref = useRef(null);
@@ -73,6 +77,8 @@ const RegisterPastEvent = () => {
       console.log(error);
     });
   }
+  const [startDate, setStartDate] = useState(new Date());
+
 
   return (
     <div className='register-event'>
@@ -84,7 +90,9 @@ const RegisterPastEvent = () => {
         <h3>Society Logo: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref3} type="text" name="Logo" placeholder='Please enter the url for logo of the society' onChange={handleChange} required />
         <h3>Event Poster: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref4} type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
         <h3>Description: <p style={{color:'red',display:'inline'}}>*</p></h3><textarea ref={ref5} type="text" name="description" placeholder='Please enter the description of the society' onChange={handleChange} required />
-        <h3>Event Date: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref6} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required />
+        {/* <h3>Event Date: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref6} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required /> */}
+        <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+        
         <h3>Venue: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref7} type="text" name="venue" placeholder='Please enter the venue of the event' onChange={handleChange} required />
         <h3>Time: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref8} type="text" name="time" placeholder='Please enter the time of the event' onChange={handleChange} required />       
 
