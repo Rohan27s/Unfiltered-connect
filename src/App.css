@@ -808,7 +808,72 @@ textarea {
   justify-content: center;
   align-items: center;
 }
-
+.time-range{
+  /* width: 20vw; */
+}
+.time-range-picker{
+  display: flex;
+  align-items: center;
+  border: none;
+  gap: 20px;
+  /* height: 50px; */
+}
+.react-timerange-picker__wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  align-items: center;
+  border: thin solid gray;
+  background: white!important;
+  border-radius: 1.3rem!important;
+}
+.time-range-picker input{
+  /* height: 50px; */
+width: 25px;
+margin: 0;
+border-radius: 0%;
+width: auto!important;
+text-align: center;
+}
+.react-timerange-picker__inputGroup__input:invalid {
+  /* background: rgba(230, 227, 227, 0.1)!important; */
+  background: none!important;
+}
+.pos-holders{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+.event-winner-head{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.event-winner-head button{
+  background-color: #006dff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0.3rem;
+}
+.faq-list{
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+  /* align-items: center; */
+}
+.society-names{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.society-names li{
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.208);
+  padding: 15px 0;
+}
 /* Mobile view css */
 @media only screen and (max-width: 500px) {
   .stepimg {
