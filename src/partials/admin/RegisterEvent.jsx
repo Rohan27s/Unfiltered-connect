@@ -20,8 +20,8 @@ const RegisterEvent = () => {
   const [details, setDetails] = useState({
     title: "",
     content: "",
-    Name: "",
-    Logo: "",
+    name: "",
+    logo: "",
     registerLink: "",
     description: "",
     date: "",
@@ -56,12 +56,14 @@ const RegisterEvent = () => {
       });
   }, [emails]);
   
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //API call for saving the new event in our MongoDB
     const societies = societyinputValues.map(({ name, logo }) => ({ name, logo }));
-    const newDetails = { ...details, societies };
+    const faq = faqinputValues.map(({ question, answer }) => ({ question, answer }));
+    const newDetails = { ...details, societies, faq };
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
@@ -143,10 +145,10 @@ const RegisterEvent = () => {
     setfaqInputValues(newInputValues);
     // add the faq name and logo to details
     const societies = newInputValues.map((faq) => ({
-      name: faq.name,
-      logo: faq.logo
+      name: faq.question,
+      logo: faq.answer
     }));
-    setDetails((prevDetails) => ({ ...prevDetails, societies }));
+    setDetails((prevDetails) => ({ ...prevDetails, faq }));
   };
   
 
