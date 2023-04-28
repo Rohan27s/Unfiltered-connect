@@ -869,7 +869,7 @@ text-align: center;
   flex-direction: column;
   margin-bottom: 50px;
 }
-.society-names li{
+.society-names li,.faq-list li{
   list-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.208);
   padding: 15px 0;

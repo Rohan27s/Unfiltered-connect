@@ -8,6 +8,13 @@ import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
 import 'react-clock/dist/Clock.css';
 const RegisterEvent = () => {
   const formRef = useRef(null);
+  const [startDate, setStartDate] = useState(new Date());
+  
+  const [societyinputValues, setsocietyInputValues] = useState([{ name: "", logo: "" }]);
+  const [societyComponent, setsocietyComponent] = useState([]);
+
+  const [faqinputValues, setfaqInputValues] = useState([{ question: "", answer: "" }]);
+  const [faqComponent, setfaqComponent] = useState([]);
 
   const [emails, setEmails] = useState();
   const [details, setDetails] = useState({
@@ -53,13 +60,15 @@ const RegisterEvent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //API call for saving the new event in our MongoDB
+    const societies = societyinputValues.map(({ name, logo }) => ({ name, logo }));
+    const newDetails = { ...details, societies };
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
       headers: {
         'Content-Type': 'application/json'
       },
-      data: details
+      data: newDetails
     };
 
     axios(config)
@@ -96,8 +105,9 @@ const RegisterEvent = () => {
         // console.log(error);
       });
   }
-  const [societyinputValues, setsocietyInputValues] = useState([]);
-  const [societyComponent, setsocietyComponent] = useState([]);
+
+
+
   const societyhandleInputChange = (e, index, field) => {
     const newInputValues = [...societyinputValues];
     if (!newInputValues[index]) {
@@ -105,19 +115,48 @@ const RegisterEvent = () => {
     }
     newInputValues[index][field] = e.target.value;
     setsocietyInputValues(newInputValues);
+    // add the society name and logo to details
+    const societies = newInputValues.map((society) => ({
+      name: society.name,
+      logo: society.logo
+    }));
+    setDetails((prevDetails) => ({ ...prevDetails, societies }));
   };
+  
 
-  const [startDate, setStartDate] = useState(new Date());
   const addSociety = (e) => {
     e.preventDefault();
-    console.log(societyinputValues);
-
     setsocietyComponent([...societyComponent, <li key={societyComponent.length}>
       <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "name")} name="Name" placeholder='Please enter the names of the society'  required />
       <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "logo")} name="Logo" placeholder='Please enter the url for logo of the society'  required />
     </li>]);
   }
 
+
+
+  const faqhandleInputChange = (e, index, field) => {
+    const newInputValues = [...faqinputValues];
+    if (!newInputValues[index]) {
+      newInputValues[index] = {};
+    }
+    newInputValues[index][field] = e.target.value;
+    setfaqInputValues(newInputValues);
+    // add the faq name and logo to details
+    const societies = newInputValues.map((faq) => ({
+      name: faq.name,
+      logo: faq.logo
+    }));
+    setDetails((prevDetails) => ({ ...prevDetails, societies }));
+  };
+  
+
+  const addfaq = (e) => {
+    e.preventDefault();
+    setfaqComponent([...faqComponent, <li key={faqComponent.length}>
+      <h3>Question <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "question")} name="Question" placeholder='Please enter the question'  required />
+      <h3>Answer <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "answer")} name="Answer" placeholder='Please enter the answer'  required />
+    </li>]);
+  }
 
   return (
     <div className='register-event'>
@@ -127,7 +166,7 @@ const RegisterEvent = () => {
         <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" name="content" placeholder='Please enter the names of the societies/presenters' onChange={handleChange} required />
         <div className="event-winner-head">
           <h2>Hosting Societies:</h2>
-          <button onClick={addSociety} >Add more</button>
+          <button onClick={addSociety} name="addSocietyButton">Add more</button>
         </div>
         <div className="society-names">
         {societyComponent.map((element) => (
@@ -148,12 +187,13 @@ const RegisterEvent = () => {
 
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
-          <button >Add more</button>
+          <button onClick={addfaq} name="addfaqButton">Add more</button>
         </div>
         <div className="faq-list">
-          <h3>Question: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" name="question1" placeholder='Please enter the  question' onChange={handleChange} required />
-          <h3>Answer: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="answer1" placeholder='Please enter the answer for the above question' onChange={handleChange} required />
-          {/* {positions} */}
+        {faqComponent.map((element) => (
+          // Render each element in the list array
+          element
+        ))}
         </div>
         <div><button type="submit" id="submit-form">Publish</button></div>
       </form>

@@ -7,18 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const RegisterPastEvent = () => {
-  const ref = useRef(null);
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const ref4 = useRef(null);
-  const ref5 = useRef(null);
-  const ref6 = useRef(null);
-  const ref7 = useRef(null);
-  const ref8 = useRef(null);
-  const ref9 = useRef(null);
-  const ref10 = useRef(null);
-  const ref11 = useRef(null);
+  const formRef = useRef(null);
+
   const [details, setDetails] = useState({
     title: "",
     content: "",
@@ -58,19 +48,21 @@ const RegisterPastEvent = () => {
       .then(function (response) {
         alert("Past Event Registered Successfully");
         console.log(JSON.stringify(response.data));
-        setDetails("");
-        ref.current.value = '';
-        ref1.current.value = '';
-        ref2.current.value = '';
-        ref3.current.value = '';
-        ref4.current.value = '';
-        ref5.current.value = '';
-        ref6.current.value = '';
-        ref7.current.value = '';
-        ref8.current.value = '';
-        ref9.current.value = '';
-        ref10.current.value = '';
-        ref11.current.value = '';
+        setDetails({
+          title: "",
+          content: "",
+          Name: "",
+          Logo: "",
+          description: "",
+          date: "",
+          venue: "",
+          time: "",
+          img: "",
+          First: "",
+          Second: "",
+          Third: ""
+        });
+        formRef.current.reset();
       })
       .catch(function (error) {
         alert("Error! Please Try Again")
@@ -78,27 +70,23 @@ const RegisterPastEvent = () => {
         console.log(error);
       });
   }
-  const [startDate, setStartDate] = useState(new Date());
-  // const addmorePositions = () => {
-  //   setpositions(positions+<><h3>Position Name</h3><input type="text" placeholder='Please enter the name of the position' />
-  //   <h3>Position Holder</h3><input placeholder='Please enter the name of position holder' /></>)
-  // }
 
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div className='register-event'>
       <h1>Register a past Event</h1>
-      <form onSubmit={handleSubmit}>
-        <h3>Event Title <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref} type="text" name="title" placeholder='Please enter the name of the event' onChange={handleChange} required />
-        <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref2} type="text" name="Name" placeholder='Please enter the names of the society' onChange={handleChange} required />
-        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref1} type="text" name="content" placeholder='Please enter the names of the societies/presenters' onChange={handleChange} required />
-        <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref3} type="text" name="Logo" placeholder='Please enter the url for logo of the society' onChange={handleChange} required />
-        <h3>Event Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref4} type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
-        <h3>Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><textarea ref={ref5} type="text" name="description" placeholder='Please enter the description of the society' onChange={handleChange} required />
-        {/* <h3>Event Date: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref6} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required /> */}
+      <form onSubmit={handleSubmit} ref={formRef}>
+        <h3>Event Title <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="title" placeholder='Please enter the name of the event' onChange={handleChange} required />
+        <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="Name" placeholder='Please enter the names of the society' onChange={handleChange} required />
+        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="content" placeholder='Please enter the names of the societies/presenters' onChange={handleChange} required />
+        <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="Logo" placeholder='Please enter the url for logo of the society' onChange={handleChange} required />
+        <h3>Event Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
+        <h3>Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><textarea type="text" name="description" placeholder='Please enter the description of the society' onChange={handleChange} required />
+        {/* <h3>Event Date: <p style={{color:'red',display:'inline'}}>*</p></h3><input} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required /> */}
         <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
 
-        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref7} type="text" name="venue" placeholder='Please enter the venue of the event' onChange={handleChange} required />
-        {/* <h3>Time: <p style={{color:'red',display:'inline'}}>*</p></h3><input ref={ref8} type="text" name="time" placeholder='Please enter the time of the event' onChange={handleChange} required />        */}
+        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="venue" placeholder='Please enter the venue of the event' onChange={handleChange} required />
+        {/* <h3>Time: <p style={{color:'red',display:'inline'}}>*</p></h3><input} type="text" name="time" placeholder='Please enter the time of the event' onChange={handleChange} required />        */}
 
         <div className="event-winner-head">
           <h2>Event  Winners</h2>
