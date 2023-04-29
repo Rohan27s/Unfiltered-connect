@@ -727,7 +727,16 @@ background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, F
   background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #7BC6CC, #BE93C5);
 }
-
+.dynamic-single-buttons{
+  display: flex;
+  justify-content: end;
+}
+.remove-btn{
+  background-color: rgba(255, 0, 0, 0.593);
+  padding: 10px 15px;
+  border-radius: 0.3rem;
+  color: white;
+}
 .active {
   text-decoration: underline;
 }

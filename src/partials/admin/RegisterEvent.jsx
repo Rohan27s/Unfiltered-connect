@@ -9,27 +9,23 @@ import 'react-clock/dist/Clock.css';
 const RegisterEvent = () => {
   const formRef = useRef(null);
   const [startDate, setStartDate] = useState(new Date());
-  
+
   const [societyinputValues, setsocietyInputValues] = useState([{ name: "", logo: "" }]);
   const [societyComponent, setsocietyComponent] = useState([]);
 
-  const [faqinputValues, setfaqInputValues] = useState([{ question: "", answer: "" }]);
+  const [faqinputValues, setfaqInputValues] = useState([{ ques: "", ans: "" }]);
   const [faqComponent, setfaqComponent] = useState([]);
 
   const [emails, setEmails] = useState();
   const [details, setDetails] = useState({
     title: "",
     content: "",
-    name: "",
-    logo: "",
     registerLink: "",
     description: "",
     date: "",
     venue: "",
     time: "",
     img: "",
-    question1: "",
-    answer1: ""
   })
 
   const handleChange = (e) => {
@@ -55,15 +51,19 @@ const RegisterEvent = () => {
         console.log(error);
       });
   }, [emails]);
-  
-  
+
+
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //API call for saving the new event in our MongoDB
     const societies = societyinputValues.map(({ name, logo }) => ({ name, logo }));
-    const faq = faqinputValues.map(({ question, answer }) => ({ question, answer }));
+    const faq = faqinputValues.map(({ ques, ans }) => ({ ques, ans }));
     const newDetails = { ...details, societies, faq };
+    console.log(newDetails);
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
@@ -76,39 +76,55 @@ const RegisterEvent = () => {
     axios(config)
       .then(function (response) {
         alert("New Event Registered Successfully");
-        console.log(JSON.stringify(response.data));
-        emails.map((data) => (
-          emailjs.send('unfilteredconnect', 'template_ypg5vgn', data, 'IzhHvKXIND2eDZuyD')
-            .then((result) => {
-              // console.log(result.text);
-            }).catch((result) => {
-              // console.log(result.text);
-            })
-        ))
+        // console.log(JSON.stringify(response.data));
+        // emails.map((data) => (
+        //   emailjs.send('unfilteredconnect', 'template_ypg5vgn', data, 'IzhHvKXIND2eDZuyD')
+        //     .then((result) => {
+        //       // console.log(result.text);
+        //     }).catch((result) => {
+        //       // console.log(result.text);
+        //     })
+        // ))
         setDetails({
           title: "",
           content: "",
-          Name: "",
-          Logo: "",
           registerLink: "",
           description: "",
           date: "",
           venue: "",
           time: "",
           img: "",
-          question1: "",
-          answer1: ""
         });
-        
         formRef.current.reset();
       })
       .catch(function (error) {
         alert("Error! Please Try Again")
-        // console.log(error);
       });
   }
 
+  const handleRemoveSocietyFields = (e, index) => {
+    e.preventDefault();
+    const newSocietyComponent = [...societyComponent];
+    const newSocietyInputValues = [...societyinputValues];
+    newSocietyComponent.splice(index, 1);
+    newSocietyInputValues.splice(index, 1);
+    setsocietyComponent(newSocietyComponent);
+    setsocietyInputValues(newSocietyInputValues);
+  };
 
+
+  const handleRemoveFaqFields = (e, index) => {
+    e.preventDefault();
+
+    const newFaqComponent = [...faqComponent];
+    newFaqComponent.splice(index, 1);
+
+    const newFaqInputValues = [...faqinputValues];
+    newFaqInputValues.splice(index, 1);
+
+    setfaqComponent(newFaqComponent);
+    setfaqInputValues(newFaqInputValues);
+  };
 
   const societyhandleInputChange = (e, index, field) => {
     const newInputValues = [...societyinputValues];
@@ -117,21 +133,40 @@ const RegisterEvent = () => {
     }
     newInputValues[index][field] = e.target.value;
     setsocietyInputValues(newInputValues);
-    // add the society name and logo to details
-    const societies = newInputValues.map((society) => ({
-      name: society.name,
-      logo: society.logo
-    }));
-    setDetails((prevDetails) => ({ ...prevDetails, societies }));
+    console.log(societyinputValues);
   };
-  
+
+
 
   const addSociety = (e) => {
     e.preventDefault();
-    setsocietyComponent([...societyComponent, <li key={societyComponent.length}>
-      <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "name")} name="Name" placeholder='Please enter the names of the society'  required />
-      <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "logo")} name="Logo" placeholder='Please enter the url for logo of the society'  required />
-    </li>]);
+    const newSocietyComponent = [
+      ...societyComponent,
+      <li key={societyComponent.length}>
+        <div className="dynamic-single-buttons">
+          <button className='remove-btn' onClick={(e) => handleRemoveSocietyFields(e, societyComponent.length)}>Remove</button>
+        </div>
+        <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "name")} name="Name" placeholder='Please enter the names of the society' required />
+        <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "logo")} name="Logo" placeholder='Please enter the url for the logo of the society' required />
+      </li>
+    ];
+    setsocietyComponent(newSocietyComponent);
+    const newSocietyInputValues = [...societyinputValues, { name: "", logo: "" }];
+    setsocietyInputValues(newSocietyInputValues);
+  };
+  const addfaq = (e) => {
+    e.preventDefault();
+    const newFaqComponent = [...faqComponent, <li key={faqComponent.length}>
+      <div className="dynamic-single-buttons"> <button className='remove-btn' onClick={(e) => handleRemoveFaqFields(e, faqComponent.length)}>Remove</button></div>
+      <h3>Question <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "ques")} name="Question" placeholder='Please enter the question' required />
+      <h3>Answer <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "ans")} name="Answer" placeholder='Please enter the answer' required />
+    </li>];
+    setfaqComponent(newFaqComponent);
+    const newfaqInputValues = [...faqinputValues, { ques: "", ans: "" }];
+    setfaqInputValues(newfaqInputValues);
+
   }
 
 
@@ -143,40 +178,27 @@ const RegisterEvent = () => {
     }
     newInputValues[index][field] = e.target.value;
     setfaqInputValues(newInputValues);
-    // add the faq name and logo to details
-    const societies = newInputValues.map((faq) => ({
-      name: faq.question,
-      logo: faq.answer
-    }));
-    setDetails((prevDetails) => ({ ...prevDetails, faq }));
+    console.log(faqinputValues);
   };
   
-
-  const addfaq = (e) => {
-    e.preventDefault();
-    setfaqComponent([...faqComponent, <li key={faqComponent.length}>
-      <h3>Question <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "question")} name="Question" placeholder='Please enter the question'  required />
-      <h3>Answer <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "answer")} name="Answer" placeholder='Please enter the answer'  required />
-    </li>]);
-  }
 
   return (
     <div className='register-event'>
       <h1>Register a New Event</h1>
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Event Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" name="title" placeholder='Please enter the name of the event' onChange={handleChange} required />
-        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" name="content" placeholder='Please enter the names of the societies/presenters' onChange={handleChange} required />
+        <h3>Event Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="title" placeholder='Please enter the name of the event' onChange={handleChange} required />
+        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="content" placeholder='Please enter the names of the societies/presenters' onChange={handleChange} required />
         <div className="event-winner-head">
           <h2>Hosting Societies:</h2>
           <button onClick={addSociety} name="addSocietyButton">Add more</button>
         </div>
         <div className="society-names">
-        {societyComponent.map((element) => (
-          // Render each element in the list array
-          element
-        ))}
+          {societyComponent.map((element) => (
+            // Render each element in the list array
+            element
+          ))}
         </div>
-        <h3>Event Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input  type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
+        <h3>Event Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
         <h3>Registration Link: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="registerLink" placeholder='Please enter the url for the registrations of the event' onChange={handleChange} required />
         <h3>Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><textarea type="text" name="description" placeholder='Please enter the description of the society' onChange={handleChange} required />
         {/* <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref7} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required /> */}
@@ -190,12 +212,13 @@ const RegisterEvent = () => {
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
           <button onClick={addfaq} name="addfaqButton">Add more</button>
+
         </div>
         <div className="faq-list">
-        {faqComponent.map((element) => (
-          // Render each element in the list array
-          element
-        ))}
+          {faqComponent.map((element) => (
+            // Render each element in the list array
+            element
+          ))}
         </div>
         <div><button type="submit" id="submit-form">Publish</button></div>
       </form>
