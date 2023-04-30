@@ -53,10 +53,6 @@ const RegisterEvent = () => {
   }, [emails]);
 
 
-
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     //API call for saving the new event in our MongoDB
@@ -112,7 +108,6 @@ const RegisterEvent = () => {
     setsocietyInputValues(newSocietyInputValues);
   };
 
-
   const handleRemoveFaqFields = (e, index) => {
     e.preventDefault();
 
@@ -128,15 +123,12 @@ const RegisterEvent = () => {
 
   const societyhandleInputChange = (e, index, field) => {
     const newInputValues = [...societyinputValues];
-    if (!newInputValues[index]) {
-      newInputValues[index] = {};
-    }
-    newInputValues[index][field] = e.target.value;
+    const newValue = e.target.value;
+    newInputValues[index] = { ...newInputValues[index], [field]: newValue };
     setsocietyInputValues(newInputValues);
     console.log(societyinputValues);
+
   };
-
-
 
   const addSociety = (e) => {
     e.preventDefault();
@@ -169,8 +161,6 @@ const RegisterEvent = () => {
 
   }
 
-
-
   const faqhandleInputChange = (e, index, field) => {
     const newInputValues = [...faqinputValues];
     if (!newInputValues[index]) {
@@ -180,7 +170,7 @@ const RegisterEvent = () => {
     setfaqInputValues(newInputValues);
     console.log(faqinputValues);
   };
-  
+
 
   return (
     <div className='register-event'>
