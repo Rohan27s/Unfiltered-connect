@@ -730,6 +730,8 @@ background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, F
 .dynamic-single-buttons{
   display: flex;
   justify-content: end;
+  gap: 10px;
+  
 }
 .remove-btn{
   background-color: rgba(255, 0, 0, 0.593);
@@ -817,7 +819,12 @@ textarea {
 .stepimg {
   margin-top: 50%;
 }
-
+.save-btn{
+  background-color: #00000089;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0.3rem;
+}
 .hero-container {
   height: 100vh;
   height: 100vh;
@@ -827,6 +834,15 @@ textarea {
 }
 .time-range{
   /* width: 20vw; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+.from-time,.to-time{
+  display: flex;
+  flex-direction: column;
 }
 .time-range-picker{
   display: flex;

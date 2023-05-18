@@ -1,17 +1,29 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from 'axios'
 import Loading from "./Loading";
 export default function CardComponent() {
     const [loading, setLoading] = useState(true);
-    const [post, setPost] = React.useState([]);
+    const [post, setPost] = useState([]);
     //API call for getting info about all the events
-    React.useEffect(() => {
-        axios.get('https://unfiltered-connect-backend.vercel.app/api/allevent').then((response) => {
-            setPost(response.data);
+    useEffect(() => {
+        axios.get('https://unfiltered-connect-backend.vercel.app/api/allevent')
+          .then((response) => {
+            // Filter the posts based on the date
+            const currentDate = new Date();
+            const filteredPosts = response.data.filter(item => {
+              const postDate = new Date(item.date.split("-").reverse().join("-")); // Convert string date to Date object
+              return postDate >= currentDate;
+            });
+            setPost(filteredPosts);
             setLoading(false);
-        });
-    }, []);
+          })
+          .catch((error) => {
+            console.error(error);
+            setLoading(false);
+          });
+      }, []);
+    
     return (
         <>
             {loading ? <Loading/> :

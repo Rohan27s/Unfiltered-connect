@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios'
 import emailjs from '@emailjs/browser';
-import DatePicker from "react-datepicker";
-import TimeRangePicker from '@wojtekmaj/react-timerange-picker'
 import "react-datepicker/dist/react-datepicker.css";
 import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
 import 'react-clock/dist/Clock.css';
@@ -27,6 +25,7 @@ const RegisterEvent = () => {
     time: "",
     img: "",
   })
+  const [societyObj, setsocietyObj] = useState({ name: "", logo: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -107,7 +106,10 @@ const RegisterEvent = () => {
     setsocietyComponent(newSocietyComponent);
     setsocietyInputValues(newSocietyInputValues);
   };
-
+  const handleSaveSocietyFields = (e, index) => {
+    e.preventDefault();
+    console.log(index);
+  };
   const handleRemoveFaqFields = (e, index) => {
     e.preventDefault();
 
@@ -126,22 +128,24 @@ const RegisterEvent = () => {
     const newValue = e.target.value;
     newInputValues[index] = { ...newInputValues[index], [field]: newValue };
     setsocietyInputValues(newInputValues);
+    // console.log();
     console.log(societyinputValues);
-
   };
 
   const addSociety = (e) => {
     e.preventDefault();
     const newSocietyComponent = [
       ...societyComponent,
-      <li key={societyComponent.length}>
-        <div className="dynamic-single-buttons">
-          <button className='remove-btn' onClick={(e) => handleRemoveSocietyFields(e, societyComponent.length)}>Remove</button>
+      <li key={"society"+societyComponent.length} >
+        <div className="dynamic-single-buttons" id={"society"+societyComponent.length}>
+          <button className='remove-btn' onClick={(e) => handleRemoveSocietyFields(e, this.parent.id)}>Remove</button>
+          <button className='save-btn' onClick={(e) => handleSaveSocietyFields(e, this.parent.id)}>Save</button>
+
         </div>
         <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "name")} name="Name" placeholder='Please enter the names of the society' required />
+        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "name")} name="name" placeholder='Please enter the names of the society' required />
         <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "logo")} name="Logo" placeholder='Please enter the url for the logo of the society' required />
+        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "logo")} name="logo" placeholder='Please enter the url for the logo of the society' required />
       </li>
     ];
     setsocietyComponent(newSocietyComponent);
@@ -189,15 +193,25 @@ const RegisterEvent = () => {
           ))}
         </div>
         <h3>Event Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
-        <h3>Registration Link: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="registerLink" placeholder='Please enter the url for the registrations of the event' onChange={handleChange} required />
+        <h3>Registration Link: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="url" name="registerLink" placeholder='Please enter the url for the registrations of the event' onChange={handleChange} required />
         <h3>Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><textarea type="text" name="description" placeholder='Please enter the description of the society' onChange={handleChange} required />
         {/* <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref7} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required /> */}
-        <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+        <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>    <input type="date" name="" id="" />
 
+        <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <span className='time-range'>
+          <span className="from-time">
+            <p>From</p>
+            <input type="time" name='fromTime'/>
+          </span>
+          <span className="to-time">
+            <p>To</p>
+            <input type="time" name='toTime' />
+          </span>
+        </span>
 
         <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="venue" placeholder='Please enter the venue of the event' onChange={handleChange} required />
         {/* <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref9} type="text" name="time" placeholder='Please enter the time of the event' onChange={handleChange} required /> */}
-        <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><span className='time-range'><TimeRangePicker className="time-range-picker" onChange={handleChange} /></span>
 
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
