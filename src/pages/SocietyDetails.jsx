@@ -75,7 +75,7 @@ const SocietyDetails = () => {
                 <li className="blog-desc"><h3>Content Head : </h3>{society.ContentHead}</li>
               </ul>
             </div>
-            <div className='slider'>
+            {/* <div className='slider'>
               <SimpleImageSlider
                 width={width}
                 height={height}
@@ -84,7 +84,7 @@ const SocietyDetails = () => {
                 showNavs={true}
                 style={{ display: "flex", justifyContent: "center" }}
               />
-            </div>
+            </div> */}
           </div>
           <div className="social-media-overlay">
             <ul>

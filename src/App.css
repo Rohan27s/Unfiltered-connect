@@ -809,7 +809,9 @@ textarea {
   padding: 1rem;
   z-index: 9999;
 }
-
+.slide-past-img{
+  width: 100%;
+}
 .social-media-overlay ul {
   list-style: none;
   padding: 0;
