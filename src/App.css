@@ -825,6 +825,63 @@ textarea {
   padding: 10px 15px;
   border-radius: 0.3rem;
 }
+.soc-cat-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.soc-cat-list-name{
+  list-style: none;
+  background-color: #0000006b;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 0.3rem;
+}
+.searchBar-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.searchBar-wrap form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.searchBar-wrap input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.searchBar-wrap select {
+  /* padding: 0.5rem; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: inherit;
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.searchBar-wrap button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBar-wrap button:hover {
+  background-color: #555;
+}
+
+/* Adjust the styles as needed */
+
 .hero-container {
   height: 100vh;
   height: 100vh;

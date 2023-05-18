@@ -58,6 +58,17 @@ const RegisteredSocieties = () => {
         post={post}
         setSearchResult={setSearchResult}
       />
+      {/* <div className="soc-cat-list">
+        <li className="soc-cat-list-name">
+          Tech
+        </li>
+        <li className="soc-cat-list-name">
+          Commerce
+        </li>
+        <li className="soc-cat-list-name">
+          Photography
+        </li>
+      </div> */}
       <div className='soc-card'>
         <SocietyList searchResult={searchResult}/>
       </div>
