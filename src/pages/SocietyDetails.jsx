@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import SimpleImageSlider from "react-simple-image-slider";
-import '../App.css'
+import '../App.css';
 import axios from 'axios';
 import Header from '../partials/Header';
 import Loading from '../partials/Loading';
 import Footer from '../partials/Footer';
+
 const SocietyDetails = () => {
   const { _id } = useParams(); //Getting id from the url
   const [society, setSociety] = useState(null);
@@ -19,38 +20,37 @@ const SocietyDetails = () => {
       method: 'get',
       url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${_id}`,
     }).then(response => {
-
       setSociety(response.data); //Saving the data from api call in useState
       setUrl1(response.data.url1);
       setUrl2(response.data.url2);
       setUrl3(response.data.url3);
-
       console.log(society);
     }).catch(response => {
       console.log(response);
-    })
+    });
   }, []);
+
   const images = [
     { url: url1 },
     { url: url2 },
     { url: url3 },
   ];
+
   const hasWindow = typeof window !== 'undefined';
   const width1 = hasWindow ? window.innerWidth : null;
   const height1 = hasWindow ? window.innerHeight : null;
-  var width,height;
-  if(height1>width1){
-    width=width1;
-    height='20vh';
+  let width, height;
+
+  if (height1 > width1) {
+    width = width1;
+    height = '20vh';
+  } else {
+    width = width1;
+    height = '80vh';
   }
-  else{
-    width=width1;
-    height='80vh';
-  }
+
   return (
     <>
-
-
       {society ? (
         <>
           <Header />
@@ -82,10 +82,18 @@ const SocietyDetails = () => {
                 images={images}
                 showBullets={true}
                 showNavs={true}
-                style={{ display: "flex", justifyContent: "center" }
-                }
+                style={{ display: "flex", justifyContent: "center" }}
               />
             </div>
+          </div>
+          <div className="social-media-overlay">
+            <ul>
+              <li><a href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a></li>
+              <li><a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a></li>
+              <li><a href="https://www.twitter.com"><i className="fab fa-twitter"></i></a></li>
+              <li><a href="https://www.instagram.com"><i className="fab fa-instagram"></i></a></li>
+              <li><a href="https://www.youtube.com"><i className="fab fa-youtube"></i></a></li>
+            </ul>
           </div>
           <Footer />
         </>
@@ -94,7 +102,6 @@ const SocietyDetails = () => {
           <Loading />
         </>
       )}
-
     </>
   );
 };

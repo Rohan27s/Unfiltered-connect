@@ -797,6 +797,51 @@ textarea {
   margin-top: 10px;
   float: left;
 }
+.social-media-overlay {
+  position: fixed;
+  top: 50%;
+  transform: translate(0,-50%);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 9999;
+}
+
+.social-media-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media-overlay ul li {
+  margin-bottom: 0.5rem;
+}
+
+.social-media-overlay ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.social-media-overlay ul li a:hover {
+  background-color: #555;
+}
+
+.social-media-overlay ul li a i {
+  font-size: 20px;
+}
+
+/* Adjust the styles as needed */
 
 .addMore {
 
