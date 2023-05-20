@@ -219,7 +219,25 @@ table,tr,th,td{
     border-radius: 12px;
     border: hidden;
 }
+.positions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+.position-holder{
+font-size: 22px!important;
+font-weight: 600!important;
+}
+.position-name{
+  font-size: 19px!important;
+  font-weight: 400!important;
 
+}
+.position-main{
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 .content ul li {
   text-align: justify;
   margin-top: 2px;
