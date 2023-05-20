@@ -8,24 +8,23 @@ import Loading from '../partials/Loading';
 import Footer from '../partials/Footer';
 
 const SocietyDetails = () => {
-  const { _id } = useParams(); //Getting id from the url
+  const { _id } = useParams(); // Getting id from the URL
   const [society, setSociety] = useState(null);
 
-  //API call for finding individual society by id
+  // API call for finding individual society by id
   useEffect(() => {
     axios({
       method: 'get',
       url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${_id}`,
-    }).then(response => {
-      setSociety(response.data); //Saving the data from api call in useState
-      setUrl1(response.data.url1);
-      setUrl2(response.data.url2);
-      setUrl3(response.data.url3);
-      console.log(society);
-    }).catch(response => {
-      console.log(response);
-    });
-  }, []);
+    })
+      .then((response) => {
+        const sortedMembers = response.data.members.sort((a, b) => a.rank - b.rank);
+        setSociety({ ...response.data, members: sortedMembers });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [_id]);
 
   return (
     <>
@@ -70,9 +69,6 @@ const SocietyDetails = () => {
                   ))}
                 </tbody>
               </table>
-
-
-
             </div>
           </div>
           <div className="social-media-overlay">
