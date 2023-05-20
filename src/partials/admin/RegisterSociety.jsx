@@ -14,8 +14,14 @@ const RegisterSociety = () => {
         desigholder: '',
         number: '',
         rank: 0,
+        photoUrl: '',
       },
     ],
+    Fblink: '',
+    Linkedlink: '',
+    Twitlink: '',
+    Instalink: '',
+    Youlink: '',
   });
 
   const handleInputChange = (e, index, field, subField) => {
@@ -49,6 +55,7 @@ const RegisterSociety = () => {
       desigholder: '',
       number: '',
       rank: 0,
+      photoUrl: '',
     });
     setSocietyData(updatedSocietyData);
   };
@@ -63,15 +70,23 @@ const RegisterSociety = () => {
     e.preventDefault();
     // Save the societyData to the database or perform any other necessary actions
     console.log(societyData);
+  
+    // Convert rank to number
+    const updatedSocietyData = { ...societyData };
+    updatedSocietyData.members = updatedSocietyData.members.map((member) => ({
+      ...member,
+      rank: parseInt(member.rank),
+    }));
+  
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/societyadd',
       headers: {
         'Content-Type': 'application/json',
       },
-      data: societyData,
+      data: updatedSocietyData, // Use the updatedSocietyData
     };
-
+  
     axios(config)
       .then(function (response) {
         alert('Society Registered Successfully');
@@ -86,11 +101,14 @@ const RegisterSociety = () => {
               desigholder: '',
               number: '',
               rank: 0,
+              photoUrl: '',
             },
           ],
-          url1: '',
-          url2: '',
-          url3: '',
+          Fblink: '',
+          Linkedlink: '',
+          Twitlink: '',
+          Instalink: '',
+          Youlink: '',
         });
         formRef.current.reset();
       })
@@ -98,6 +116,7 @@ const RegisterSociety = () => {
         alert('Error! Please Try Again');
       });
   };
+  
 
   return (
     <div className="register-event">
@@ -133,7 +152,7 @@ const RegisterSociety = () => {
         />
         <br />
 
-        <h3>Cover Image URL:<p style={{color:'red',display:'inline'}}>*</p></h3>
+        <h3>Cover Image URL:</h3>
         <input
           type="text"
           name="cover"
@@ -185,6 +204,14 @@ const RegisterSociety = () => {
               required
               onChange={(e) => handleInputChange(e, index, 'members', 'rank')}
             />
+            <h3>Member's Photo URL({index+1}):</h3>
+            <input
+              type="text"
+              name="photoUrl"
+              placeholder="Photo URL"
+              value={member.photoUrl}
+              onChange={(e) => handleInputChange(e, index, 'members', 'photoUrl')}
+            />
             {index > 0 && (
               <button
                 type="button"
@@ -196,12 +223,49 @@ const RegisterSociety = () => {
             )}
           </div>
         ))}
-     
-        <br />
-        
-        
 
-        <button type="submit"id="submit-form">Submit</button>
+        <h3>Facebook Link:</h3>
+        <input
+          type="text"
+          name="Fblink"
+          value={societyData.Fblink}
+          onChange={handleInputChange}
+        />
+        <br />
+        <h3>LinkedIn Link:</h3>
+        <input
+          type="text"
+          name="Linkedlink"
+          value={societyData.Linkedlink}
+          onChange={handleInputChange}
+        />
+        <br />
+        <h3>Twitter Link:</h3>
+        <input
+          type="text"
+          name="Twitlink"
+          value={societyData.Twitlink}
+          onChange={handleInputChange}
+        />
+        <br />
+        <h3>Instagram Link:</h3>
+        <input
+          type="text"
+          name="Instalink"
+          value={societyData.Instalink}
+          onChange={handleInputChange}
+        />
+        <br />
+        <h3>YouTube Link:</h3>
+        <input
+          type="text"
+          name="Youlink"
+          value={societyData.Youlink}
+          onChange={handleInputChange}
+        />
+        <br />
+
+        <button type="submit" id="submit-form">Submit</button>
       </form>
     </div>
   );
