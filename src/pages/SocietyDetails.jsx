@@ -56,8 +56,8 @@ const SocietyDetails = () => {
                     <tr key={member.name}>
                       <td className="blog-desc">{member.designame}</td>
                       <td className="blog-desc">
-                        {member.image ? (
-                          <img className="society-image" src={member.image} alt={member.desigholder} />
+                        {member.photoUrl ? (
+                          <img className="avatar" src={member.photoUrl} alt={member.desigholder} />
                         ) : (
                           <div className="avatar">{member.desigholder[0]}</div>
                         )}
@@ -73,11 +73,11 @@ const SocietyDetails = () => {
           </div>
           <div className="social-media-overlay">
             <ul>
-              <li><a href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a></li>
-              <li><a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a></li>
-              <li><a href="https://www.twitter.com"><i className="fab fa-twitter"></i></a></li>
-              <li><a href="https://www.instagram.com"><i className="fab fa-instagram"></i></a></li>
-              <li><a href="https://www.youtube.com"><i className="fab fa-youtube"></i></a></li>
+              {society.Fblink.length > 0 && <li><a href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a></li>}
+              {society.Linkedlink.length > 0 &&<li><a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a></li>}
+              {society.Twitlink.length > 0 &&<li><a href="https://www.twitter.com"><i className="fab fa-twitter"></i></a></li>}
+              {society.Instalink.length > 0 && <li><a href="https://www.instagram.com"><i className="fab fa-instagram"></i></a></li>}
+              {society.Youlink.length > 0 &&<li><a href="https://www.youtube.com"><i className="fab fa-youtube"></i></a></li>}
             </ul>
           </div>
           <Footer />
