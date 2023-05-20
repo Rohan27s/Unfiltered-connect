@@ -108,7 +108,7 @@ const RegisterSociety = () => {
 
       <form onSubmit={handleSubmit} ref={formRef}>
         <h3>Society Name:<p style={{color:'red',display:'inline'}}>*</p></h3>
-        <input
+        <input 
           type="text"
           name="name"
           value={societyData.name}
@@ -160,12 +160,14 @@ const RegisterSociety = () => {
               onChange={(e) =>
                 handleInputChange(e, index, 'members', 'designame')
               }
+              required
             />
             <h3>Designation Holder's Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="desigholder"
               placeholder="Designation Holder"
               value={member.desigholder}
+              required
               onChange={(e) =>
                 handleInputChange(e, index, 'members', 'desigholder')
               }
@@ -175,6 +177,7 @@ const RegisterSociety = () => {
               name="number"
               placeholder="Number"
               value={member.number}
+              required
               onChange={(e) => handleInputChange(e, index, 'members', 'number')}
             />
             <h3>Member's Rank({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
@@ -182,6 +185,7 @@ const RegisterSociety = () => {
               name="rank"
               placeholder="Rank"
               value={member.rank}
+              required
               onChange={(e) => handleInputChange(e, index, 'members', 'rank')}
             />
             {index > 0 && (
