@@ -16,6 +16,7 @@ import RegisteredSocieties from './pages/RegisteredSocieties';
 import SocietyDetails from './pages/SocietyDetails';
 import PastEventDetails from './pages/PastEventDetails';
 import Admin from './pages/Admin';
+// import EventForm from './partials/admin/EventForm';
 
 function App() {
   const location = useLocation();
@@ -41,6 +42,8 @@ function App() {
         <Route path="/admin" element={<SignIn />} />
         <Route path="/adminPanel" element={<Admin />} />
         <Route path="/events" element={<Events />} />
+        {/* <Route path="/form" element={<EventForm />} /> */}
+
         <Route path="/registered-societies" element={<RegisteredSocieties />} />
         <Route path='/registered-societies/:_id' element={<SocietyDetails/>} />
         <Route path='/event-details/:_id' element={<EventDetails/>} />

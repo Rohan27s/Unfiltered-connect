@@ -1,71 +1,99 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios'
 import emailjs from '@emailjs/browser';
-import "react-datepicker/dist/react-datepicker.css";
-import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
-import 'react-clock/dist/Clock.css';
+
 const RegisterEvent = () => {
   const formRef = useRef(null);
-  const [startDate, setStartDate] = useState(new Date());
-
-  const [societyinputValues, setsocietyInputValues] = useState([{ name: "", logo: "" }]);
-  const [societyComponent, setsocietyComponent] = useState([]);
-
-  const [faqinputValues, setfaqInputValues] = useState([{ ques: "", ans: "" }]);
-  const [faqComponent, setfaqComponent] = useState([]);
-
   const [emails, setEmails] = useState();
-  const [details, setDetails] = useState({
-    title: "",
-    content: "",
-    registerLink: "",
-    description: "",
-    date: "",
-    venue: "",
-    time: "",
-    img: "",
-  })
-  const [societyObj, setsocietyObj] = useState({ name: "", logo: "" });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDetails({
-      ...details,
-      [name]: value,
+ //API call for getting all the emails which all subscribed to our newsletter
+ useEffect(() => {
+  var config1 = {
+    method: 'get',
+    url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
+  };
+  axios(config1)
+    .then(function (response) {
+      setEmails(response.data);
+      // console.log(emails);
+      // console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-  }
-  //API call for getting all the emails which all subscribed to our newsletter
-  useEffect(() => {
-    var config1 = {
-      method: 'get',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
-    };
-    axios(config1)
-      .then(function (response) {
-        setEmails(response.data);
-        // console.log(emails);
-        // console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [emails]);
+}, [emails]);
 
+  const [eventData, setEventData] = useState({
+    title: '',
+    content: '',
+    societies: [{ name: '', logo: '' }],
+    description: '',
+    date: '',
+    venue: '',
+    fromTime: '', // Updated: Added fromTime and toTime
+    toTime: '', // Updated: Added fromTime and toTime
+    img: '',
+    registerLink: '',
+    faq: [{ ques: '', ans: '' }],
+  });
+
+  const handleInputChange = (e, index, field, subField) => {
+    const { name, value } = e.target;
+    const updatedEventData = { ...eventData };
+
+    if (subField) {
+      if (!updatedEventData[field]) {
+        updatedEventData[field] = [{ [subField]: value }];
+      } else if (index >= 0 && index < updatedEventData[field].length) {
+        updatedEventData[field][index][subField] = value;
+      }
+    } else {
+      if (index >= 0 && index < updatedEventData[field].length) {
+        updatedEventData[field][index][name] = value;
+      } else if (field === 'fromTime' || field === 'toTime') { // Updated: Check for fromTime and toTime
+        updatedEventData[field] = value;
+        updatedEventData['time'] = mergeTime(updatedEventData); // Updated: Call mergeTime
+      } else {
+        updatedEventData[name] = value;
+      }
+    }
+
+    setEventData(updatedEventData);
+  };
+
+  const mergeTime = (data) => {
+    const fromTime = data.fromTime || '';
+    const toTime = data.toTime || '';
+    return `${fromTime} to ${toTime}`;
+  };
+
+
+  const handleAddField = (field) => {
+    const updatedEventData = { ...eventData };
+    if (!updatedEventData[field]) {
+      updatedEventData[field] = [];
+    }
+    updatedEventData[field].push(field === 'societies' ? { name: '', logo: '' } : { ques: '', ans: '' });
+    setEventData(updatedEventData);
+  };
+
+  const handleRemoveField = (index, field) => {
+    const updatedEventData = { ...eventData };
+    updatedEventData[field].splice(index, 1);
+    setEventData(updatedEventData);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //API call for saving the new event in our MongoDB
-    const societies = societyinputValues.map(({ name, logo }) => ({ name, logo }));
-    const faq = faqinputValues.map(({ ques, ans }) => ({ ques, ans }));
-    const newDetails = { ...details, societies, faq };
-    console.log(newDetails);
+    // Save the eventData to the database or perform any other necessary actions
+    console.log(eventData);
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
       headers: {
         'Content-Type': 'application/json'
       },
-      data: newDetails
+      data: eventData
     };
 
     axios(config)
@@ -80,154 +108,186 @@ const RegisterEvent = () => {
         //       // console.log(result.text);
         //     })
         // ))
-        setDetails({
-          title: "",
-          content: "",
-          registerLink: "",
-          description: "",
-          date: "",
-          venue: "",
-          time: "",
-          img: "",
+        setEventData({
+          title: '',
+          content: '',
+          societies: [{ name: '', logo: '' }],
+          description: '',
+          date: '',
+          venue: '',
+          fromTime: '', // Updated: Added fromTime and toTime
+          toTime: '', // Updated: Added fromTime and toTime
+          img: '',
+          registerLink: '',
+          faq: [{ ques: '', ans: '' }],
         });
         formRef.current.reset();
       })
       .catch(function (error) {
         alert("Error! Please Try Again")
       });
-  }
-
-  const handleRemoveSocietyFields = (e, index) => {
-    e.preventDefault();
-    const newSocietyComponent = [...societyComponent];
-    const newSocietyInputValues = [...societyinputValues];
-    newSocietyComponent.splice(index, 1);
-    newSocietyInputValues.splice(index, 1);
-    setsocietyComponent(newSocietyComponent);
-    setsocietyInputValues(newSocietyInputValues);
   };
-  const handleSaveSocietyFields = (e, index) => {
-    e.preventDefault();
-    console.log(index);
-  };
-  const handleRemoveFaqFields = (e, index) => {
-    e.preventDefault();
-
-    const newFaqComponent = [...faqComponent];
-    newFaqComponent.splice(index, 1);
-
-    const newFaqInputValues = [...faqinputValues];
-    newFaqInputValues.splice(index, 1);
-
-    setfaqComponent(newFaqComponent);
-    setfaqInputValues(newFaqInputValues);
-  };
-
-  const societyhandleInputChange = (e, index, field) => {
-    const newInputValues = [...societyinputValues];
-    const newValue = e.target.value;
-    newInputValues[index] = { ...newInputValues[index], [field]: newValue };
-    setsocietyInputValues(newInputValues);
-    // console.log();
-    console.log(societyinputValues);
-  };
-
-  const addSociety = (e) => {
-    e.preventDefault();
-    const newSocietyComponent = [
-      ...societyComponent,
-      <li key={"society"+societyComponent.length} >
-        <div className="dynamic-single-buttons" id={"society"+societyComponent.length}>
-          <button className='remove-btn' onClick={(e) => handleRemoveSocietyFields(e, this.parent.id)}>Remove</button>
-          <button className='save-btn' onClick={(e) => handleSaveSocietyFields(e, this.parent.id)}>Save</button>
-
-        </div>
-        <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "name")} name="name" placeholder='Please enter the names of the society' required />
-        <h3>Society Logo: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input type="text" onChange={(e) => societyhandleInputChange(e, societyComponent.length, "logo")} name="logo" placeholder='Please enter the url for the logo of the society' required />
-      </li>
-    ];
-    setsocietyComponent(newSocietyComponent);
-    const newSocietyInputValues = [...societyinputValues, { name: "", logo: "" }];
-    setsocietyInputValues(newSocietyInputValues);
-  };
-  const addfaq = (e) => {
-    e.preventDefault();
-    const newFaqComponent = [...faqComponent, <li key={faqComponent.length}>
-      <div className="dynamic-single-buttons"> <button className='remove-btn' onClick={(e) => handleRemoveFaqFields(e, faqComponent.length)}>Remove</button></div>
-      <h3>Question <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "ques")} name="Question" placeholder='Please enter the question' required />
-      <h3>Answer <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" onChange={(e) => faqhandleInputChange(e, faqComponent.length, "ans")} name="Answer" placeholder='Please enter the answer' required />
-    </li>];
-    setfaqComponent(newFaqComponent);
-    const newfaqInputValues = [...faqinputValues, { ques: "", ans: "" }];
-    setfaqInputValues(newfaqInputValues);
-
-  }
-
-  const faqhandleInputChange = (e, index, field) => {
-    const newInputValues = [...faqinputValues];
-    if (!newInputValues[index]) {
-      newInputValues[index] = {};
-    }
-    newInputValues[index][field] = e.target.value;
-    setfaqInputValues(newInputValues);
-    console.log(faqinputValues);
-  };
-
 
   return (
     <div className='register-event'>
       <h1>Register a New Event</h1>
+
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Event Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="title" placeholder='Please enter the name of the event' onChange={handleChange} required />
-        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="content" placeholder='Please enter the names of the societies/presenters' onChange={handleChange} required />
+        <h3>Event Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
+          type="text"
+          name="title"
+          value={eventData.title}
+          onChange={handleInputChange}
+          required
+        />
+        <br />
+
+        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
+          name="content"
+          type='text'
+          value={eventData.content}
+          onChange={handleInputChange}
+          required
+        />
+        <br />
         <div className="event-winner-head">
           <h2>Hosting Societies:</h2>
-          <button onClick={addSociety} name="addSocietyButton">Add more</button>
+          <button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
+          Add Society
+        </button>
         </div>
-        <div className="society-names">
-          {societyComponent.map((element) => (
-            // Render each element in the list array
-            element
-          ))}
-        </div>
-        <h3>Event Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="img" placeholder='Please enter the url for the poster of the event' onChange={handleChange} required />
-        <h3>Registration Link: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="url" name="registerLink" placeholder='Please enter the url for the registrations of the event' onChange={handleChange} required />
-        <h3>Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><textarea type="text" name="description" placeholder='Please enter the description of the society' onChange={handleChange} required />
-        {/* <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref7} type="text" name="date" placeholder='Please enter the date of the event' onChange={handleChange} required /> */}
-        <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>    <input type="date" name="" id="" />
 
+        {eventData.societies.map((society, index) => (
+          <div key={index} className="society-names">
+            <h3>Society Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+              type="text"
+              name="name"
+              value={society.name}
+              onChange={(e) => handleInputChange(e, index, 'societies')}
+              required
+            />
+            <h3>Society Logo({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+              type="text"
+              name="logo"
+              value={society.logo}
+              onChange={(e) => handleInputChange(e, index, 'societies')}
+              required
+            />
+            {index > 0 && (
+              <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'societies')}>
+                Remove
+              </button>
+            )}
+          </div>
+        ))}
+       
+        <br />
+        <h3>Description <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+          <textarea
+            name="description"
+            value={eventData.description}
+            onChange={handleInputChange}
+          />
+        <br />
+        <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+          <input
+            type="date"
+            name="date"
+            value={eventData.date}
+            onChange={handleInputChange}
+          />
+        
+        <br />
+        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+          <input
+            type="text"
+            name="venue"
+            value={eventData.venue}
+            onChange={handleInputChange}
+          />
+        <br />
         <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+
         <span className='time-range'>
           <span className="from-time">
             <p>From</p>
-            <input type="time" name='fromTime'/>
+            <input
+              type="time"
+              name="fromTime"
+              value={eventData.fromTime}
+              onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
+            />
           </span>
           <span className="to-time">
             <p>To</p>
-            <input type="time" name='toTime' />
+            <input
+              type="time"
+              name="toTime"
+              value={eventData.toTime}
+              onChange={(e) => handleInputChange(e, null, 'toTime')} // Updated: Use 'toTime' field
+            />
           </span>
         </span>
 
-        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="venue" placeholder='Please enter the venue of the event' onChange={handleChange} required />
-        {/* <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input ref={ref9} type="text" name="time" placeholder='Please enter the time of the event' onChange={handleChange} required /> */}
-
+        <br />
+        <h3>Poster Url: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+          <input
+            type="text"
+            name="img"
+            value={eventData.img}
+            onChange={handleInputChange}
+          />
+        <br />
+        <h3>  Registration Link:
+<p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+          <input
+            type="text"
+            name="registerLink"
+            value={eventData.registerLink}
+            onChange={handleInputChange}
+          />
+        <br />
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
-          <button onClick={addfaq} name="addfaqButton">Add more</button>
-
+          <button className='addSocbtn' type="button" onClick={() => handleAddField('faq')}>
+            Add FAQ
+          </button>
         </div>
         <div className="faq-list">
-          {faqComponent.map((element) => (
-            // Render each element in the list array
-            element
+
+          {eventData.faq.map((faq, index) => (
+            <div key={index}>
+             <h3>Question ({index+1}) <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
+                type="text"
+                name="ques"
+                value={faq.ques}
+                onChange={(e) => handleInputChange(e, index, 'faq')}
+              />
+               <h3>Answer ({index+1})<p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+                type="text"
+                name="ans"
+                value={faq.ans}
+                onChange={(e) => handleInputChange(e, index, 'faq')}
+              />
+              
+              {index > 0 && (
+                <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'faq')}>
+                  Remove
+                </button>
+              )}
+            </div>
           ))}
+
         </div>
+
+        <br />
         <div><button type="submit" id="submit-form">Publish</button></div>
       </form>
     </div>
-  )
-}
 
-export default RegisterEvent
+  );
+};
+
+export default RegisterEvent;

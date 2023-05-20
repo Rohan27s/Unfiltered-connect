@@ -733,9 +733,10 @@ background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, F
   gap: 10px;
   
 }
-.remove-btn{
+.remove-btn {
   background-color: rgba(255, 0, 0, 0.593);
-  padding: 10px 15px;
+  padding: 7px 12px;
+  width: 100px;
   border-radius: 0.3rem;
   color: white;
 }
@@ -989,16 +990,17 @@ text-align: center;
   align-items: center;
   justify-content: space-between;
 }
-.event-winner-head button{
+.addSocbtn{
   background-color: #006dff;
   color: white;
   padding: 10px 15px;
   border-radius: 0.3rem;
 }
-.faq-list{
+
+.faq-list {
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
+  gap: 30px;
   /* align-items: center; */
 }
 .society-names{
