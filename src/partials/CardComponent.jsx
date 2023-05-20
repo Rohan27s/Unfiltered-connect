@@ -16,6 +16,7 @@ export default function CardComponent() {
         // Filter and sort the events
         const filteredEvents = response.data.filter(item => {
           const postDate = new Date(item.date.split("-").reverse().join("-"));
+          console.log(postDate);
           return postDate >= currentDate;
         });
 
@@ -24,6 +25,7 @@ export default function CardComponent() {
           const dateB = new Date(b.date.split("-").reverse().join("-"));
           return dateA - dateB;
         });
+        console.log(sortedEvents,filteredEvents);
 
         setPost(sortedEvents);
         setLoading(false);

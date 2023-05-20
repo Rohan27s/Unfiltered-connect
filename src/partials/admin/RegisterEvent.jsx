@@ -86,6 +86,8 @@ const RegisterEvent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Save the eventData to the database or perform any other necessary actions
+    const formattedDate = formatDate(eventData.date);
+    const updatedEventData = { ...eventData, date: formattedDate };
     console.log(eventData);
     var config = {
       method: 'post',
@@ -93,7 +95,7 @@ const RegisterEvent = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      data: eventData
+      data: updatedEventData
     };
 
     axios(config)
@@ -127,7 +129,13 @@ const RegisterEvent = () => {
         alert("Error! Please Try Again")
       });
   };
-
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
   return (
     <div className='register-event'>
       <h1>Register a New Event</h1>

@@ -16,9 +16,6 @@ const RegisterSociety = () => {
         rank: 0,
       },
     ],
-    url1: '',
-    url2: '',
-    url3: '',
   });
 
   const handleInputChange = (e, index, field, subField) => {
