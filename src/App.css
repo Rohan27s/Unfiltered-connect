@@ -66,12 +66,24 @@ body {
   font-size: 40px;
   align-items: center;
 }
-/* .soc-names span {
-  display: block;
-
-
+/* table,th,td,tr{
+  text-align: center;
 } */
-
+table,tr,th,td{
+  border: 1px solid gray
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px; */
+  text-transform: capitalize;
+}
 .soc-names h1 {
   font-size: 35px;
   color: aliceblue;
@@ -407,9 +419,25 @@ body {
   font-size: 18px;
   padding: 1rem;
   margin-bottom: 1.5rem;
-  text-align: justify;
+  text-align: center;
+  text-transform: capitalize;
 }
-
+th{
+  font-size: 20px;
+  padding: 10px 0;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
 .soc-single-card {
   border-radius: 20px;
   box-shadow: 0 3px 7px 4px #888888;

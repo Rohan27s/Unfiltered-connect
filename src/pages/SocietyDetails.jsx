@@ -10,9 +10,6 @@ import Footer from '../partials/Footer';
 const SocietyDetails = () => {
   const { _id } = useParams(); //Getting id from the url
   const [society, setSociety] = useState(null);
-  const [url1, setUrl1] = useState("");
-  const [url2, setUrl2] = useState("");
-  const [url3, setUrl3] = useState("");
 
   //API call for finding individual society by id
   useEffect(() => {
@@ -30,25 +27,6 @@ const SocietyDetails = () => {
     });
   }, []);
 
-  const images = [
-    { url: url1 },
-    { url: url2 },
-    { url: url3 },
-  ];
-
-  const hasWindow = typeof window !== 'undefined';
-  const width1 = hasWindow ? window.innerWidth : null;
-  const height1 = hasWindow ? window.innerHeight : null;
-  let width, height;
-
-  if (height1 > width1) {
-    width = width1;
-    height = '20vh';
-  } else {
-    width = width1;
-    height = '80vh';
-  }
-
   return (
     <>
       {society ? (
@@ -65,26 +43,37 @@ const SocietyDetails = () => {
 
             <div className="about-soc">
               <h1>Core Team</h1>
-              <ul style={{ border: '1px solid gray' }}>
-                <li className="blog-desc"><h3>President : </h3>{society.President}</li>
-                <li className="blog-desc"><h3>Vice President : </h3>{society.VicePresident}</li>
-                <li className="blog-desc"><h3>General Secretary : </h3>{society.GeneralSecretary}</li>
-                <li className="blog-desc"><h3>Events Head : </h3>{society.EventsHead}</li>
-                <li className="blog-desc"><h3>Design Head : </h3>{society.DesignHead}</li>
-                <li className="blog-desc"><h3>PR and Outreach Head : </h3>{society.PRandOutreachHead}</li>
-                <li className="blog-desc"><h3>Content Head : </h3>{society.ContentHead}</li>
-              </ul>
+              <table style={{width: '100%',textAlign: 'center' }}>
+                <thead>
+                  <tr>
+                    <th>Position</th>
+                    <th>Member's Photo</th>
+                    <th>Member's Name</th>
+                    <th>Mobile Number</th>
+                  </tr>
+                </thead>
+                <tbody style={{ textAlign: 'center' }}>
+                  {society.members.map((member) => (
+                    <tr key={member.name}>
+                      <td className="blog-desc">{member.designame}</td>
+                      <td className="blog-desc">
+                        {member.image ? (
+                          <img className="society-image" src={member.image} alt={member.desigholder} />
+                        ) : (
+                          <div className="avatar">{member.desigholder[0]}</div>
+                        )}
+                      </td>
+                      {/* Add additional table data for the remaining headers */}
+                      <td className="blog-desc">{member.desigholder}</td>
+                      <td className="blog-desc">{member.number}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+
+
             </div>
-            {/* <div className='slider'>
-              <SimpleImageSlider
-                width={width}
-                height={height}
-                images={images}
-                showBullets={true}
-                showNavs={true}
-                style={{ display: "flex", justifyContent: "center" }}
-              />
-            </div> */}
           </div>
           <div className="social-media-overlay">
             <ul>
