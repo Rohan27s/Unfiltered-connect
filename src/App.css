@@ -425,6 +425,15 @@ table,tr,th,td{
 th{
   font-size: 20px;
   padding: 10px 0;
+  border-radius: 12px;
+
+}
+table{
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: hidden;
 }
 .avatar {
   width: 100px;
@@ -457,11 +466,12 @@ th{
   width: 100%;
   font-size: 50px;
   text-align: center;
-  border-bottom: 1px solid gray;
+  /* border-bottom: 1px solid gray; */
   text-transform: uppercase;
   font-weight: 800;
-  color: white;
-  background: #006dff;
+  color: black;
+  /* background: #006dff; */
+  margin-bottom: 30px;
 }
 
 .about-soc-div {

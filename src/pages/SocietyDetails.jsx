@@ -43,7 +43,7 @@ const SocietyDetails = () => {
 
             <div className="about-soc">
               <h1>Core Team</h1>
-              <table style={{width: '100%',textAlign: 'center' }}>
+              <table style={{ width: '100%', textAlign: 'center' }}>
                 <thead>
                   <tr>
                     <th>Position</th>
