@@ -23,11 +23,7 @@ const PastEventDetails = () => {
     width = width1;
     height = '80vh';
   }
-  const images = [
-    { url: "https://res.cloudinary.com/rohangotwal/image/upload/v1671699702/WhatsApp_Image_2022-12-22_at_14.30.39_k7pl8a.jpg" },
-    { url: "https://res.cloudinary.com/rohangotwal/image/upload/v1671699702/WhatsApp_Image_2022-12-22_at_14.30.39_k7pl8a.jpg" },
-    { url: "https://res.cloudinary.com/rohangotwal/image/upload/v1671699702/WhatsApp_Image_2022-12-22_at_14.30.39_k7pl8a.jpg" },
-  ];
+  const [images, setimages] = useState(null)
   //Api call for finding individual past event
   useEffect(() => {
     axios({
@@ -37,6 +33,10 @@ const PastEventDetails = () => {
       .then((response) => {
         setPastEvent(response.data);
         setLoading(false);
+        const imgs=response.data.sliderImage.map((i)=>{
+          return i.img;          
+        })
+        setimages(imgs);
       })
       .catch((response) => {
         console.log(response);
