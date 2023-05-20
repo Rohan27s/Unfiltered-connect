@@ -187,6 +187,11 @@ table,tr,th,td{
   border-radius: 12px;
   border: 6px solid #006dff;
   padding: 1rem;
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
 .content h1 {
@@ -202,11 +207,17 @@ table,tr,th,td{
   border: 4px solid #2b2a2a;
   padding: 20px;
   margin-top: 5%;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 20px;
+  color: white;
   border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px 2px #a9a5a5;
-
+  box-shadow: 1px 1px 1px 1px #a9a5a5;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 12px;
+    border-radius: 12px;
+    border: hidden;
 }
 
 .content ul li {
