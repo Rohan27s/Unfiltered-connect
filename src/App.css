@@ -60,12 +60,17 @@ body {
   justify-content: center;
   gap: 5%;
 }
-
 .soc-names span {
+  display: flex;
+  color: white;
+  font-size: 40px;
+  align-items: center;
+}
+/* .soc-names span {
   display: block;
 
 
-}
+} */
 
 .soc-names h1 {
   font-size: 35px;
@@ -732,6 +737,9 @@ background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, F
   justify-content: end;
   gap: 10px;
   
+}
+.soc-separator{
+  color: white;
 }
 .remove-btn {
   background-color: rgba(255, 0, 0, 0.593);
