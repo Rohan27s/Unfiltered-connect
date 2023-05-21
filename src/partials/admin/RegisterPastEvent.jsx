@@ -177,7 +177,7 @@ const RegisterPastEvent = () => {
         </div>
         {eventData.sliderImage.map((image, index) => (
           <div key={`sliderImage-${index}`} className="society-names">
-            <h3>Slider Image Url({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+            <h3>Slider Image Url({index + 1}): </h3>
             <input
               type="url"
               name="img"

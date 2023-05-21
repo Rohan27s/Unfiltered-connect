@@ -123,7 +123,7 @@ const RegisterSociety = () => {
       <h1>Register a Society</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Society Name:<p style={{color:'red',display:'inline'}}>*</p></h3>
+        <h3>Name:<p style={{color:'red',display:'inline'}}>*</p></h3>
         <input 
           type="text"
           name="name"
@@ -133,7 +133,7 @@ const RegisterSociety = () => {
         />
         <br />
 
-        <h3>Society Category:<p style={{color:'red',display:'inline'}}>*</p></h3>
+        <h3>Category:<p style={{color:'red',display:'inline'}}>*</p></h3>
         <input
           type="text"
           name="category"
@@ -152,7 +152,7 @@ const RegisterSociety = () => {
         />
         <br />
 
-        <h3>Cover Image URL:</h3>
+        <h3>Logo:</h3>
         <input
           type="text"
           name="cover"
@@ -162,13 +162,13 @@ const RegisterSociety = () => {
         <br />
         <div className="event-winner-head">
 
-        <h2>Member Details:<p style={{color:'red',display:'inline'}}>*</p></h2>   <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
+        <h2>CORE Team Details:<p style={{color:'red',display:'inline'}}>*</p></h2>   <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
           Add Member
         </button>
         </div>
         {societyData.members.map((member, index) => (
           <div key={`member-${index}`} className="society-names">
-           <h3>Designation Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
+           <h3>Designation:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
               type="text"
               name="designame"
               placeholder="Designation Name"
@@ -178,7 +178,7 @@ const RegisterSociety = () => {
               }
               required
             />
-            <h3>Designation Holder's Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Name:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="desigholder"
               placeholder="Designation Holder"
@@ -188,7 +188,7 @@ const RegisterSociety = () => {
                 handleInputChange(e, index, 'members', 'desigholder')
               }
             />
-            <h3>Mobile Number({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Mobile Number:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="number"
               placeholder="Number"
@@ -196,7 +196,7 @@ const RegisterSociety = () => {
               required
               onChange={(e) => handleInputChange(e, index, 'members', 'number')}
             />
-            <h3>Member's Rank({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Rank:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="number"
               name="rank"
               placeholder="Rank"
@@ -204,9 +204,9 @@ const RegisterSociety = () => {
               required
               onChange={(e) => handleInputChange(e, index, 'members', 'rank')}
             />
-            <h3>Member's Photo URL({index+1}):</h3>
+            <h3>Photo:({index+1}):</h3>
             <input
-              type="text"
+              type="url"
               name="photoUrl"
               placeholder="Photo URL"
               value={member.photoUrl}
@@ -223,8 +223,8 @@ const RegisterSociety = () => {
             )}
           </div>
         ))}
-
-        <h3>Facebook Link:</h3>
+<h2>Social Media Handles</h2>
+        <h3>Facebook:</h3>
         <input
           type="text"
           name="Fblink"
@@ -232,7 +232,7 @@ const RegisterSociety = () => {
           onChange={handleInputChange}
         />
         <br />
-        <h3>LinkedIn Link:</h3>
+        <h3>LinkedIn:</h3>
         <input
           type="text"
           name="Linkedlink"
@@ -240,7 +240,7 @@ const RegisterSociety = () => {
           onChange={handleInputChange}
         />
         <br />
-        <h3>Twitter Link:</h3>
+        <h3>Twitter:</h3>
         <input
           type="text"
           name="Twitlink"
@@ -248,7 +248,7 @@ const RegisterSociety = () => {
           onChange={handleInputChange}
         />
         <br />
-        <h3>Instagram Link:</h3>
+        <h3>Instagram:</h3>
         <input
           type="text"
           name="Instalink"
@@ -256,7 +256,7 @@ const RegisterSociety = () => {
           onChange={handleInputChange}
         />
         <br />
-        <h3>YouTube Link:</h3>
+        <h3>YouTube:</h3>
         <input
           type="text"
           name="Youlink"
