@@ -70,14 +70,14 @@ const RegisterSociety = () => {
     e.preventDefault();
     // Save the societyData to the database or perform any other necessary actions
     console.log(societyData);
-  
+
     // Convert rank to number
     const updatedSocietyData = { ...societyData };
     updatedSocietyData.members = updatedSocietyData.members.map((member) => ({
       ...member,
       rank: parseInt(member.rank),
     }));
-  
+
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/societyadd',
@@ -86,7 +86,7 @@ const RegisterSociety = () => {
       },
       data: updatedSocietyData, // Use the updatedSocietyData
     };
-  
+
     axios(config)
       .then(function (response) {
         alert('Society Registered Successfully');
@@ -116,15 +116,15 @@ const RegisterSociety = () => {
         alert('Error! Please Try Again');
       });
   };
-  
+
 
   return (
     <div className="register-event">
       <h1>Register a Society</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Name:<p style={{color:'red',display:'inline'}}>*</p></h3>
-        <input 
+        <h3>Name:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
           type="text"
           name="name"
           value={societyData.name}
@@ -133,7 +133,7 @@ const RegisterSociety = () => {
         />
         <br />
 
-        <h3>Category:<p style={{color:'red',display:'inline'}}>*</p></h3>
+        <h3>Category:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <input
           type="text"
           name="category"
@@ -143,7 +143,7 @@ const RegisterSociety = () => {
         />
         <br />
 
-        <h3>Description:<p style={{color:'red',display:'inline'}}>*</p></h3>
+        <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
           value={societyData.description}
@@ -162,56 +162,68 @@ const RegisterSociety = () => {
         <br />
         <div className="event-winner-head">
 
-        <h2>CORE Team Details:<p style={{color:'red',display:'inline'}}>*</p></h2>   <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
-          Add Member
-        </button>
+          <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>   <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
+            Add Member
+          </button>
         </div>
         {societyData.members.map((member, index) => (
           <div key={`member-${index}`} className="society-names">
-           <h3>Designation:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
-              type="text"
-              name="designame"
-              placeholder="Designation Name"
-              value={member.designame}
-              onChange={(e) =>
-                handleInputChange(e, index, 'members', 'designame')
-              }
-              required
-            />
-            <h3>Name:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
-              type="text"
-              name="desigholder"
-              placeholder="Designation Holder"
-              value={member.desigholder}
-              required
-              onChange={(e) =>
-                handleInputChange(e, index, 'members', 'desigholder')
-              }
-            />
-            <h3>Mobile Number:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
-              type="text"
-              name="number"
-              placeholder="Number"
-              value={member.number}
-              required
-              onChange={(e) => handleInputChange(e, index, 'members', 'number')}
-            />
-            <h3>Rank:({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
-              type="number"
-              name="rank"
-              placeholder="Rank"
-              value={member.rank}
-              required
-              onChange={(e) => handleInputChange(e, index, 'members', 'rank')}
-            />
-            <h3>Photo:({index+1}):</h3>
-            <input
-              type="url"
-              name="photoUrl"
-              placeholder="Photo URL"
-              value={member.photoUrl}
-              onChange={(e) => handleInputChange(e, index, 'members', 'photoUrl')}
-            />
+            <span className="one-input-label">
+              <h3>Designation({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
+                type="text"
+                name="designame"
+                placeholder="Designation Name"
+                value={member.designame}
+                onChange={(e) =>
+                  handleInputChange(e, index, 'members', 'designame')
+                }
+                required
+              />
+            </span>
+            <span className="one-input-label">
+
+              <h3>Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+                type="text"
+                name="desigholder"
+                placeholder="Designation Holder"
+                value={member.desigholder}
+                required
+                onChange={(e) =>
+                  handleInputChange(e, index, 'members', 'desigholder')
+                }
+              />
+            </span>
+            <span className="one-input-label">
+
+              <h3>Mobile Number({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+                type="text"
+                name="number"
+                placeholder="Number"
+                value={member.number}
+                required
+                onChange={(e) => handleInputChange(e, index, 'members', 'number')}
+              /></span>
+            <span className="one-input-label">
+
+              <h3>Rank:({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+                type="number"
+                name="rank"
+                placeholder="Rank"
+                value={member.rank}
+                required
+                onChange={(e) => handleInputChange(e, index, 'members', 'rank')}
+              /></span>
+            <span className="complete-input one-input-label">
+
+              <h3>Photo({index + 1}):</h3>
+              <input
+                type="url"
+                name="photoUrl"
+                placeholder="Photo URL"
+                className='complete-input'
+                value={member.photoUrl}
+                onChange={(e) => handleInputChange(e, index, 'members', 'photoUrl')}
+              /></span>
             {index > 0 && (
               <button
                 type="button"
@@ -223,7 +235,7 @@ const RegisterSociety = () => {
             )}
           </div>
         ))}
-<h2>Social Media Handles</h2>
+        <h2>Social Media Handles</h2>
         <h3>Facebook:</h3>
         <input
           type="text"

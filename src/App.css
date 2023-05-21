@@ -17,9 +17,8 @@ select:focus {
 }
 
 body {
-  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
-  /* background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
   background-size: contain;
   background-repeat: repeat-y;
   
@@ -361,6 +360,21 @@ margin-bottom: 0!important;
   align-items: center;
   flex-direction: column;
   height: 100vh;
+}
+.one-input-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  width: 45%;
+}
+.society-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
 .faqs h2 {
   margin-bottom: 2%;
@@ -791,19 +805,12 @@ article.nextSlide {
   width: 80vw;
   margin: auto;
   right: 0;
-  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
-  /* background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
-  background-size: contain;
-  background-repeat: repeat-y;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
 }
 .main-admin{
-  display: flex;
-  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
-  /* background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
-  background-size: contain;
-  background-repeat: repeat-y;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%); 
 }
 
 .admin-nav ul li {
@@ -836,11 +843,8 @@ article.nextSlide {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
-  /* background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
-  background-size: contain;
-  background-repeat: repeat-y;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
 }
 .dynamic-single-buttons{
   display: flex;
@@ -877,7 +881,7 @@ article.nextSlide {
 .main-admin input,
 textarea {
   border-radius: 7px !important;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   width: 100%;
   padding: 10px;
 
@@ -889,8 +893,13 @@ textarea {
 
 .main-admin h3 {
   font-size: 20px;
+  width: 50%;
+  display: flex;
+  align-items: center;
 }
-
+.complete-input{
+  width: 170%!important;
+}
 .main-admin h2 {
   font-size: 25px;
   font-weight: 500;
@@ -1123,8 +1132,11 @@ text-align: center;
 }
 .society-names{
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   margin-bottom: 50px;
+}
+.society-names input{
+  width: 50%;
 }
 .society-names li,.faq-list li{
   list-style: none;
