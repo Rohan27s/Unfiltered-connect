@@ -454,6 +454,14 @@ font-weight: 600!important;
   text-align: center;
   text-transform: capitalize;
 }
+.soc-desc{
+  font-weight: 500;
+  font-size: 18px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  /* text-transform: capitalize; */
+}
 th{
   font-size: 20px;
   padding: 10px 0;

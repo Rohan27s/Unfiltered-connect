@@ -37,7 +37,7 @@ const SocietyDetails = () => {
             </div>
             <div className='about-soc-div'>
               <h2 className='about-soc-head'>About {society.name}</h2>
-              <p className='blog-desc'>{society.description}</p>
+              <p className='soc-desc'>{society.description}</p>
             </div>
 
             <div className="about-soc">
