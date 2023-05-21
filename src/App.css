@@ -21,6 +21,8 @@ body {
   /* background: rgb(63,94,251);
   background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
   background-size: contain;
+  background-repeat: repeat-y;
+  
 }
 
 /* .banner-detail img{
@@ -783,16 +785,19 @@ article.nextSlide {
   width: 80vw;
   margin: auto;
   right: 0;
-  background: #BE93C5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #7BC6CC, #BE93C5);
+  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
+  /* background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
+  background-size: contain;
+  background-repeat: repeat-y;
 }
 .main-admin{
   display: flex;
-  /* flex-direction: row; */
-  background: #BE93C5;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
+  /* background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
+  background-size: contain;
+  background-repeat: repeat-y;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .admin-nav ul li {
@@ -825,9 +830,11 @@ background: linear-gradient(to right, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, F
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #BE93C5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #7BC6CC, #BE93C5);
+  background: url('https://res.cloudinary.com/ddx1llvy0/image/upload/v1684671725/Background_ny1fhi.jpg');
+  /* background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 8%, rgba(70,217,252,1) 70%); */
+  background-size: contain;
+  background-repeat: repeat-y;
 }
 .dynamic-single-buttons{
   display: flex;
