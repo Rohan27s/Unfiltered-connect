@@ -121,7 +121,7 @@ const PastEventDetails = () => {
                 <div className='slider'>
                   <SimpleImageSlider
                     width={"90%"}
-                    height={height}
+                    height={"50vh"}
                     images={images}
                     showBullets={true}
                     showNavs={true}
