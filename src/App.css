@@ -364,10 +364,11 @@ margin-bottom: 0!important;
 }
 .faqs h2 {
   margin-bottom: 2%;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script';
   text-align: center;
   font-weight: 800;
-  font-size: 40px;
+  font-size: 55px;
+  letter-spacing: 9px;
   color: #000000;
 }
 
