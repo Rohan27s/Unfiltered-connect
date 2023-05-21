@@ -84,7 +84,7 @@ const PastEventDetails = () => {
                   <li>
                     <b>Event Date :</b> {pastevent.date}
                   </li>
-                  
+
                   <li>
                     <b>Event Venue :</b> {pastevent.venue}
                   </li>
@@ -113,21 +113,23 @@ const PastEventDetails = () => {
                       })}
 
                     </div>
+
                   </>
                 ) : (
                   ''
                 )}
+                <div className='slider'>
+                  <SimpleImageSlider
+                    width={"90%"}
+                    height={height}
+                    images={images}
+                    showBullets={true}
+                    showNavs={true}
+                    style={{ display: "flex", justifyContent: "center" }}
+                  />
+                </div>
               </div>
-              <div className='slider'>
-                <SimpleImageSlider
-                  width={width}
-                  height={height}
-                  images={images}
-                  showBullets={true}
-                  showNavs={true}
-                  style={{ display: "flex", justifyContent: "center" }}
-                />
-              </div>
+
             </main>
           </div>
           <Footer />

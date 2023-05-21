@@ -552,7 +552,7 @@ table,.about-soc-div {
 
 .eventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 438px;
+  height: auto;
   width: 250px;
   background: white;
 }
@@ -582,9 +582,8 @@ table,.about-soc-div {
 }
 
 .slider {
-  width: 90vw;
+  width: 90%;
   margin: 5rem auto;
-  max-width: 1170px;
 }
 
 .section-center {
