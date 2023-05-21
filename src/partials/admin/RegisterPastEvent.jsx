@@ -238,7 +238,7 @@ const RegisterPastEvent = () => {
         />
         <br />
 
-        <h3>Card Cover Image:</h3>
+        <h3>Event Poster:</h3>
         <input
           type="text"
           name="img"
