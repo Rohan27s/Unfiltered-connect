@@ -141,7 +141,7 @@ const RegisterEvent = () => {
       <h1>Register a New Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Event Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <h3>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <input
           type="text"
           name="title"
@@ -151,7 +151,7 @@ const RegisterEvent = () => {
         />
         <br />
 
-        <h3>Event Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <h3>Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <input
           name="content"
           type='text'
@@ -161,7 +161,7 @@ const RegisterEvent = () => {
         />
         <br />
         <div className="event-winner-head">
-          <h2>Hosting Societies:</h2>
+          <h2>Societies:</h2>
           <button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
           Add Society
         </button>
@@ -169,14 +169,14 @@ const RegisterEvent = () => {
 
         {eventData.societies.map((society, index) => (
           <div key={index} className="society-names">
-            <h3>Society Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="name"
               value={society.name}
               onChange={(e) => handleInputChange(e, index, 'societies')}
               required
             />
-            <h3>Society Logo({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Logo({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="logo"
               value={society.logo}
@@ -199,7 +199,7 @@ const RegisterEvent = () => {
             onChange={handleInputChange}
           />
         <br />
-        <h3>Event Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+        <h3>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
           <input
             type="date"
             name="date"
@@ -240,9 +240,9 @@ const RegisterEvent = () => {
         </span>
 
         <br />
-        <h3>Poster Url: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
+        <h3>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
           <input
-            type="text"
+            type="url"
             name="img"
             value={eventData.img}
             onChange={handleInputChange}

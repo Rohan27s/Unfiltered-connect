@@ -110,7 +110,7 @@ const RegisterPastEvent = () => {
       <h1>Register a Past Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Event Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <h3>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <input
           type="text"
           name="title"
@@ -120,7 +120,7 @@ const RegisterPastEvent = () => {
         />
         <br />
 
-        <h3>Event Presenters(Will be shown on the card title): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <h3>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <input
           type="text"
           name="content"
@@ -139,7 +139,7 @@ const RegisterPastEvent = () => {
 
         {eventData.societies.map((society, index) => (
           <div key={`society-${index}`} className="society-names">
-            <h3>Society Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+            <h3>Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
             <input
               type="text"
               name="name"
@@ -147,9 +147,9 @@ const RegisterPastEvent = () => {
               value={society.name}
               onChange={(e) => handleInputChange(e, index, 'societies', 'name')}
             />
-            <h3>Society Logo Url({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+            <h3>Logo({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
             <input
-              type="text"
+              type="url"
               name="logo"
               placeholder="Society Logo URL"
               value={society.logo}
@@ -170,14 +170,14 @@ const RegisterPastEvent = () => {
         <br />
         <div className="event-winner-head">
 
-        <h2>Slider Images:</h2>
+        <h2>Carousel Images:</h2>
         <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
           Add Image
         </button>
         </div>
         {eventData.sliderImage.map((image, index) => (
           <div key={`sliderImage-${index}`} className="society-names">
-            <h3>Slider Image Url({index + 1}): </h3>
+            <h3>Image({index + 1}): </h3>
             <input
               type="url"
               name="img"
@@ -201,7 +201,7 @@ const RegisterPastEvent = () => {
 
         <br />
 
-        <h3>Report PDF URL:</h3>
+        <h3>Report:</h3>
         <input
           type="url"
           name="reportpdf"
@@ -238,7 +238,7 @@ const RegisterPastEvent = () => {
         />
         <br />
 
-        <h3>Event Poster:</h3>
+        <h3>Poster:</h3>
         <input
           type="text"
           name="img"
@@ -260,7 +260,7 @@ const RegisterPastEvent = () => {
 
         {eventData.winners.map((winner, index) => (
           <div key={`winner-${index}`} className="winner-names">
-            <h3>Position Name({index + 1}):</h3>
+            <h3>Position({index + 1}):</h3>
             <input
               type="text"
               name="positionname"
@@ -268,7 +268,7 @@ const RegisterPastEvent = () => {
               value={winner.positionname}
               onChange={(e) => handleInputChange(e, index, 'winners', 'positionname')}
             />
-            <h3>Position Holder({index + 1}):</h3>
+            <h3>Name({index + 1}):</h3>
             <input
               type="text"
               name="positionholder"
