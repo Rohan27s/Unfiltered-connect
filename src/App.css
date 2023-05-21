@@ -231,8 +231,13 @@ table,tr,th,td{
 .position-holder{
 font-size: 22px!important;
 font-weight: 600!important;
+text-align: center!important;
+margin-bottom: 0!important;
 }
 .position-name{
+text-align: center!important;
+margin-bottom: 0!important;
+
   font-size: 19px!important;
   font-weight: 400!important;
 
@@ -556,9 +561,23 @@ table,.about-soc-div {
   width: 250px;
   background: white;
 }
+#download-report {
+  background: #0093ff;
+  color: white;
+  padding: 7px 13px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  width: 100%;
+  border: 1px solid;
+  font-size: 18px;
+}
 .pasteventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 345px;
+  height: auto;
+  /* padding: 0 0 10px; */
   width: 250px;
   background: white;
 }
@@ -1307,7 +1326,8 @@ text-align: center;
 }
 .pasteventcards {
   box-shadow: 5px 4px 4px #a09f9f;
-  height: 352px;
+  height: auto;
+  /* padding: 0 0 10px; */
   width: 250px;
   background: white;
 }

@@ -61,7 +61,7 @@ const PastEventDetails = () => {
                 />
                 <div className="overlay">
                   <div className="pastEvent">
-                    <div className="soc-names">
+                    {/* <div className="soc-names">
                       <span>
                         <img
                           className="soc-event-avatar"
@@ -69,9 +69,35 @@ const PastEventDetails = () => {
                           alt="cover"
                         />
                       </span>
+                    </div> */}
+                    <div className="soc-names">
+                      {pastevent.societies.map((society, index) => (
+                        <React.Fragment key={society.name}>
+                          {index > 0 && <span className="soc-separator">X</span>}
+                          <span>
+                            <img
+                              className="soc-event-avatar"
+                              src={society.logo}
+                              alt={society.name}
+                            />
+                          </span>
+                        </React.Fragment>
+                      ))}
                     </div>
                     <h2>organized</h2>
                     <h3>{pastevent.title}</h3>
+                    <div id="pdf-down">
+                      <button id="download-report" onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = pastevent.reportpdf;
+                        link.target = '_blank';
+                        link.download = 'report.pdf';
+                        link.click();
+                      }}>
+                        View Report
+                      </button>
+
+                    </div>
                     <a href="#about1">View Highlights</a>
                   </div>
                 </div>
@@ -91,8 +117,7 @@ const PastEventDetails = () => {
                 </ul>
                 {pastevent.winners.length > 0 ? (
                   <>
-                    <h2 className="winner-head">
-                      {pastevent.title} Winner Details
+                    <h2 className="winner-head"> Winner Details
                     </h2>
                     <div
                       className="oneline position-main"
@@ -118,14 +143,16 @@ const PastEventDetails = () => {
                 ) : (
                   ''
                 )}
+
                 {images?.length > 0 && <div className='slider'>
                   <SimpleImageSlider
                     width={"90%"}
-                    height={"50vh"}
+                    height={"85vh"}
                     images={images}
                     showBullets={true}
                     showNavs={true}
-                    style={{ display: "flex", justifyContent: "center" }}
+                    style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+                    imageWrapperStyle={{ objectFit: "cover" }}
                   />
                 </div>}
               </div>

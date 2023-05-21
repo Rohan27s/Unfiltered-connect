@@ -38,6 +38,7 @@ export default function PastCardComponent() {
                                         {items.content}
                                     </p>
                                 </div>
+                                
                             </div>
                             </a>
 
