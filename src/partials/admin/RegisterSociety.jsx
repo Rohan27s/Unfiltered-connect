@@ -120,7 +120,7 @@ const RegisterSociety = () => {
 
   return (
     <div className="register-event">
-      <h1>Register a Society</h1>
+      <h1 className='admin-headings'>Register a Society</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
         <span className="full-input one-input-label">
@@ -147,7 +147,18 @@ const RegisterSociety = () => {
             required
           /></span>
         <br />
+        <span className="full-input one-input-label">
 
+
+<p>Logo:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+<input
+  type="text"
+  name="cover"
+  value={societyData.cover}
+  onChange={handleInputChange}
+/>
+</span>
+<br />
         <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
@@ -156,18 +167,7 @@ const RegisterSociety = () => {
           required
         />
         <br />
-        <span className="full-input one-input-label">
-
-
-          <p>Logo:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
-          <input
-            type="text"
-            name="cover"
-            value={societyData.cover}
-            onChange={handleInputChange}
-          />
-        </span>
-        <br />
+        
         <div className="event-winner-head">
 
           <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>   <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
