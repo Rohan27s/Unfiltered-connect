@@ -900,6 +900,14 @@ textarea {
 .complete-input{
   width: 170%!important;
 }
+.full-input{
+  width: 100%!important;
+}
+.full-input p{
+  margin-right: 10px;
+  font-size: 20px;
+  width: 20%;
+}
 .main-admin h2 {
   font-size: 25px;
   font-weight: 500;

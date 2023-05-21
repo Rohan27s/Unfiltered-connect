@@ -123,24 +123,29 @@ const RegisterSociety = () => {
       <h1>Register a Society</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Name:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input
-          type="text"
-          name="name"
-          value={societyData.name}
-          onChange={handleInputChange}
-          required
-        />
-        <br />
+        <span className="full-input one-input-label">
 
-        <h3>Category:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input
-          type="text"
-          name="category"
-          value={societyData.category}
-          onChange={handleInputChange}
-          required
-        />
+
+          <p>Name:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="name"
+            value={societyData.name}
+            onChange={handleInputChange}
+            required
+          /></span>
+        <br />
+        <span className="full-input one-input-label">
+
+
+          <p>Category:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="category"
+            value={societyData.category}
+            onChange={handleInputChange}
+            required
+          /></span>
         <br />
 
         <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
@@ -151,14 +156,17 @@ const RegisterSociety = () => {
           required
         />
         <br />
+        <span className="full-input one-input-label">
 
-        <h3>Logo:</h3>
-        <input
-          type="text"
-          name="cover"
-          value={societyData.cover}
-          onChange={handleInputChange}
-        />
+
+          <p>Logo:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="cover"
+            value={societyData.cover}
+            onChange={handleInputChange}
+          />
+        </span>
         <br />
         <div className="event-winner-head">
 
@@ -236,45 +244,64 @@ const RegisterSociety = () => {
           </div>
         ))}
         <h2>Social Media Handles</h2>
-        <h3>Facebook:</h3>
-        <input
-          type="text"
-          name="Fblink"
-          value={societyData.Fblink}
-          onChange={handleInputChange}
-        />
+
+        <span className="full-input one-input-label">
+
+          <p>Facebook:</p>
+          <input
+            type="text"
+            name="Fblink"
+            value={societyData.Fblink}
+            onChange={handleInputChange}
+          />
+        </span>
         <br />
-        <h3>LinkedIn:</h3>
-        <input
-          type="text"
-          name="Linkedlink"
-          value={societyData.Linkedlink}
-          onChange={handleInputChange}
-        />
+        <span className="full-input one-input-label">
+
+
+          <p>LinkedIn:</p>
+          <input
+            type="text"
+            name="Linkedlink"
+            value={societyData.Linkedlink}
+            onChange={handleInputChange}
+          />
+        </span>
         <br />
-        <h3>Twitter:</h3>
-        <input
-          type="text"
-          name="Twitlink"
-          value={societyData.Twitlink}
-          onChange={handleInputChange}
-        />
+        <span className="full-input one-input-label">
+
+
+          <p>Twitter:</p>
+          <input
+            type="text"
+            name="Twitlink"
+            value={societyData.Twitlink}
+            onChange={handleInputChange}
+          /></span>
         <br />
-        <h3>Instagram:</h3>
-        <input
-          type="text"
-          name="Instalink"
-          value={societyData.Instalink}
-          onChange={handleInputChange}
-        />
+
+        <span className="full-input one-input-label">
+
+
+          <p>Instagram:</p>
+          <input
+            type="text"
+            name="Instalink"
+            value={societyData.Instalink}
+            onChange={handleInputChange}
+          /></span>
         <br />
-        <h3>YouTube:</h3>
-        <input
-          type="text"
-          name="Youlink"
-          value={societyData.Youlink}
-          onChange={handleInputChange}
-        />
+
+        <span className="full-input one-input-label">
+
+
+          <p>YouTube:</p>
+          <input
+            type="text"
+            name="Youlink"
+            value={societyData.Youlink}
+            onChange={handleInputChange}
+          /></span>
         <br />
 
         <button type="submit" id="submit-form">Submit</button>
