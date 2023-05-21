@@ -46,8 +46,8 @@ const SocietyDetails = () => {
                 <thead>
                   <tr>
                     <th>Position</th>
-                    <th>Member's Photo</th>
-                    <th>Member's Name</th>
+                    <th>Photo</th>
+                    <th>Name</th>
                     <th>Mobile Number</th>
                   </tr>
                 </thead>

@@ -502,7 +502,7 @@ table,.about-soc-div {
 }
 
 .about-soc-head {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script';
   text-align: center;
   font-weight: 800;
   font-size: 60px;
@@ -511,11 +511,12 @@ table,.about-soc-div {
 
 .about-soc h1 {
   display: inline-block;
+  font-family: 'Dancing Script';
   width: 100%;
-  font-size: 50px;
+  font-size: 60px;
   text-align: center;
   /* border-bottom: 1px solid gray; */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 800;
   color: black;
   /* background: #006dff; */
