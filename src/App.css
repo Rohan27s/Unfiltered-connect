@@ -73,16 +73,19 @@ table,tr,th,td{
   border: 1px solid gray
 }
 .avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding: 20px; */
-  text-transform: capitalize;
+  width: 100%!important;
+  /* height: 100%!important; */
+  max-width: 250px!important;
+  max-height: 250px!important;
+  border: hidden!important;
+  margin: auto!important;
+  border-radius: 50%!important;
+  background-color: black!important;
+  color: white!important;
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+  text-transform: capitalize!important;
 }
 .soc-names h1 {
   font-size: 35px;

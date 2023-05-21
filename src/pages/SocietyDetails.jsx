@@ -73,11 +73,11 @@ const SocietyDetails = () => {
           </div>
           <div className="social-media-overlay">
             <ul>
-              {society?.Fblink?.length > 0 && <li><a href={society?.Fblink}><i className="fab fa-facebook-f"></i></a></li>}
-              {society?.Linkedlink?.length > 0 &&<li><a href={society?.Linkedlink}><i className="fab fa-linkedin"></i></a></li>}
-              {society?.Twitlink?.length > 0 &&<li><a href={society?.Twitlink}><i className="fab fa-twitter"></i></a></li>}
-              {society?.Instalink?.length > 0 && <li><a href={society?.Instalink}><i className="fab fa-instagram"></i></a></li>}
-              {society?.Youlink?.length > 0 &&<li><a href={society?.Youlink}><i className="fab fa-youtube"></i></a></li>}
+              {society?.Fblink?.length > 0 && <li><a href={society?.Fblink} target='_blank'><i className="fab fa-facebook-f"></i></a></li>}
+              {society?.Linkedlink?.length > 0 &&<li><a href={society?.Linkedlink} target='_blank'><i className="fab fa-linkedin"></i></a></li>}
+              {society?.Twitlink?.length > 0 &&<li><a href={society?.Twitlink} target='_blank'><i className="fab fa-twitter"></i></a></li>}
+              {society?.Instalink?.length > 0 && <li><a href={society?.Instalink} target='_blank'><i className="fab fa-instagram"></i></a></li>}
+              {society?.Youlink?.length > 0 &&<li><a href={society?.Youlink} target='_blank'><i className="fab fa-youtube"></i></a></li>}
             </ul>
           </div>
           <Footer />
