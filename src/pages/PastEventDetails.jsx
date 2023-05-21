@@ -118,7 +118,7 @@ const PastEventDetails = () => {
                 ) : (
                   ''
                 )}
-                <div className='slider'>
+                {images?.length > 0 && <div className='slider'>
                   <SimpleImageSlider
                     width={"90%"}
                     height={"50vh"}
@@ -127,7 +127,7 @@ const PastEventDetails = () => {
                     showNavs={true}
                     style={{ display: "flex", justifyContent: "center" }}
                   />
-                </div>
+                </div>}
               </div>
 
             </main>
