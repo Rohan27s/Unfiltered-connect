@@ -151,7 +151,7 @@ const RegisterEvent = () => {
         />
         <br />
 
-        <h3>Presenters: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <h3>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <input
           name="content"
           type='text'
