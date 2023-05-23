@@ -5,8 +5,26 @@ import emailjs from '@emailjs/browser';
 const RegisterEvent = () => {
   const formRef = useRef(null);
   const [emails, setEmails] = useState();
-
+  const [societies, setSocieties] = useState([]);
+//API for getting society details
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'https://unfiltered-connect-backend.vercel.app/api/societies',
+    })
+      .then(response => {
+        const societiesData = response.data.map(society => ({
+          name: society.name,
+          logo: society.cover
+        }));
+        console.log(societiesData);
+        setSocieties(societiesData);
+      }).catch(response => {
+        console.log(response)
+      })
+  }, [])
   //API call for getting all the emails which all subscribed to our newsletter
+
   useEffect(() => {
     var config1 = {
       method: 'get',
@@ -129,6 +147,7 @@ const RegisterEvent = () => {
         alert("Error! Please Try Again")
       });
   };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, '0');
