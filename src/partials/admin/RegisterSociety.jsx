@@ -170,9 +170,7 @@ const RegisterSociety = () => {
         
         <div className="event-winner-head">
 
-          <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>   <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
-            Add Member
-          </button>
+          <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>  
         </div>
         {societyData.members.map((member, index) => (
           <div key={`member-${index}`} className="society-names">
@@ -243,6 +241,9 @@ const RegisterSociety = () => {
             )}
           </div>
         ))}
+         <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
+            Add Member
+          </button>
         <h2>Social Media Handles</h2>
 
         <span className="full-input one-input-label">

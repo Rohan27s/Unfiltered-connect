@@ -47,8 +47,8 @@ const RegisterPastEvent = () => {
       field === 'societies'
         ? { name: '', logo: '' }
         : field === 'sliderImage'
-        ? { img: '' }
-        : { positionname: '', positionholder: '' }
+          ? { img: '' }
+          : { positionname: '', positionholder: '' }
     );
     setEventData(updatedEventData);
   };
@@ -132,9 +132,7 @@ const RegisterPastEvent = () => {
 
         <div className="event-winner-head">
           <h2>Societies:</h2>
-          <button type="button" className='addSocbtn' onClick={() => handleAddField('societies')}>
-            Add Society
-          </button>
+
         </div>
 
         {eventData.societies.map((society, index) => (
@@ -166,14 +164,14 @@ const RegisterPastEvent = () => {
             )}
           </div>
         ))}
-
+        <button type="button" className='addSocbtn' onClick={() => handleAddField('societies')}>
+          Add Society
+        </button>
         <br />
         <div className="event-winner-head">
 
-        <h2>Carousel Images:</h2>
-        <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
-          Add Image
-        </button>
+          <h2>Carousel Images:</h2>
+
         </div>
         {eventData.sliderImage.map((image, index) => (
           <div key={`sliderImage-${index}`} className="society-names">
@@ -196,8 +194,10 @@ const RegisterPastEvent = () => {
             )}
           </div>
         ))}
+        <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
+          Add Image
+        </button>
 
-        
 
         <br />
 
@@ -227,7 +227,7 @@ const RegisterPastEvent = () => {
         />
         <br />
 
-       
+
 
         <h3>Venue:</h3>
         <input
@@ -249,17 +249,11 @@ const RegisterPastEvent = () => {
 
         <div className="event-winner-head">
           <h2>Winners:</h2>
-          <button
-            type="button"
-            className='addSocbtn'
-            onClick={() => handleAddField('winners')}
-          >
-            Add Winner
-          </button>
+
         </div>
 
         {eventData.winners.map((winner, index) => (
-          <div key={`winner-${index}`} className="winner-names">
+          <div key={`winner-${index}`} className="society-names">
             <h3>Position({index + 1}):</h3>
             <input
               type="text"
@@ -287,7 +281,13 @@ const RegisterPastEvent = () => {
             )}
           </div>
         ))}
-
+        <button
+          type="button"
+          className='addSocbtn'
+          onClick={() => handleAddField('winners')}
+        >
+          Add Winner
+        </button>
         <br />
 
         <button type="submit" className='submit-btn' id="submit-form">Submit</button>
