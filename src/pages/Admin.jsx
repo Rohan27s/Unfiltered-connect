@@ -54,6 +54,9 @@ const Admin = () => {
         <div className="admin-nav">
           <div className="top-admin-nav">
             {/* Logo */}
+            <button className={`sidebar-toggle ${sidebarCollapsed ? 'collapsed' : ''}`} onClick={toggleSidebar}>
+            {sidebarCollapsed?<i class="fa-solid fa-chevron-right"></i>:<i class="fa-solid fa-chevron-left"></i> }
+          </button>
             <Link to="/" className="block logo" aria-label="Cruip">
               <img className='nav-logo' src="https://res.cloudinary.com/rohangotwal/image/upload/v1671085611/Blog/logo_cy14jc.png" alt="" />
               {sidebarCollapsed ? "" : <h2>Unfiltered Connect</h2>}
@@ -67,9 +70,7 @@ const Admin = () => {
           <div className="bottom-nav-admin">
             <button className={`mid-admin-nav ${sidebarCollapsed ? 'logout collapsed' : 'logout'}`} onClick={handleLogout}>Logout</button>
           </div>
-          <button className={`sidebar-toggle ${sidebarCollapsed ? 'collapsed' : ''}`} onClick={toggleSidebar}>
-            {sidebarCollapsed?"Show":"Hide" }
-          </button>
+          
         </div>
         <div className="admin-container">
           {curr}

@@ -784,9 +784,10 @@ article.nextSlide {
   display: flex;
   flex-direction: column;
   background-color: rgb(237 159 129 / 51%);
-  position: fixed;
+  position: sticky;
+  top: 0;
   left: 0;
-  width: 20vw;
+  width: 20%;
   justify-content: space-between;
   height: 100vh;
 }
@@ -802,10 +803,10 @@ article.nextSlide {
 }
 
 .admin-container {
-  position: absolute;
-  width: 80vw;
+  position: relative;
+  width: 100%;
   margin: auto;
-  right: 0;
+  /* right: 0; */
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
 }
@@ -869,8 +870,8 @@ article.nextSlide {
 
 .default-admin h1 {
   font-size: 90px;
-  position: absolute;
-  top: 40%;
+  /* position: absolute; */
+  /* top: 40%; */
   font-family: 'Dancing Script', cursive;
 }
 
@@ -914,10 +915,10 @@ margin: 20px auto;
   width: 20%;
 }
 .main-admin h2 {
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 500;
   margin: 20px 0;
-
+  width: 100%;
 }
 
 .event-submit {
@@ -1158,10 +1159,13 @@ text-align: center;
 }
 .main-admin {
   display: flex;
+  flex-direction: row;
 }
 
 .admin-nav {
-  width: 250px;
+
+  width: 20vw;
+  z-index: 1;
   transition: width 0.3s ease;
   /* Add any other necessary styles for the sidebar */
 }
@@ -1179,17 +1183,29 @@ text-align: center;
 .sidebar-toggle {
   display: block;
   margin-top: auto;
+  position: absolute;
+  z-index: 1;
   background: none;
   border: none;
   padding: 10px;
+  top: 0;
+  color: white;
+  background: black;
+  right: -30px;
   cursor: pointer;
   text-align: center;
-  /* Add any other necessary styles for the toggle button */
 }
-
-.sidebar-toggle.collapsed {
+.default-admin{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+/* .sidebar-toggle.collapsed {
   transform: rotate(-90deg);
-}
+} */
 
 .admin-container {
   flex-grow: 1;
