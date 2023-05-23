@@ -81,17 +81,23 @@ const RegisterEvent = () => {
 
   const handleSelectSociety = () => {
     if (selectedSociety) {
-      const updatedEventData = { ...eventData };
-
       const societyObject = societies.find((society) => society.name === selectedSociety);
-      console.log(societyObject);
       if (societyObject) {
-        updatedEventData.societies.push({ name: societyObject.name, logo: societyObject.logo });
-        setEventData(updatedEventData);
-        setSelectedSociety('');
+        const isSocietySelected = eventData.societies.some((society) => society.name === societyObject.name);
+        if (!isSocietySelected) {
+          const updatedEventData = { ...eventData };
+          updatedEventData.societies.push({ name: societyObject.name, logo: societyObject.logo });
+          setEventData(updatedEventData);
+        } else {
+          // Society is already selected
+          // You can show an error message or perform any other action
+          alert('This society has been already selected!')
+        }
       }
+      setSelectedSociety('');
     }
   };
+  
 
 
   const handleAddField = (field) => {
@@ -261,7 +267,7 @@ const RegisterEvent = () => {
             <div key={index} className='selected-society'>
               <img className='selected-soc-images' src={society.logo} alt={society.name} />
               <p>{society.name}</p>
-              <button className='remove-btn' type="button" onClick={() => handleRemoveFieldsociety(index, 'societies')}>
+              <button className='remove-btn' style={{marginTop:"0"}} type="button" onClick={() => handleRemoveFieldsociety(index, 'societies')}>
         Remove
       </button>
             </div>
