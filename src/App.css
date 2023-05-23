@@ -857,6 +857,26 @@ article.nextSlide {
 .soc-separator{
   color: white;
 }
+.selected-soc-images{
+  width: 50px;
+}
+.add-soc-btn{
+  margin-left: 20px;
+}
+.selected-society{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  /* justify-content: space-evenly; */
+}
+.selected-societies{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  gap: 10px;
+
+}
 .remove-btn {
   background-color: rgba(255, 0, 0, 0.593);
   padding: 7px 12px;

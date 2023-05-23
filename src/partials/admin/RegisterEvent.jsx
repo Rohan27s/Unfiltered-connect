@@ -1,59 +1,53 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import emailjs from '@emailjs/browser';
+
 
 const RegisterEvent = () => {
   const formRef = useRef(null);
-  const [emails, setEmails] = useState();
+  const [emails, setEmails] = useState([]);
   const [societies, setSocieties] = useState([]);
-//API for getting society details
-  useEffect(() => {
-    axios({
-      method: 'get',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/societies',
-    })
-      .then(response => {
-        const societiesData = response.data.map(society => ({
-          name: society.name,
-          logo: society.cover
-        }));
-        console.log(societiesData);
-        setSocieties(societiesData);
-      }).catch(response => {
-        console.log(response)
-      })
-  }, [])
-  //API call for getting all the emails which all subscribed to our newsletter
-
-  useEffect(() => {
-    var config1 = {
-      method: 'get',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
-    };
-    axios(config1)
-      .then(function (response) {
-        setEmails(response.data);
-        // console.log(emails);
-        // console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [emails]);
-
+  const [selectedSociety, setSelectedSociety] = useState({ name: "", logo: "" });
   const [eventData, setEventData] = useState({
     title: '',
     content: '',
-    societies: [{ name: '', logo: '' }],
+    societies: [],
     description: '',
     date: '',
     venue: '',
-    fromTime: '', // Updated: Added fromTime and toTime
-    toTime: '', // Updated: Added fromTime and toTime
+    fromTime: '',
+    toTime: '',
     img: '',
     registerLink: '',
     faq: [{ ques: '', ans: '' }],
   });
+
+  useEffect(() => {
+    axios
+      .get('https://unfiltered-connect-backend.vercel.app/api/societies')
+      .then((response) => {
+        const societiesData = response.data.map((society) => ({
+          name: society.name,
+          logo: society.cover,
+        }));
+        setSocieties(societiesData);
+        console.log(societiesData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get('https://unfiltered-connect-backend.vercel.app/api/allemail')
+  //     .then((response) => {
+  //       setEmails(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
@@ -68,9 +62,9 @@ const RegisterEvent = () => {
     } else {
       if (index >= 0 && index < updatedEventData[field].length) {
         updatedEventData[field][index][name] = value;
-      } else if (field === 'fromTime' || field === 'toTime') { // Updated: Check for fromTime and toTime
+      } else if (field === 'fromTime' || field === 'toTime') {
         updatedEventData[field] = value;
-        updatedEventData['time'] = mergeTime(updatedEventData); // Updated: Call mergeTime
+        updatedEventData['time'] = mergeTime(updatedEventData);
       } else {
         updatedEventData[name] = value;
       }
@@ -85,13 +79,29 @@ const RegisterEvent = () => {
     return `${fromTime} to ${toTime}`;
   };
 
+  const handleSelectSociety = () => {
+    if (selectedSociety) {
+      const updatedEventData = { ...eventData };
+
+      const societyObject = societies.find((society) => society.name === selectedSociety);
+      console.log(societyObject);
+      if (societyObject) {
+        updatedEventData.societies.push({ name: societyObject.name, logo: societyObject.logo });
+        setEventData(updatedEventData);
+        setSelectedSociety('');
+      }
+    }
+  };
+
 
   const handleAddField = (field) => {
     const updatedEventData = { ...eventData };
     if (!updatedEventData[field]) {
       updatedEventData[field] = [];
     }
-    updatedEventData[field].push(field === 'societies' ? { name: '', logo: '' } : { ques: '', ans: '' });
+    updatedEventData[field].push(
+      field === 'societies' ? { name: '', logo: '' } : { ques: '', ans: '' }
+    );
     setEventData(updatedEventData);
   };
 
@@ -103,57 +113,88 @@ const RegisterEvent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Save the eventData to the database or perform any other necessary actions
     const formattedDate = formatDate(eventData.date);
-    const updatedEventData = { ...eventData, date: formattedDate };
-    console.log(eventData);
-    var config = {
-      method: 'post',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: updatedEventData
-    };
-
-    axios(config)
-      .then(function (response) {
-        alert("New Event Registered Successfully");
-        // console.log(JSON.stringify(response.data));
-        // emails.map((data) => (
-        //   emailjs.send('unfilteredconnect', 'template_ypg5vgn', data, 'IzhHvKXIND2eDZuyD')
-        //     .then((result) => {
-        //       // console.log(result.text);
-        //     }).catch((result) => {
-        //       // console.log(result.text);
-        //     })
-        // ))
-        setEventData({
-          title: '',
-          content: '',
-          societies: [{ name: '', logo: '' }],
-          description: '',
-          date: '',
-          venue: '',
-          fromTime: '', // Updated: Added fromTime and toTime
-          toTime: '', // Updated: Added fromTime and toTime
-          img: '',
-          registerLink: '',
-          faq: [{ ques: '', ans: '' }],
-        });
-        formRef.current.reset();
+    const formattedTime = formatTime(eventData.time);
+    const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
+    const formattedEventData = { ...eventData, dateTime: mergedDateTime };
+    const formData = new FormData(formRef.current);
+    formData.append('eventData', JSON.stringify(formattedEventData));
+    console.log(formattedEventData);
+    axios
+      .post('https://unfiltered-connect-backend.vercel.app/api/register-event', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       })
-      .catch(function (error) {
-        alert("Error! Please Try Again")
+      .then((response) => {
+        if (response.status === 200) {
+          sendEmails();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = `0${month}`;
+    }
+
+    if (day < 10) {
+      day = `0${day}`;
+    }
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const formatTime = (timeString) => {
+    if (!timeString.includes(' ')) {
+      return timeString;
+    }
+
+    const [time, period] = timeString.split(' ');
+    let [hours, minutes] = time.split(':');
+    const isPM = period.toLowerCase() === 'pm';
+
+    if (isPM && hours !== '12') {
+      hours = String(Number(hours) + 12);
+    } else if (!isPM && hours === '12') {
+      hours = '00';
+    }
+
+    return `${hours}:${minutes}`;
+  };
+
+  const mergeDateTime = (date, time) => {
+    return `${date} ${time}`;
+  };
+
+  const sendEmails = () => {
+    const templateParams = {
+      to_emails: emails.map((email) => email.email),
+      subject: `New Event: ${eventData.title}`,
+      content: `
+        <h1>New Event</h1>
+        <h2>${eventData.title}</h2>
+        <h3>Date: ${eventData.date}</h3>
+        <h3>Time: ${eventData.time}</h3>
+      `,
+    };
+
+    emailjs
+      .send('unfilteredconnect', 'template_ypg5vgn', templateParams, 'Unfiltered Connect')
+      .then((response) => {
+        console.log('Emails sent successfully!', response);
+      })
+      .catch((error) => {
+        console.error('Error sending emails:', error);
+      });
   };
   return (
     <div className='register-event'>
@@ -181,35 +222,44 @@ const RegisterEvent = () => {
         <br />
         <div className="event-winner-head">
           <h2>Societies:</h2>
-          
+
         </div>
 
-        {eventData.societies.map((society, index) => (
-          <div key={index} className="society-names">
-            <h3>Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
-              type="text"
-              name="name"
-              value={society.name}
-              onChange={(e) => handleInputChange(e, index, 'societies')}
-              required
-            />
-            <h3>Logo({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
-              type="text"
-              name="logo"
-              value={society.logo}
-              onChange={(e) => handleInputChange(e, index, 'societies')}
-              required
-            />
-            {index > 0 && (
-              <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'societies')}>
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-<button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
+
+        <h3>Societies:</h3>
+
+        {societies?.length > 0 ?
+          <>
+            <select
+              value={selectedSociety}
+              onChange={(e) => setSelectedSociety(e.target.value)}
+            >
+              <option value='' >
+                Select a society
+              </option>
+              {societies?.map((society, index) => (
+                <option key={index} value={society.name}>
+                  {society.name}
+                </option>
+              ))}
+            </select>
+            <button type='button' className='addSocbtn add-soc-btn' onClick={handleSelectSociety}>
+              Add Society
+            </button>
+            <br />
+          </>
+          : "Loading..."}
+        {/* <button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
             Add Society
-          </button>
+          </button> */}
+        <div className='selected-societies'>
+          {eventData.societies.map((society, index) => (
+            <div key={index} className='selected-society'>
+              <img className='selected-soc-images' src={society.logo} alt={society.name} />
+              <p>{society.name}</p>
+            </div>
+          ))}
+        </div>
         <br />
         <h3>Description <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
