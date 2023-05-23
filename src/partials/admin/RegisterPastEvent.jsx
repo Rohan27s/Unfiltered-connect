@@ -1,12 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 const RegisterPastEvent = () => {
   const formRef = useRef(null);
+  const [societies, setSocieties] = useState([]);
+  const [selectedSociety, setSelectedSociety] = useState({ name: "", logo: "" });
   const [eventData, setEventData] = useState({
     title: '',
     content: '',
-    societies: [{ name: '', logo: '' }],
+    societies: [],
     sliderImage: [{ img: '' }],
     reportpdf: '',
     description: '',
@@ -16,7 +18,21 @@ const RegisterPastEvent = () => {
     img: '',
     winners: [{ positionname: '', positionholder: '' }],
   });
-
+  useEffect(() => {
+    axios
+      .get('https://unfiltered-connect-backend.vercel.app/api/societies')
+      .then((response) => {
+        const societiesData = response.data.map((society) => ({
+          name: society.name,
+          logo: society.cover,
+        }));
+        setSocieties(societiesData);
+        console.log(societiesData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
     const updatedEventData = { ...eventData };
@@ -104,6 +120,29 @@ const RegisterPastEvent = () => {
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   };
+  const handleSelectSociety = () => {
+    if (selectedSociety) {
+      const societyObject = societies.find((society) => society.name === selectedSociety);
+      if (societyObject) {
+        const isSocietySelected = eventData.societies.some((society) => society.name === societyObject.name);
+        if (!isSocietySelected) {
+          const updatedEventData = { ...eventData };
+          updatedEventData.societies.push({ name: societyObject.name, logo: societyObject.logo });
+          setEventData(updatedEventData);
+        } else {
+          // Society is already selected
+          // You can show an error message or perform any other action
+          alert('This society has been already selected!')
+        }
+      }
+      setSelectedSociety('');
+    }
+  };
+  const handleRemoveFieldsociety = (index, field) => {
+    const updatedEventData = { ...eventData };
+    updatedEventData[field].splice(index, 1);
+    setEventData(updatedEventData);
+  };
 
   return (
     <div className='register-event'>
@@ -135,38 +174,38 @@ const RegisterPastEvent = () => {
 
         </div>
 
-        {eventData.societies.map((society, index) => (
-          <div key={`society-${index}`} className="society-names">
-            <h3>Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-            <input
-              type="text"
-              name="name"
-              placeholder="Society Name"
-              value={society.name}
-              onChange={(e) => handleInputChange(e, index, 'societies', 'name')}
-            />
-            <h3>Logo({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-            <input
-              type="url"
-              name="logo"
-              placeholder="Society Logo URL"
-              value={society.logo}
-              onChange={(e) => handleInputChange(e, index, 'societies', 'logo')}
-            />
-            {index > 0 && (
-              <button
-                type="button"
-                className='remove-btn'
-                onClick={() => handleRemoveField(index, 'societies')}
-              >
+        {societies?.length > 0 ?
+          <>
+            <select
+              value={selectedSociety}
+              onChange={(e) => setSelectedSociety(e.target.value)}
+            >
+              <option value='' >
+                Select a society
+              </option>
+              {societies?.map((society, index) => (
+                <option key={index} value={society.name}>
+                  {society.name}
+                </option>
+              ))}
+            </select>
+            <button type='button' className='addSocbtn add-soc-btn' onClick={handleSelectSociety}>
+              Add Society
+            </button>
+            <br />
+          </>
+          : "Loading..."}
+        <div className='selected-societies'>
+          {eventData.societies.map((society, index) => (
+            <div key={index} className='selected-society'>
+              <img className='selected-soc-images' src={society.logo} alt={society.name} />
+              <p>{society.name}</p>
+              <button className='remove-btn' style={{ marginTop: "0" }} type="button" onClick={() => handleRemoveFieldsociety(index, 'societies')}>
                 Remove
               </button>
-            )}
-          </div>
-        ))}
-        <button type="button" className='addSocbtn' onClick={() => handleAddField('societies')}>
-          Add Society
-        </button>
+            </div>
+          ))}
+        </div>
         <br />
         <div className="event-winner-head">
 

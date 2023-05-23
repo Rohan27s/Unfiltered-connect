@@ -150,15 +150,15 @@ const RegisterSociety = () => {
         <span className="full-input one-input-label">
 
 
-<p>Logo:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
-<input
-  type="text"
-  name="cover"
-  value={societyData.cover}
-  onChange={handleInputChange}
-/>
-</span>
-<br />
+          <p>Logo:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="cover"
+            value={societyData.cover}
+            onChange={handleInputChange}
+          />
+        </span>
+        <br />
         <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
@@ -167,10 +167,10 @@ const RegisterSociety = () => {
           required
         />
         <br />
-        
+
         <div className="event-winner-head">
 
-          <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>  
+          <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>
         </div>
         {societyData.members.map((member, index) => (
           <div key={`member-${index}`} className="society-names">
@@ -241,9 +241,9 @@ const RegisterSociety = () => {
             )}
           </div>
         ))}
-         <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
-            Add Member
-          </button>
+        <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
+          Add Member
+        </button>
         <h2>Social Media Handles</h2>
 
         <span className="full-input one-input-label">

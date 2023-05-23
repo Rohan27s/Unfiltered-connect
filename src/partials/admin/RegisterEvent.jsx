@@ -97,7 +97,7 @@ const RegisterEvent = () => {
       setSelectedSociety('');
     }
   };
-  
+
 
 
   const handleAddField = (field) => {
@@ -123,24 +123,27 @@ const RegisterEvent = () => {
     const formattedTime = formatTime(eventData.time);
     const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
     const formattedEventData = { ...eventData, dateTime: mergedDateTime };
-    const formData = new FormData(formRef.current);
-    formData.append('eventData', JSON.stringify(formattedEventData));
-    console.log(formattedEventData);
+    
+    var config = {
+      method: 'post',
+      url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd', // Provide the correct URL
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: formattedEventData,
+    };
+  
     axios
-      .post('https://unfiltered-connect-backend.vercel.app/api/register-event', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          sendEmails();
-        }
+      .post(config.url, formattedEventData) // Pass the URL and data as separate arguments
+      .then(function (response) {
+        alert("Event Registered Successfully!");
+        // sendEmails();
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -267,9 +270,9 @@ const RegisterEvent = () => {
             <div key={index} className='selected-society'>
               <img className='selected-soc-images' src={society.logo} alt={society.name} />
               <p>{society.name}</p>
-              <button className='remove-btn' style={{marginTop:"0"}} type="button" onClick={() => handleRemoveFieldsociety(index, 'societies')}>
-        Remove
-      </button>
+              <button className='remove-btn' style={{ marginTop: "0" }} type="button" onClick={() => handleRemoveFieldsociety(index, 'societies')}>
+                Remove
+              </button>
             </div>
           ))}
         </div>
