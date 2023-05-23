@@ -259,9 +259,7 @@ const RegisterEvent = () => {
         <br />
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
-          <button className='addSocbtn' type="button" onClick={() => handleAddField('faq')}>
-            Add FAQ
-          </button>
+         
         </div>
         <div className="faq-list">
 
@@ -285,7 +283,9 @@ const RegisterEvent = () => {
                   Remove
                 </button>
               )}
+              
             </div>
+            
           ))}
 
         </div>
