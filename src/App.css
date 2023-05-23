@@ -345,7 +345,7 @@ margin-bottom: 0!important;
   display: flex;
   background-color: #000000;
   color: white;
-  padding: 0.5rem;
+  padding: 0.5rem!important;
   border-radius: 10px;
   margin: 0.5rem 0.5rem;
   
@@ -798,6 +798,7 @@ article.nextSlide {
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
 }
 
 .admin-container {
@@ -1155,6 +1156,56 @@ text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.208);
   padding: 15px 0;
 }
+.main-admin {
+  display: flex;
+}
+
+.admin-nav {
+  width: 250px;
+  transition: width 0.3s ease;
+  /* Add any other necessary styles for the sidebar */
+}
+
+.mid-admin-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mid-admin-nav.collapsed {
+  display: none;
+}
+
+.sidebar-toggle {
+  display: block;
+  margin-top: auto;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  /* Add any other necessary styles for the toggle button */
+}
+
+.sidebar-toggle.collapsed {
+  transform: rotate(-90deg);
+}
+
+.admin-container {
+  flex-grow: 1;
+  /* Add any other necessary styles for the content container */
+}
+
+.main-admin.collapsed .admin-nav {
+  width: 80px;
+  /* Adjust the width when the sidebar is collapsed */
+}
+
+.main-admin.collapsed .mid-admin-nav {
+  display: none;
+  /* Hide the sidebar navigation when collapsed */
+}
+
 /* Mobile view css */
 @media only screen and (max-width: 500px) {
   .stepimg {
