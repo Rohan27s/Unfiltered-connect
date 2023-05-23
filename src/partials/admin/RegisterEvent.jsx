@@ -138,7 +138,7 @@ const RegisterEvent = () => {
   };
   return (
     <div className='register-event'>
-      <h1>Register a New Event</h1>
+      <h1 className='admin-headings'>Register a New Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
         <h3>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
