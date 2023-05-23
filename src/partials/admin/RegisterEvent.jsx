@@ -6,22 +6,22 @@ const RegisterEvent = () => {
   const formRef = useRef(null);
   const [emails, setEmails] = useState();
 
- //API call for getting all the emails which all subscribed to our newsletter
- useEffect(() => {
-  var config1 = {
-    method: 'get',
-    url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
-  };
-  axios(config1)
-    .then(function (response) {
-      setEmails(response.data);
-      // console.log(emails);
-      // console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}, [emails]);
+  //API call for getting all the emails which all subscribed to our newsletter
+  useEffect(() => {
+    var config1 = {
+      method: 'get',
+      url: 'https://unfiltered-connect-backend.vercel.app/api/allemail',
+    };
+    axios(config1)
+      .then(function (response) {
+        setEmails(response.data);
+        // console.log(emails);
+        // console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [emails]);
 
   const [eventData, setEventData] = useState({
     title: '',
@@ -162,21 +162,19 @@ const RegisterEvent = () => {
         <br />
         <div className="event-winner-head">
           <h2>Societies:</h2>
-          <button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
-          Add Society
-        </button>
+          
         </div>
 
         {eventData.societies.map((society, index) => (
           <div key={index} className="society-names">
-            <h3>Name({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="name"
               value={society.name}
               onChange={(e) => handleInputChange(e, index, 'societies')}
               required
             />
-            <h3>Logo({index+1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+            <h3>Logo({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
               type="text"
               name="logo"
               value={society.logo}
@@ -190,31 +188,33 @@ const RegisterEvent = () => {
             )}
           </div>
         ))}
-       
+<button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
+            Add Society
+          </button>
         <br />
-        <h3>Description <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
-          <textarea
-            name="description"
-            value={eventData.description}
-            onChange={handleInputChange}
-          />
+        <h3>Description <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <textarea
+          name="description"
+          value={eventData.description}
+          onChange={handleInputChange}
+        />
         <br />
-        <h3>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
-          <input
-            type="date"
-            name="date"
-            value={eventData.date}
-            onChange={handleInputChange}
-          />
-        
+        <h3>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
+          type="date"
+          name="date"
+          value={eventData.date}
+          onChange={handleInputChange}
+        />
+
         <br />
-        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
-          <input
-            type="text"
-            name="venue"
-            value={eventData.venue}
-            onChange={handleInputChange}
-          />
+        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
+          type="text"
+          name="venue"
+          value={eventData.venue}
+          onChange={handleInputChange}
+        />
         <br />
         <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
 
@@ -240,54 +240,54 @@ const RegisterEvent = () => {
         </span>
 
         <br />
-        <h3>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
-          <input
-            type="url"
-            name="img"
-            value={eventData.img}
-            onChange={handleInputChange}
-          />
+        <h3>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
+          type="url"
+          name="img"
+          value={eventData.img}
+          onChange={handleInputChange}
+        />
         <br />
         <h3>  Registration Link:
-<p style={{ color: 'red', display: 'inline' }}>*</p></h3>   
-          <input
-            type="text"
-            name="registerLink"
-            value={eventData.registerLink}
-            onChange={handleInputChange}
-          />
+          <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <input
+          type="text"
+          name="registerLink"
+          value={eventData.registerLink}
+          onChange={handleInputChange}
+        />
         <br />
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
-         
+
         </div>
         <div className="faq-list">
 
           {eventData.faq.map((faq, index) => (
             <div key={index}>
-             <h3>Question ({index+1}) <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
+              <h3>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
                 type="text"
                 name="ques"
                 value={faq.ques}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
-               <h3>Answer ({index+1})<p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+              <h3>Answer ({index + 1})<p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
                 type="text"
                 name="ans"
                 value={faq.ans}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
-              
+
               {index > 0 && (
                 <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'faq')}>
                   Remove
                 </button>
               )}
-              
             </div>
-            
           ))}
-
+          <button className='addSocbtn' type="button" onClick={() => handleAddField('faq')}>
+            Add FAQ
+          </button>
         </div>
 
         <br />

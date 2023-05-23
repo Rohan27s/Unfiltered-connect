@@ -863,6 +863,7 @@ article.nextSlide {
   width: 100px;
   border-radius: 0.3rem;
   color: white;
+  margin-top: 10px;
 }
 .active {
   text-decoration: underline;
@@ -1131,11 +1132,12 @@ text-align: center;
   align-items: center;
   justify-content: space-between;
 }
-.addSocbtn{
+.addSocbtn {
   background-color: #006dff;
   color: white;
   padding: 10px 15px;
   border-radius: 0.3rem;
+  width: 128px;
 }
 
 .faq-list {
