@@ -174,7 +174,11 @@ const RegisterEvent = () => {
   const mergeDateTime = (date, time) => {
     return `${date} ${time}`;
   };
-
+  const handleRemoveFieldsociety = (index, field) => {
+    const updatedEventData = { ...eventData };
+    updatedEventData[field].splice(index, 1);
+    setEventData(updatedEventData);
+  };
   const sendEmails = () => {
     const templateParams = {
       to_emails: emails.map((email) => email.email),
@@ -257,6 +261,9 @@ const RegisterEvent = () => {
             <div key={index} className='selected-society'>
               <img className='selected-soc-images' src={society.logo} alt={society.name} />
               <p>{society.name}</p>
+              <button className='remove-btn' type="button" onClick={() => handleRemoveFieldsociety(index, 'societies')}>
+        Remove
+      </button>
             </div>
           ))}
         </div>
