@@ -121,9 +121,9 @@ const RegisterEvent = () => {
     e.preventDefault();
     const formattedDate = formatDate(eventData.date);
     const formattedTime = formatTime(eventData.time);
-    const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
-    const formattedEventData = { ...eventData, dateTime: mergedDateTime };
-    
+    // const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
+    const formattedEventData = { ...eventData, date: formattedDate,time:formattedTime };
+    console.log(formattedEventData);
     var config = {
       method: 'post',
       url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd', // Provide the correct URL
@@ -150,17 +150,18 @@ const RegisterEvent = () => {
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
-
+  
     if (month < 10) {
       month = `0${month}`;
     }
-
+  
     if (day < 10) {
       day = `0${day}`;
     }
-
-    return `${year}-${month}-${day}`;
+  
+    return `${day}-${month}-${year}`;
   };
+  
 
   const formatTime = (timeString) => {
     if (!timeString.includes(' ')) {
@@ -180,9 +181,9 @@ const RegisterEvent = () => {
     return `${hours}:${minutes}`;
   };
 
-  const mergeDateTime = (date, time) => {
-    return `${date} ${time}`;
-  };
+  // const mergeDateTime = (date, time) => {
+  //   return `${date} ${time}`;
+  // };
   const handleRemoveFieldsociety = (index, field) => {
     const updatedEventData = { ...eventData };
     updatedEventData[field].splice(index, 1);
