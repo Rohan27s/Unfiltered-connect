@@ -173,7 +173,7 @@ const RegisterPastEvent = () => {
         <br />
 
         <div className="event-winner-head">
-          <h2>Societies:</h2>
+          <h2>Societies:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>
 
         </div>
 
@@ -260,20 +260,22 @@ const RegisterPastEvent = () => {
         </span>
         <br />
 
-        <h3>Description:</h3>
+        <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
           value={eventData.description}
           onChange={handleInputChange}
+          required
         />
         <br />
 
         <div className="split-input-columns">
         <span className="full-input one-input-label">
-        <p>Date:</p>
+        <p>Date:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="date"
           name="date"
+          required
           value={eventData.date}
           onChange={handleInputChange}
         />
@@ -282,8 +284,9 @@ const RegisterPastEvent = () => {
 
 
         <span className="full-input one-input-label">
-        <p>Venue:</p>
+        <p>Venue:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
+        required
           type="text"
           name="venue"
           value={eventData.venue}
@@ -294,12 +297,13 @@ const RegisterPastEvent = () => {
         <br />
 
         <span className="full-input one-input-label">
-        <p>Poster:</p>
+        <p>Poster:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="text"
           name="img"
           value={eventData.img}
           onChange={handleInputChange}
+          required
         />
         </span>
         <br />

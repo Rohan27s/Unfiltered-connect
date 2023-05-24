@@ -256,7 +256,7 @@ const RegisterEvent = () => {
         <br />
 
 
-        <h3>Societies:</h3>
+        <h2>Societies:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>
 
         {societies?.length > 0 ?
           <>
@@ -299,6 +299,7 @@ const RegisterEvent = () => {
           name="description"
           value={eventData.description}
           onChange={handleInputChange}
+          required
         />
         <br />
         <div className="split-input-columns">
@@ -310,6 +311,7 @@ const RegisterEvent = () => {
               name="date"
               value={eventData.date}
               onChange={handleInputChange}
+              required
             />
           </span>
           <br />
@@ -321,6 +323,7 @@ const RegisterEvent = () => {
               name="venue"
               value={eventData.venue}
               onChange={handleInputChange}
+              required
             />
           </span>
         </div>
@@ -335,6 +338,7 @@ const RegisterEvent = () => {
                 type="time"
                 name="fromTime"
                 value={eventData.fromTime}
+                required
                 onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
               />
             </span>
@@ -344,6 +348,7 @@ const RegisterEvent = () => {
                 type="time"
                 name="toTime"
                 value={eventData.toTime}
+              
                 onChange={(e) => handleInputChange(e, null, 'toTime')} // Updated: Use 'toTime' field
               />
             </span>
@@ -358,6 +363,7 @@ const RegisterEvent = () => {
           name="img"
           value={eventData.img}
           onChange={handleInputChange}
+          required
         />
         </span>
         <br />
@@ -369,6 +375,7 @@ const RegisterEvent = () => {
           name="registerLink"
           value={eventData.registerLink}
           onChange={handleInputChange}
+          required
         />
         </span>
         <br />
