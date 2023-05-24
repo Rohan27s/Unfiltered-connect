@@ -217,7 +217,8 @@ const RegisterPastEvent = () => {
         </div>
         {eventData.sliderImage.map((image, index) => (
           <div key={`sliderImage-${index}`} className="society-names">
-            <h3>Image({index + 1}): </h3>
+            <span className="full-input one-input-label">
+            <p>Image({index + 1}): </p>
             <input
               type="url"
               name="img"
@@ -225,6 +226,7 @@ const RegisterPastEvent = () => {
               value={image.img}
               onChange={(e) => handleInputChange(e, index, 'sliderImage', 'img')}
             />
+            </span>
             {index > 0 && (
               <button
                 type="button"
