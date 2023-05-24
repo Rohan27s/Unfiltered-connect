@@ -14,9 +14,11 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+  
+}
+select{
   border-radius: 7px;
 }
-
 body {
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
@@ -933,8 +935,8 @@ margin: 20px auto;
 .main-admin h3 {
   font-size: 20px;
   width: 50%;
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
 }
 .complete-input{
   width: 170%!important;
@@ -962,7 +964,9 @@ margin: 20px auto;
   margin-left: 150px;
   margin-top: 10px;
 }
-
+#soc-inputs h3{
+  width: 360px;
+}
 #submit-form {
   background-color: #006dff;
   color: white;

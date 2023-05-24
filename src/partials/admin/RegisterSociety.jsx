@@ -123,7 +123,7 @@ const RegisterSociety = () => {
       <h1 className='admin-headings'>Register a Society</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        
+
         <span className="full-input one-input-label">
 
 
@@ -174,7 +174,7 @@ const RegisterSociety = () => {
           <h2>CORE Team Details:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>
         </div>
         {societyData.members.map((member, index) => (
-          <div key={`member-${index}`} className="society-names">
+          <div key={`member-${index}`} id='soc-inputs' className="society-names">
             <span className="one-input-label">
               <h3>Designation({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
                 type="text"
@@ -233,21 +233,21 @@ const RegisterSociety = () => {
               /></span>
             {index > 0 && (
               <div className='end-button'>
-              <button
-                type="button"
-                className='remove-btn'
-                onClick={() => handleRemoveField(index, 'members')}
-              >
-                Remove
-              </button>
+                <button
+                  type="button"
+                  className='remove-btn'
+                  onClick={() => handleRemoveField(index, 'members')}
+                >
+                  Remove
+                </button>
               </div>
             )}
           </div>
         ))}
         <div className='end-button'>
-        <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
-          Add Member
-        </button>
+          <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
+            Add Member
+          </button>
         </div>
         <h2>Social Media Handles</h2>
 
@@ -310,7 +310,7 @@ const RegisterSociety = () => {
           /></span>
         <br />
         <div className='end-button'>
-        <button type="submit" id="submit-form">Submit</button></div>
+          <button type="submit" id="submit-form">Submit</button></div>
       </form>
     </div>
   );
