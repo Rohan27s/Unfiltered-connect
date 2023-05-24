@@ -943,9 +943,9 @@ margin: 20px auto;
   width: 100%!important;
 }
 .full-input p {
-  margin-right: 10px;
+  /* margin-right: 10px; */
   font-size: 20px;
-  width: 120px;
+  width: 183px;
 }
 .main-admin h2 {
   font-size: 23px;
@@ -1189,7 +1189,7 @@ text-align: center;
   margin-bottom: 50px;
 }
 .society-names input{
-  width: 50%;
+  width: 100%;
 }
 .society-names li,.faq-list li{
   list-style: none;

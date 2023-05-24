@@ -379,7 +379,7 @@ const RegisterEvent = () => {
         <div className="faq-list">
 
           {eventData.faq.map((faq, index) => (
-            <div key={index}>
+            <div key={index} className="society-names">
               <span className="full-input one-input-label">
               <p>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></p> <input
                 type="text"
