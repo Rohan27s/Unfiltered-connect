@@ -138,6 +138,21 @@ const RegisterEvent = () => {
       .then(function (response) {
         alert("Event Registered Successfully!");
         // sendEmails();
+        setEventData({
+          title: '',
+          content: '',
+          societies: [],
+          description: '',
+          date: '',
+          venue: '',
+          fromTime: '',
+          toTime: '',
+          img: '',
+          registerLink: '',
+          faq: [{ ques: '', ans: '' }],
+        });
+        formRef.current.reset();
+
       })
       .catch((error) => {
         console.log(error);
@@ -234,10 +249,6 @@ const RegisterEvent = () => {
           required
         />
         <br />
-        <div className="event-winner-head">
-          <h2>Societies:</h2>
-
-        </div>
 
 
         <h3>Societies:</h3>
