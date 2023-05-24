@@ -14,6 +14,7 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+  border-radius: 7px;
 }
 
 body {
@@ -941,10 +942,10 @@ margin: 20px auto;
 .full-input{
   width: 100%!important;
 }
-.full-input p{
+.full-input p {
   margin-right: 10px;
   font-size: 20px;
-  width: 20%;
+  width: 120px;
 }
 .main-admin h2 {
   font-size: 23px;

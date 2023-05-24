@@ -149,7 +149,8 @@ const RegisterPastEvent = () => {
       <h1 className='admin-headings'>Register a Past Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+      <span className="full-input one-input-label">
+        <p>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="text"
           name="title"
@@ -157,9 +158,10 @@ const RegisterPastEvent = () => {
           onChange={handleInputChange}
           required
         />
+        </span>
         <br />
-
-        <h3>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <span className="full-input one-input-label">
+        <p>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="text"
           name="content"
@@ -167,6 +169,7 @@ const RegisterPastEvent = () => {
           onChange={handleInputChange}
           required
         />
+        </span>
         <br />
 
         <div className="event-winner-head">
@@ -239,14 +242,15 @@ const RegisterPastEvent = () => {
 
 
         <br />
-
-        <h3>Report:</h3>
+        <span className="full-input one-input-label">
+        <p>Report:</p>
         <input
           type="url"
           name="reportpdf"
           value={eventData.reportpdf}
           onChange={handleInputChange}
         />
+        </span>
         <br />
 
         <h3>Description:</h3>
@@ -257,33 +261,40 @@ const RegisterPastEvent = () => {
         />
         <br />
 
-        <h3>Date:</h3>
+        <div className="split-input-columns">
+        <span className="full-input one-input-label">
+        <p>Date:</p>
         <input
           type="date"
           name="date"
           value={eventData.date}
           onChange={handleInputChange}
         />
+        </span>
         <br />
 
 
-
-        <h3>Venue:</h3>
+        <span className="full-input one-input-label">
+        <p>Venue:</p>
         <input
           type="text"
           name="venue"
           value={eventData.venue}
           onChange={handleInputChange}
         />
+        </span>
+        </div>
         <br />
 
-        <h3>Poster:</h3>
+        <span className="full-input one-input-label">
+        <p>Poster:</p>
         <input
           type="text"
           name="img"
           value={eventData.img}
           onChange={handleInputChange}
         />
+        </span>
         <br />
 
         <div className="event-winner-head">
@@ -293,7 +304,9 @@ const RegisterPastEvent = () => {
 
         {eventData.winners.map((winner, index) => (
           <div key={`winner-${index}`} className="society-names">
-            <h3>Position({index + 1}):</h3>
+            <div className="split-input-columns">
+            <span className="full-input one-input-label">
+            <p>Position({index + 1}):</p>
             <input
               type="text"
               name="positionname"
@@ -301,7 +314,9 @@ const RegisterPastEvent = () => {
               value={winner.positionname}
               onChange={(e) => handleInputChange(e, index, 'winners', 'positionname')}
             />
-            <h3>Name({index + 1}):</h3>
+            </span>
+            <span className="full-input one-input-label">
+            <p>Name({index + 1}):</p>
             <input
               type="text"
               name="positionholder"
@@ -309,6 +324,7 @@ const RegisterPastEvent = () => {
               value={winner.positionholder}
               onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}
             />
+            </span>
             {index > 0 && (
               <button
                 type="button"
@@ -318,6 +334,7 @@ const RegisterPastEvent = () => {
                 Remove
               </button>
             )}
+            </div>
           </div>
         ))}
         <button
