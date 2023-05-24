@@ -854,6 +854,17 @@ article.nextSlide {
   gap: 10px;
   
 }
+.split-input-columns {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  margin: 17px 0px;
+}
+.split-input-columns input{
+  /* width: 40%!important; */
+}
 .soc-separator{
   color: white;
 }
@@ -1107,9 +1118,14 @@ margin: 20px auto;
   gap: 20px;
   padding: 20px 0;
 }
-.from-time,.to-time{
+.from-time, .to-time {
   display: flex;
-  flex-direction: column;
+  flex-direction: revert;
+  align-items: center;
+  gap: 10px;
+}
+.selected-society p{
+  width: 155px;
 }
 .time-range-picker{
   display: flex;

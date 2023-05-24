@@ -22,6 +22,7 @@ const RegisterEvent = () => {
     faq: [{ ques: '', ans: '' }],
   });
 
+  //Getting the details of the registered societies
   useEffect(() => {
     axios
       .get('https://unfiltered-connect-backend.vercel.app/api/societies')
@@ -38,16 +39,17 @@ const RegisterEvent = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get('https://unfiltered-connect-backend.vercel.app/api/allemail')
-  //     .then((response) => {
-  //       setEmails(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+  //fetching subscribed people's email from the newsletter
+  useEffect(() => {
+    axios
+      .get('https://unfiltered-connect-backend.vercel.app/api/allemail')
+      .then((response) => {
+        setEmails(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
@@ -122,7 +124,7 @@ const RegisterEvent = () => {
     const formattedDate = formatDate(eventData.date);
     const formattedTime = formatTime(eventData.time);
     // const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
-    const formattedEventData = { ...eventData, date: formattedDate,time:formattedTime };
+    const formattedEventData = { ...eventData, date: formattedDate, time: formattedTime };
     console.log(formattedEventData);
     var config = {
       method: 'post',
@@ -132,7 +134,7 @@ const RegisterEvent = () => {
       },
       data: formattedEventData,
     };
-  
+
     axios
       .post(config.url, formattedEventData) // Pass the URL and data as separate arguments
       .then(function (response) {
@@ -158,25 +160,25 @@ const RegisterEvent = () => {
         console.log(error);
       });
   };
-  
+
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
-  
+
     if (month < 10) {
       month = `0${month}`;
     }
-  
+
     if (day < 10) {
       day = `0${day}`;
     }
-  
+
     return `${day}-${month}-${year}`;
   };
-  
+
 
   const formatTime = (timeString) => {
     if (!timeString.includes(' ')) {
@@ -196,9 +198,7 @@ const RegisterEvent = () => {
     return `${hours}:${minutes}`;
   };
 
-  // const mergeDateTime = (date, time) => {
-  //   return `${date} ${time}`;
-  // };
+
   const handleRemoveFieldsociety = (index, field) => {
     const updatedEventData = { ...eventData };
     updatedEventData[field].splice(index, 1);
@@ -230,24 +230,29 @@ const RegisterEvent = () => {
       <h1 className='admin-headings'>Register a New Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-        <h3>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input
-          type="text"
-          name="title"
-          value={eventData.title}
-          onChange={handleInputChange}
-          required
-        />
-        <br />
 
-        <h3>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input
-          name="content"
-          type='text'
-          value={eventData.content}
-          onChange={handleInputChange}
-          required
-        />
+        <span className="full-input one-input-label">
+          <p>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="title"
+            value={eventData.title}
+            onChange={handleInputChange}
+            required
+          />
+        </span>
+        <br />
+        <span className="full-input one-input-label">
+
+          <p>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            name="content"
+            type='text'
+            value={eventData.content}
+            onChange={handleInputChange}
+            required
+          />
+        </span>
         <br />
 
 
@@ -296,63 +301,76 @@ const RegisterEvent = () => {
           onChange={handleInputChange}
         />
         <br />
-        <h3>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input
-          type="date"
-          name="date"
-          value={eventData.date}
-          onChange={handleInputChange}
-        />
+        <div className="split-input-columns">
 
-        <br />
-        <h3>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-        <input
-          type="text"
-          name="venue"
-          value={eventData.venue}
-          onChange={handleInputChange}
-        />
-        <br />
-        <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
-
-        <span className='time-range'>
-          <span className="from-time">
-            <p>From</p>
+          <span className="full-input one-input-label">
+            <p>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
             <input
-              type="time"
-              name="fromTime"
-              value={eventData.fromTime}
-              onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
+              type="date"
+              name="date"
+              value={eventData.date}
+              onChange={handleInputChange}
             />
           </span>
-          <span className="to-time">
-            <p>To</p>
+          <br />
+          <span className="full-input one-input-label">
+
+            <p>Venue: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
             <input
-              type="time"
-              name="toTime"
-              value={eventData.toTime}
-              onChange={(e) => handleInputChange(e, null, 'toTime')} // Updated: Use 'toTime' field
+              type="text"
+              name="venue"
+              value={eventData.venue}
+              onChange={handleInputChange}
             />
           </span>
-        </span>
+        </div>
+
+          <br />
+          <h3>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+
+          <span className='time-range'>
+            <span className="from-time">
+              <p>From</p>
+              <input
+                type="time"
+                name="fromTime"
+                value={eventData.fromTime}
+                onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
+              />
+            </span>
+            <span className="to-time">
+              <p>To</p>
+              <input
+                type="time"
+                name="toTime"
+                value={eventData.toTime}
+                onChange={(e) => handleInputChange(e, null, 'toTime')} // Updated: Use 'toTime' field
+              />
+            </span>
+          </span>
 
         <br />
-        <h3>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+
+        <span className="full-input one-input-label">
+        <p>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="url"
           name="img"
           value={eventData.img}
           onChange={handleInputChange}
         />
+        </span>
         <br />
-        <h3>  Registration Link:
-          <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <span className="full-input one-input-label">
+        <p>  Registration Link:
+          <p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="text"
           name="registerLink"
           value={eventData.registerLink}
           onChange={handleInputChange}
         />
+        </span>
         <br />
         <div className="event-winner-head">
           <h2>FAQ Section</h2>
@@ -362,19 +380,22 @@ const RegisterEvent = () => {
 
           {eventData.faq.map((faq, index) => (
             <div key={index}>
-              <h3>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
+              <span className="full-input one-input-label">
+              <p>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></p> <input
                 type="text"
                 name="ques"
                 value={faq.ques}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
-              <h3>Answer ({index + 1})<p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
+              </span>
+              <span className="full-input one-input-label">
+              <p>Answer ({index + 1})<p style={{ color: 'red', display: 'inline' }}>*</p></p><input
                 type="text"
                 name="ans"
                 value={faq.ans}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
-
+              </span>
               {index > 0 && (
                 <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'faq')}>
                   Remove

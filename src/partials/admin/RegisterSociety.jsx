@@ -123,6 +123,7 @@ const RegisterSociety = () => {
       <h1 className='admin-headings'>Register a Society</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
+        
         <span className="full-input one-input-label">
 
 
