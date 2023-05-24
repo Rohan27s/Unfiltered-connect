@@ -27,7 +27,7 @@ function Footer() {
 
 
           {/* Copyrights note */}
-          <div className="text-sm text-wheat-600 mr-4">Made by Akshat Jain, Raghav Sharma & Rohan.<br />All rights reserved.</div>
+          <div className="text-sm text-wheat-600 mr-4" style={{color:"white"}}>Made by Akshat Jain, Raghav Sharma & Rohan.<br />All rights reserved.</div>
 
         </div>
 
