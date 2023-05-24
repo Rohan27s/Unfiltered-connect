@@ -232,6 +232,7 @@ const RegisterSociety = () => {
                 onChange={(e) => handleInputChange(e, index, 'members', 'photoUrl')}
               /></span>
             {index > 0 && (
+              <div className='end-button'>
               <button
                 type="button"
                 className='remove-btn'
@@ -239,12 +240,15 @@ const RegisterSociety = () => {
               >
                 Remove
               </button>
+              </div>
             )}
           </div>
         ))}
+        <div className='end-button'>
         <button type="button" className='addSocbtn' onClick={() => handleAddField('members')}>
           Add Member
         </button>
+        </div>
         <h2>Social Media Handles</h2>
 
         <span className="full-input one-input-label">
@@ -305,8 +309,8 @@ const RegisterSociety = () => {
             onChange={handleInputChange}
           /></span>
         <br />
-
-        <button type="submit" id="submit-form">Submit</button>
+        <div className='end-button'>
+        <button type="submit" id="submit-form">Submit</button></div>
       </form>
     </div>
   );

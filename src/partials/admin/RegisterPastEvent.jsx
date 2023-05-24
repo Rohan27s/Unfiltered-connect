@@ -228,6 +228,7 @@ const RegisterPastEvent = () => {
             />
             </span>
             {index > 0 && (
+              <div className='end-button'>
               <button
                 type="button"
                 className='remove-btn'
@@ -235,12 +236,16 @@ const RegisterPastEvent = () => {
               >
                 Remove
               </button>
+              </div>
             )}
           </div>
         ))}
+        <div className='end-button'>
         <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
           Add Image
         </button>
+        </div>
+
 
 
         <br />
@@ -327,7 +332,9 @@ const RegisterPastEvent = () => {
               onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}
             />
             </span>
+            </div>
             {index > 0 && (
+              <div className='end-button'>
               <button
                 type="button"
                 className='remove-btn'
@@ -335,10 +342,11 @@ const RegisterPastEvent = () => {
               >
                 Remove
               </button>
+              </div>
             )}
-            </div>
           </div>
         ))}
+        <div className='end-button'>
         <button
           type="button"
           className='addSocbtn'
@@ -346,9 +354,11 @@ const RegisterPastEvent = () => {
         >
           Add Winner
         </button>
+        </div>
         <br />
-
+        <div className='end-button'>
         <button type="submit" className='submit-btn' id="submit-form">Submit</button>
+        </div>
       </form>
     </div>
   );

@@ -966,11 +966,12 @@ margin: 20px auto;
 #submit-form {
   background-color: #006dff;
   color: white;
-  padding: 0.5rem;
+  padding: 7px 14px;
   border-radius: 10px;
-  font-size: 20px;
+  vertical-align: text-top;
+  font-size: 24px;
   margin-top: 10px;
-  float: left;
+  /* float: left; */
 }
 .social-media-overlay {
   position: fixed;
@@ -1189,6 +1190,11 @@ text-align: center;
   margin-bottom: 50px;
 }
 .society-names input{
+  width: 100%;
+}
+.end-button{
+  display: flex;
+  justify-content: end;
   width: 100%;
 }
 .society-names li,.faq-list li{

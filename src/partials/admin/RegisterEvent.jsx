@@ -397,19 +397,23 @@ const RegisterEvent = () => {
               />
               </span>
               {index > 0 && (
+                <div className='end-button'>
                 <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'faq')}>
                   Remove
                 </button>
+                </div>
               )}
             </div>
           ))}
+          <div className='end-button'>
           <button className='addSocbtn' type="button" onClick={() => handleAddField('faq')}>
             Add FAQ
           </button>
+          </div>
         </div>
 
         <br />
-        <div><button type="submit" id="submit-form">Publish</button></div>
+        <div className='end-button'><button type="submit" id="submit-form">Publish</button></div>
       </form>
     </div>
 
