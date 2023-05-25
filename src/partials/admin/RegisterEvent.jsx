@@ -54,7 +54,7 @@ const RegisterEvent = () => {
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
     const updatedEventData = { ...eventData };
-
+  
     if (subField) {
       if (!updatedEventData[field]) {
         updatedEventData[field] = [{ [subField]: value }];
@@ -62,18 +62,25 @@ const RegisterEvent = () => {
         updatedEventData[field][index][subField] = value;
       }
     } else {
-      if (index >= 0 && index < updatedEventData[field].length) {
+      if (index >= 0 && index < updatedEventData[field].length && name !== 'fromTime' && name !== 'toTime') {
         updatedEventData[field][index][name] = value;
-      } else if (field === 'fromTime' || field === 'toTime') {
-        updatedEventData[field] = value;
-        updatedEventData['time'] = mergeTime(updatedEventData);
+      } else if (name === 'fromTime') {
+        updatedEventData.fromTime = value;
+        console.log(value);
+
+        updatedEventData.time = mergeTime(updatedEventData);
+      } else if (name === 'toTime') {
+        updatedEventData.toTime = value;
+        console.log(value);
+        updatedEventData.time = mergeTime(updatedEventData);
       } else {
         updatedEventData[name] = value;
       }
     }
-
+  
     setEventData(updatedEventData);
   };
+  
 
   const mergeTime = (data) => {
     const fromTime = data.fromTime || '';
