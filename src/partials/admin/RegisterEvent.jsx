@@ -130,8 +130,9 @@ const RegisterEvent = () => {
     e.preventDefault();
     const formattedDate = formatDate(eventData.date);
     const formattedTime = formatTime(eventData.time);
+    const mergedTime = `${eventData.fromTime} to ${eventData.toTime}`
     // const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
-    const formattedEventData = { ...eventData, date: formattedDate, time: formattedTime };
+    const formattedEventData = { ...eventData, date: formattedDate, time: mergedTime };
     console.log(formattedEventData);
     var config = {
       method: 'post',
