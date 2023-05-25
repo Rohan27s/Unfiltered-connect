@@ -149,55 +149,55 @@ const RegisterPastEvent = () => {
       <h1 className='admin-headings'>Register a Past Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
-      <span className="full-input one-input-label">
-        <p>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-          type="text"
-          name="title"
-          value={eventData.title}
-          onChange={handleInputChange}
-          required
-        />
+        <span className="full-input one-input-label">
+          <p className='admin-labels'>Title: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="title"
+            value={eventData.title}
+            onChange={handleInputChange}
+            required
+          />
         </span>
         <br />
         <span className="full-input one-input-label">
-        <p>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-          type="text"
-          name="content"
-          value={eventData.content}
-          onChange={handleInputChange}
-          required
-        />
+          <p className='admin-labels'>Presenter/s: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="content"
+            value={eventData.content}
+            onChange={handleInputChange}
+            required
+          />
         </span>
         <br />
 
-        <div className="event-winner-head">
-          <h2>Societies:<p style={{ color: 'red', display: 'inline' }}>*</p></h2>
+        <div className="full-input one-input-label">
+          <p className='admin-labels'>Societies:<p style={{ color: 'red', display: 'inline' }}>*</p></p >
 
+          {societies?.length > 0 ?
+            <>
+              <select id='society-input'
+                value={selectedSociety}
+                onChange={(e) => setSelectedSociety(e.target.value)}
+              >
+                <option value='' >
+                  Select a society
+                </option>
+                {societies?.map((society, index) => (
+                  <option key={index} value={society.name}>
+                    {society.name}
+                  </option>
+                ))}
+              </select>
+              <button type='button' className='addSocbtn add-soc-btn' onClick={handleSelectSociety}>
+                Add Society
+              </button>
+              <br />
+            </>
+            : "Loading..."}
         </div>
 
-        {societies?.length > 0 ?
-          <>
-            <select
-              value={selectedSociety}
-              onChange={(e) => setSelectedSociety(e.target.value)}
-            >
-              <option value='' >
-                Select a society
-              </option>
-              {societies?.map((society, index) => (
-                <option key={index} value={society.name}>
-                  {society.name}
-                </option>
-              ))}
-            </select>
-            <button type='button' className='addSocbtn add-soc-btn' onClick={handleSelectSociety}>
-              Add Society
-            </button>
-            <br />
-          </>
-          : "Loading..."}
         <div className='selected-societies'>
           {eventData.societies.map((society, index) => (
             <div key={index} className='selected-society'>
@@ -218,45 +218,45 @@ const RegisterPastEvent = () => {
         {eventData.sliderImage.map((image, index) => (
           <div key={`sliderImage-${index}`} className="society-names">
             <span className="full-input one-input-label">
-            <p>Image({index + 1}): </p>
-            <input
-              type="url"
-              name="img"
-              placeholder="Image URL"
-              value={image.img}
-              onChange={(e) => handleInputChange(e, index, 'sliderImage', 'img')}
-            />
+              <p className='admin-labels'>Image({index + 1}): </p>
+              <input
+                type="url"
+                name="img"
+                placeholder="Image URL"
+                value={image.img}
+                onChange={(e) => handleInputChange(e, index, 'sliderImage', 'img')}
+              />
             </span>
             {index > 0 && (
               <div className='end-button'>
-              <button
-                type="button"
-                className='remove-btn'
-                onClick={() => handleRemoveField(index, 'sliderImage')}
-              >
-                Remove
-              </button>
+                <button
+                  type="button"
+                  className='remove-btn'
+                  onClick={() => handleRemoveField(index, 'sliderImage')}
+                >
+                  Remove
+                </button>
               </div>
             )}
           </div>
         ))}
         <div className='end-button'>
-        <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
-          Add Image
-        </button>
+          <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
+            Add Image
+          </button>
         </div>
 
 
 
         <br />
         <span className="full-input one-input-label">
-        <p>Report:</p>
-        <input
-          type="url"
-          name="reportpdf"
-          value={eventData.reportpdf}
-          onChange={handleInputChange}
-        />
+          <p className='admin-labels'>Report:</p>
+          <input
+            type="url"
+            name="reportpdf"
+            value={eventData.reportpdf}
+            onChange={handleInputChange}
+          />
         </span>
         <br />
 
@@ -270,41 +270,42 @@ const RegisterPastEvent = () => {
         <br />
 
         <div className="split-input-columns">
-        <span className="full-input one-input-label">
-        <p>Date:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-          type="date"
-          name="date"
-          required
-          value={eventData.date}
-          onChange={handleInputChange}
-        />
-        </span>
-        <br />
+          <span className="full-input one-input-label">
+            <p className='admin-labels'>Date:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+            <input
+              type="date"
+              name="date"
+              required
+              id='date-input'
+              value={eventData.date}
+              onChange={handleInputChange}
+            />
+          </span>
+          <br />
 
 
-        <span className="full-input one-input-label">
-        <p>Venue:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-        required
-          type="text"
-          name="venue"
-          value={eventData.venue}
-          onChange={handleInputChange}
-        />
-        </span>
+          <span className="full-input one-input-label">
+            <p className='admin-labels'>Venue:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+            <input
+              required
+              type="text"
+              name="venue"
+              value={eventData.venue}
+              onChange={handleInputChange}
+            />
+          </span>
         </div>
         <br />
 
         <span className="full-input one-input-label">
-        <p>Poster:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-          type="text"
-          name="img"
-          value={eventData.img}
-          onChange={handleInputChange}
-          required
-        />
+          <p className='admin-labels'>Poster:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            name="img"
+            value={eventData.img}
+            onChange={handleInputChange}
+            required
+          />
         </span>
         <br />
 
@@ -316,52 +317,53 @@ const RegisterPastEvent = () => {
         {eventData.winners.map((winner, index) => (
           <div key={`winner-${index}`} className="society-names">
             <div className="split-input-columns">
-            <span className="full-input one-input-label">
-            <p>Position({index + 1}):</p>
-            <input
-              type="text"
-              name="positionname"
-              placeholder="Position Name"
-              value={winner.positionname}
-              onChange={(e) => handleInputChange(e, index, 'winners', 'positionname')}
-            />
-            </span>
-            <span className="full-input one-input-label">
-            <p>Name({index + 1}):</p>
-            <input
-              type="text"
-              name="positionholder"
-              placeholder="Position Holder"
-              value={winner.positionholder}
-              onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}
-            />
-            </span>
+              <span className="full-input one-input-label">
+                <p className='admin-labels'>Position({index + 1}):</p>
+                <input
+                id='date-input'
+                  type="text"
+                  name="positionname"
+                  placeholder="Position Name"
+                  value={winner.positionname}
+                  onChange={(e) => handleInputChange(e, index, 'winners', 'positionname')}
+                />
+              </span>
+              <span className="full-input one-input-label">
+                <p className='admin-labels'>Name({index + 1}):</p>
+                <input
+                  type="text"
+                  name="positionholder"
+                  placeholder="Position Holder"
+                  value={winner.positionholder}
+                  onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}
+                />
+              </span>
             </div>
             {index > 0 && (
               <div className='end-button'>
-              <button
-                type="button"
-                className='remove-btn'
-                onClick={() => handleRemoveField(index, 'winners')}
-              >
-                Remove
-              </button>
+                <button
+                  type="button"
+                  className='remove-btn'
+                  onClick={() => handleRemoveField(index, 'winners')}
+                >
+                  Remove
+                </button>
               </div>
             )}
           </div>
         ))}
         <div className='end-button'>
-        <button
-          type="button"
-          className='addSocbtn'
-          onClick={() => handleAddField('winners')}
-        >
-          Add Winner
-        </button>
+          <button
+            type="button"
+            className='addSocbtn'
+            onClick={() => handleAddField('winners')}
+          >
+            Add Winner
+          </button>
         </div>
         <br />
         <div className='end-button'>
-        <button type="submit" className='submit-btn' id="submit-form">Submit</button>
+          <button type="submit" className='submit-btn' id="submit-form">Submit</button>
         </div>
       </form>
     </div>

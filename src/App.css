@@ -392,7 +392,7 @@ margin-bottom: 0!important;
   gap: 15px;
 
   justify-content: space-between;
-  margin-bottom: 0;
+  margin-top: 15px!important;
 }
 .faqs h2 {
   margin-bottom: 2%;
@@ -879,7 +879,9 @@ article.nextSlide {
   align-items: center;
   gap: 10px;
   margin: 17px 0px;
+  width: 100%;
 }
+
 .split-input-columns input{
   /* width: 40%!important; */
 }
@@ -954,7 +956,7 @@ margin: 20px auto;
   /* align-items: center; */
 }
 .complete-input{
-  width: 170%!important;
+  width: 147%!important;
 }
 .full-input{
   width: 100%!important;
@@ -1206,7 +1208,7 @@ text-align: center;
 .society-names{
   display: flex;
   /* flex-direction: column; */
-  margin-bottom: 0;
+  margin-top: 15px;
 }
 .society-names input{
   width: 100%;
@@ -1215,6 +1217,7 @@ text-align: center;
   display: flex;
   justify-content: end;
   width: 100%;
+  margin: 10px 0;
 }
 .society-names li,.faq-list li{
   list-style: none;
