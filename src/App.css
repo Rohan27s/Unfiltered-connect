@@ -16,6 +16,21 @@ select:focus {
   outline: none;
   
 }
+#date-input {
+  margin-left: 28px;
+  /* width: 85%; */
+}
+#time-input {
+  width: 113px!important;
+  margin-left: -31px!important;
+}
+#society-input {
+  width: auto!important;
+  margin-left: -28px;
+}
+.admin-labels{
+  width: 180px!important;
+}
 select{
   border-radius: 7px;
 }
