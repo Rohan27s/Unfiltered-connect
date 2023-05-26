@@ -315,9 +315,9 @@ const RegisterPastEvent = () => {
         </div>
 
         {eventData.winners.map((winner, index) => (
-          <div key={`winner-${index}`} className="society-names">
-            <div className="split-input-columns">
-              <span className="full-input one-input-label">
+          <div   key={`winner-${index}`} className="society-names">
+            <div  id={'spacing-1'} className="split-input-columns">
+              <span  className="full-input one-input-label">
                 <p className='admin-labels'>Position({index + 1}):</p>
                 <input
                 id='date-input'
@@ -333,6 +333,7 @@ const RegisterPastEvent = () => {
                 <input
                   type="text"
                   name="positionholder"
+                  
                   placeholder="Position Holder"
                   value={winner.positionholder}
                   onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}

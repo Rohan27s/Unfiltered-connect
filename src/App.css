@@ -988,6 +988,9 @@ margin: 20px auto;
 #spacing{
   margin: 20px 0;
 }
+#spacing-1{
+  margin: 5px 0;
+}
 #submit-form {
   background-color: #47065ae8;
   color: white;
