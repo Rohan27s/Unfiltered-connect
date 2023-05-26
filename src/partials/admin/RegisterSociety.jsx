@@ -129,6 +129,7 @@ const RegisterSociety = () => {
 
           <p>Name:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
           <input
+          placeholder="Please enter the name of the society"
             type="text"
             name="name"
             value={societyData.name}
@@ -143,6 +144,7 @@ const RegisterSociety = () => {
           <input
             type="text"
             name="category"
+            placeholder="Please enter the category"
             value={societyData.category}
             onChange={handleInputChange}
             required
@@ -155,6 +157,7 @@ const RegisterSociety = () => {
           <input
             type="text"
             name="cover"
+            placeholder="Please enter the society's logo URL"
             value={societyData.cover}
             onChange={handleInputChange}
           />
@@ -165,6 +168,7 @@ const RegisterSociety = () => {
           name="description"
           value={societyData.description}
           onChange={handleInputChange}
+          placeholder="Please enter the description"
           required
         />
         <br />
@@ -179,7 +183,7 @@ const RegisterSociety = () => {
               <h3>Designation({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3> <input
                 type="text"
                 name="designame"
-                placeholder="Designation Name"
+                placeholder="Enter Designation Name"
                 value={member.designame}
                 onChange={(e) =>
                   handleInputChange(e, index, 'members', 'designame')
@@ -192,7 +196,7 @@ const RegisterSociety = () => {
               <h3>Name({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
                 type="text"
                 name="desigholder"
-                placeholder="Designation Holder"
+                placeholder="Enter Designation Holder"
                 value={member.desigholder}
                 required
                 onChange={(e) =>
@@ -205,7 +209,7 @@ const RegisterSociety = () => {
               <h3>Mobile Number({index + 1}): <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input
                 type="text"
                 name="number"
-                placeholder="Number"
+                placeholder="Enter Mobile Number"
                 value={member.number}
                 required
                 onChange={(e) => handleInputChange(e, index, 'members', 'number')}
@@ -226,7 +230,7 @@ const RegisterSociety = () => {
               <input
                 type="url"
                 name="photoUrl"
-                placeholder="Photo URL"
+                placeholder="Enter the Photo URL of the member"
                 className='complete-input'
                 value={member.photoUrl}
                 onChange={(e) => handleInputChange(e, index, 'members', 'photoUrl')}
@@ -256,6 +260,7 @@ const RegisterSociety = () => {
           <p>Facebook:</p>
           <input
             type="text"
+            placeholder="Please enter the link to the Facebook page of society"
             name="Fblink"
             value={societyData.Fblink}
             onChange={handleInputChange}
@@ -269,6 +274,7 @@ const RegisterSociety = () => {
           <input
             type="text"
             name="Linkedlink"
+            placeholder="Please enter the link to the LinkedIn page of society"
             value={societyData.Linkedlink}
             onChange={handleInputChange}
           />
@@ -281,6 +287,7 @@ const RegisterSociety = () => {
           <input
             type="text"
             name="Twitlink"
+            placeholder="Please enter the link to the Twitter page of society"
             value={societyData.Twitlink}
             onChange={handleInputChange}
           /></span>
@@ -292,6 +299,7 @@ const RegisterSociety = () => {
           <p>Instagram:</p>
           <input
             type="text"
+            placeholder="Please enter the link to the Instagram page of society"
             name="Instalink"
             value={societyData.Instalink}
             onChange={handleInputChange}
@@ -306,6 +314,7 @@ const RegisterSociety = () => {
             type="text"
             name="Youlink"
             value={societyData.Youlink}
+            placeholder="Please enter the link to the YouTube page of society"
             onChange={handleInputChange}
           /></span>
         <br />
