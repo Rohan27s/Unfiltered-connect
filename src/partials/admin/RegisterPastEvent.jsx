@@ -146,7 +146,7 @@ const RegisterPastEvent = () => {
 
   return (
     <div className='register-event'>
-      <h1 className='admin-headings'>Register a Past Event</h1>
+      <h1 className='admin-headings'>Report a Past Event</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
         <span className="full-input one-input-label">

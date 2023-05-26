@@ -17,15 +17,15 @@ select:focus {
   
 }
 #date-input {
-  margin-left: 28px;
+  margin-left: 30px;
   /* width: 85%; */
 }
 #time-input {
   width: 113px!important;
-  margin-left: -31px!important;
+  margin-left: -28px!important;
 }
 #society-input {
-  width: auto!important;
+  width: 33.5%!important;
   margin-left: -28px;
 }
 .admin-labels{
@@ -894,11 +894,12 @@ article.nextSlide {
 .add-soc-btn{
   margin-left: 20px;
 }
-.selected-society{
+.selected-society {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  margin-left: 157px;
   /* justify-content: space-evenly; */
 }
 .selected-societies{

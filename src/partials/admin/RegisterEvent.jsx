@@ -306,7 +306,7 @@ const RegisterEvent = () => {
           ))}
         </div>
         <br />
-        <h3 >Description <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
+        <h3 >Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
           value={eventData.description}

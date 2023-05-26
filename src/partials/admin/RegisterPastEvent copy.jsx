@@ -74,7 +74,7 @@ const RegisterPastEvent = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <div className='register-event'>
-      <h1>Register a past Event</h1>
+      <h1>Report a past Event</h1>
       <form onSubmit={handleSubmit} ref={formRef}>
         <h3>Event Title <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="title" placeholder='Please enter the name of the event' onChange={handleChange} required />
         <h3>Society Name: <p style={{ color: 'red', display: 'inline' }}>*</p></h3><input type="text" name="Name" placeholder='Please enter the names of the society' onChange={handleChange} required />
