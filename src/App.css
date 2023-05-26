@@ -985,6 +985,10 @@ margin: 20px auto;
 #soc-inputs h3{
   width: 360px;
 }
+#soc-inputs{
+  gap :10px;
+  margin-bottom: 10px;
+}
 #spacing{
   margin: 20px 0;
 }
