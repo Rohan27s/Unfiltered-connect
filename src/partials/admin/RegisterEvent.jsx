@@ -368,7 +368,7 @@ const RegisterEvent = () => {
         <input
           type="url"
           name="img"
-          placeholder="Please enter the poster's url"
+          placeholder="Please enter the Poster's URL"
           value={eventData.img}
           onChange={handleInputChange}
           required

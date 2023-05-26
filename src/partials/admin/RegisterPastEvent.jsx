@@ -154,6 +154,7 @@ const RegisterPastEvent = () => {
           <input
             type="text"
             name="title"
+            placeholder="Please enter the title"
             value={eventData.title}
             onChange={handleInputChange}
             required
@@ -165,6 +166,7 @@ const RegisterPastEvent = () => {
           <input
             type="text"
             name="content"
+            placeholder="Please enter the presenter/s"
             value={eventData.content}
             onChange={handleInputChange}
             required
@@ -222,7 +224,7 @@ const RegisterPastEvent = () => {
               <input
                 type="url"
                 name="img"
-                placeholder="Image URL"
+                placeholder="Please enter the Image URL"
                 value={image.img}
                 onChange={(e) => handleInputChange(e, index, 'sliderImage', 'img')}
               />
@@ -252,6 +254,7 @@ const RegisterPastEvent = () => {
         <span className="full-input one-input-label">
           <p className='admin-labels'>Report:</p>
           <input
+          placeholder="Please enter the Report URL"
             type="url"
             name="reportpdf"
             value={eventData.reportpdf}
@@ -263,6 +266,7 @@ const RegisterPastEvent = () => {
         <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
+          placeholder="Please enter the description" 
           value={eventData.description}
           onChange={handleInputChange}
           required
@@ -290,6 +294,7 @@ const RegisterPastEvent = () => {
               required
               type="text"
               name="venue"
+              placeholder="Please enter the venue"
               value={eventData.venue}
               onChange={handleInputChange}
             />
@@ -302,6 +307,7 @@ const RegisterPastEvent = () => {
           <input
             type="text"
             name="img"
+            placeholder="Please enter the Poster URL"
             value={eventData.img}
             onChange={handleInputChange}
             required
@@ -323,7 +329,7 @@ const RegisterPastEvent = () => {
                 id='date-input'
                   type="text"
                   name="positionname"
-                  placeholder="Position Name"
+                  placeholder="Please enter the position "
                   value={winner.positionname}
                   onChange={(e) => handleInputChange(e, index, 'winners', 'positionname')}
                 />
@@ -334,7 +340,7 @@ const RegisterPastEvent = () => {
                   type="text"
                   name="positionholder"
                   
-                  placeholder="Position Holder"
+                  placeholder="Please enter the position holder's name"
                   value={winner.positionholder}
                   onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}
                 />
