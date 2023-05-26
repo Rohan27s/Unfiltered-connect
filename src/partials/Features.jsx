@@ -86,7 +86,7 @@ function Features() {
 
             {/* Tabs items */}
             <div  className="stepimg max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="zoom-y-out" ref={tabs}>
-              <div className="relative flex flex-col text-center lg:text-right">
+              <div style={{top:"-26px"}} className="relative flex flex-col text-center lg:text-right">
                 {/* Item 1 */}
                 <Transition
                   show={tab === 1}
