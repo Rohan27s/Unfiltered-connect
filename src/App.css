@@ -389,7 +389,7 @@ margin-bottom: 0!important;
 .society-names {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 0;
 
   justify-content: space-between;
   margin-top: 15px!important;
@@ -985,8 +985,11 @@ margin: 20px auto;
 #soc-inputs h3{
   width: 360px;
 }
+#spacing{
+  margin: 20px 0;
+}
 #submit-form {
-  background-color: #006dff;
+  background-color: #47065ae8;
   color: white;
   padding: 7px 14px;
   border-radius: 10px;
@@ -1218,7 +1221,7 @@ text-align: center;
   display: flex;
   justify-content: end;
   width: 100%;
-  margin: 10px 0;
+  margin: 0;
 }
 .society-names li,.faq-list li{
   list-style: none;

@@ -393,6 +393,7 @@ const RegisterEvent = () => {
               <p className='admin-labels'>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></p> <input
                 type="text"
                 name="ques"
+                id={'spacing'}
                 value={faq.ques}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
@@ -401,6 +402,7 @@ const RegisterEvent = () => {
               <p className='admin-labels'>Answer ({index + 1})<p style={{ color: 'red', display: 'inline' }}>*</p></p><input
                 type="text"
                 name="ans"
+                id={'spacing'}
                 value={faq.ans}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />

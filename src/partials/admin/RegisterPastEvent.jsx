@@ -241,7 +241,7 @@ const RegisterPastEvent = () => {
           </div>
         ))}
         <div className='end-button'>
-          <button type="button" className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
+          <button type="button" id='spacing' className='addSocbtn' onClick={() => handleAddField('sliderImage')}>
             Add Image
           </button>
         </div>
@@ -354,6 +354,7 @@ const RegisterPastEvent = () => {
         ))}
         <div className='end-button'>
           <button
+          id='spacing'
             type="button"
             className='addSocbtn'
             onClick={() => handleAddField('winners')}
