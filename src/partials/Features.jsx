@@ -100,7 +100,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/rohangotwal/image/upload/v1671718021/Untitled_design_3_htuq5o.png" width="500" height="462" alt="Features bg" />
+                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/ddx1llvy0/image/upload/v1685085243/Landing%20Page%20Photos/1_jnpa2u.png" width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
                 {/* Item 2 */}
@@ -116,7 +116,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/rohangotwal/image/upload/v1671718100/Untitled_design_4_jjw22x.png" width="500" height="462" alt="Features bg" />
+                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/ddx1llvy0/image/upload/v1685085251/Landing%20Page%20Photos/2_qihbbm.png" width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
                 {/* Item 3 */}
@@ -132,7 +132,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/rohangotwal/image/upload/v1671718197/Untitled_design_5_tw0tsm.png" width="500" height="462" alt="Features bg" />
+                    <img className="md:max-w-none mx-auto rounded" src="https://res.cloudinary.com/ddx1llvy0/image/upload/v1685085250/Landing%20Page%20Photos/3_a6zpav.png" width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
               </div>
