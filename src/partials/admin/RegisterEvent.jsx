@@ -247,6 +247,7 @@ const RegisterEvent = () => {
             type="text"
             name="title"
             value={eventData.title}
+            placeholder='Please enter the title'
             onChange={handleInputChange}
             required
           />
@@ -258,6 +259,7 @@ const RegisterEvent = () => {
           <input
             name="content"
             type='text'
+            placeholder='Please enter the presenter/s'
             value={eventData.content}
             onChange={handleInputChange}
             required
@@ -308,6 +310,7 @@ const RegisterEvent = () => {
         <br />
         <h3 >Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
+        placeholder='Please enter the description'
           name="description"
           value={eventData.description}
           onChange={handleInputChange}
@@ -319,6 +322,7 @@ const RegisterEvent = () => {
           <span className="full-input one-input-label">
             <p className='admin-labels'>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
             <input
+            
               type="date"
               name="date"
               id='date-input'
@@ -334,6 +338,7 @@ const RegisterEvent = () => {
             <input
               type="text"
               name="venue"
+              placeholder='Please enter the venue'
               value={eventData.venue}
               
               onChange={handleInputChange}
@@ -363,6 +368,7 @@ const RegisterEvent = () => {
         <input
           type="url"
           name="img"
+          placeholder="Please enter the poster's url"
           value={eventData.img}
           onChange={handleInputChange}
           required
@@ -374,6 +380,7 @@ const RegisterEvent = () => {
           <p style={{ color: 'red', display: 'inline' }}>*</p></p>
         <input
           type="text"
+          placeholder="Please enter the Registration link"
           name="registerLink"
           value={eventData.registerLink}
           onChange={handleInputChange}
@@ -394,6 +401,7 @@ const RegisterEvent = () => {
                 type="text"
                 name="ques"
                 id={'spacing-1'}
+                placeholder="Please enter the question"
                 value={faq.ques}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
@@ -403,6 +411,7 @@ const RegisterEvent = () => {
                 type="text"
                 name="ans"
                 id={'spacing-1'}
+                placeholder="Please enter the answer to the above question"
                 value={faq.ans}
                 onChange={(e) => handleInputChange(e, index, 'faq')}
               />
