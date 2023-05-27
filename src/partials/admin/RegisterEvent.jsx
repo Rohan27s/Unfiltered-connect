@@ -54,7 +54,7 @@ const RegisterEvent = () => {
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
     const updatedEventData = { ...eventData };
-  
+
     if (subField) {
       if (!updatedEventData[field]) {
         updatedEventData[field] = [{ [subField]: value }];
@@ -77,10 +77,10 @@ const RegisterEvent = () => {
         updatedEventData[name] = value;
       }
     }
-  
+
     setEventData(updatedEventData);
   };
-  
+
 
   const mergeTime = (data) => {
     const fromTime = data.fromTime || '';
@@ -147,7 +147,7 @@ const RegisterEvent = () => {
       .post(config.url, formattedEventData) // Pass the URL and data as separate arguments
       .then(function (response) {
         alert("Event Registered Successfully!");
-        // sendEmails();
+        sendEmails();
         setEventData({
           title: '',
           content: '',
@@ -214,27 +214,31 @@ const RegisterEvent = () => {
   };
 
   const sendEmails = () => {
+    // EmailJS Initialization
+    console.log(emails);
+    emailjs.init('IzhHvKXIND2eDZuyD');
+
+    // Email Parameters
     const templateParams = {
       to_emails: emails.map((email) => email.email),
       subject: `New Event: ${eventData.title}`,
-      content: `
-        <h1>New Event</h1>
-        <h2>${eventData.title}</h2>
-        <h3>Date: ${eventData.date}</h3>
-        <h3>Time: ${eventData.time}</h3>
-      `,
+      content: `    
+    ${eventData.title} is being hosted on ${eventData.date} at ${eventData.time} onwards
+  `,
     };
 
+    // Email Sending
     emailjs
-      .send('unfilteredconnect', 'template_ypg5vgn', templateParams, 'Unfiltered Connect')
+      .send('unfilteredconnect', 'template_ypg5vgn', templateParams)
       .then((response) => {
         console.log('Emails sent successfully!', response);
       })
       .catch((error) => {
         console.error('Error sending emails:', error);
       });
+
   };
-  
+
   return (
     <div className='register-event'>
       <h1 className='admin-headings'>Register a New Event</h1>
@@ -269,30 +273,30 @@ const RegisterEvent = () => {
 
         <span className="full-input one-input-label">
 
-        <p className='admin-labels' >Societies:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <p className='admin-labels' >Societies:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
 
-        {societies?.length > 0 ?
-          <>
-            <select id='society-input'
-              value={selectedSociety}
-              onChange={(e) => setSelectedSociety(e.target.value)}
-            >
-              <option value='' >
-                Select a society
-              </option>
-              {societies?.map((society, index) => (
-                <option key={index} value={society.name}>
-                  {society.name}
+          {societies?.length > 0 ?
+            <>
+              <select id='society-input'
+                value={selectedSociety}
+                onChange={(e) => setSelectedSociety(e.target.value)}
+              >
+                <option value='' >
+                  Select a society
                 </option>
-              ))}
-            </select>
-            <button type='button' className='addSocbtn add-soc-btn' onClick={handleSelectSociety}>
-              Add Society
-            </button>
-            <br />
-          </>
-          : "Loading..."}
-          </span>
+                {societies?.map((society, index) => (
+                  <option key={index} value={society.name}>
+                    {society.name}
+                  </option>
+                ))}
+              </select>
+              <button type='button' className='addSocbtn add-soc-btn' onClick={handleSelectSociety}>
+                Add Society
+              </button>
+              <br />
+            </>
+            : "Loading..."}
+        </span>
         {/* <button className='addSocbtn' type="button" onClick={() => handleAddField('societies')}>
             Add Society
           </button> */}
@@ -310,7 +314,7 @@ const RegisterEvent = () => {
         <br />
         <h3 >Description: <p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
-        placeholder='Please enter the description'
+          placeholder='Please enter the description'
           name="description"
           value={eventData.description}
           onChange={handleInputChange}
@@ -322,7 +326,7 @@ const RegisterEvent = () => {
           <span className="full-input one-input-label">
             <p className='admin-labels'>Date: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
             <input
-            
+
               type="date"
               name="date"
               id='date-input'
@@ -340,52 +344,52 @@ const RegisterEvent = () => {
               name="venue"
               placeholder='Please enter the venue'
               value={eventData.venue}
-              
+
               onChange={handleInputChange}
               required
             />
           </span>
         </div>
 
-          <br />
+        <br />
 
-          <span className='full-input one-input-label'>
+        <span className='full-input one-input-label'>
           <p className='admin-labels'>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
-              <input
-                type="time"
-                name="fromTime"
-                value={eventData.fromTime}
-                required
-                id='time-input'
-                onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
-              />
-            </span>
+          <input
+            type="time"
+            name="fromTime"
+            value={eventData.fromTime}
+            required
+            id='time-input'
+            onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
+          />
+        </span>
 
         <br />
 
         <span className="full-input one-input-label">
-        <p className='admin-labels'>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-          type="url"
-          name="img"
-          placeholder="Please enter the Poster's URL"
-          value={eventData.img}
-          onChange={handleInputChange}
-          required
-        />
+          <p className='admin-labels'>Poster: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="url"
+            name="img"
+            placeholder="Please enter the Poster's URL"
+            value={eventData.img}
+            onChange={handleInputChange}
+            required
+          />
         </span>
         <br />
         <span className="full-input one-input-label">
-        <p className='admin-labels'>  Registration Link:
-          <p style={{ color: 'red', display: 'inline' }}>*</p></p>
-        <input
-          type="text"
-          placeholder="Please enter the Registration link"
-          name="registerLink"
-          value={eventData.registerLink}
-          onChange={handleInputChange}
-          required
-        />
+          <p className='admin-labels'>  Registration Link:
+            <p style={{ color: 'red', display: 'inline' }}>*</p></p>
+          <input
+            type="text"
+            placeholder="Please enter the Registration link"
+            name="registerLink"
+            value={eventData.registerLink}
+            onChange={handleInputChange}
+            required
+          />
         </span>
         <br />
         <div className="event-winner-head">
@@ -397,38 +401,38 @@ const RegisterEvent = () => {
           {eventData.faq.map((faq, index) => (
             <div key={index} className="society-names">
               <span className="full-input one-input-label">
-              <p className='admin-labels'>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></p> <input
-                type="text"
-                name="ques"
-                id={'spacing-1'}
-                placeholder="Please enter the question"
-                value={faq.ques}
-                onChange={(e) => handleInputChange(e, index, 'faq')}
-              />
+                <p className='admin-labels'>Question ({index + 1}) <p style={{ color: 'red', display: 'inline' }}>*</p></p> <input
+                  type="text"
+                  name="ques"
+                  id={'spacing-1'}
+                  placeholder="Please enter the question"
+                  value={faq.ques}
+                  onChange={(e) => handleInputChange(e, index, 'faq')}
+                />
               </span>
               <span className="full-input one-input-label">
-              <p className='admin-labels'>Answer ({index + 1})<p style={{ color: 'red', display: 'inline' }}>*</p></p><input
-                type="text"
-                name="ans"
-                id={'spacing-1'}
-                placeholder="Please enter the answer to the above question"
-                value={faq.ans}
-                onChange={(e) => handleInputChange(e, index, 'faq')}
-              />
+                <p className='admin-labels'>Answer ({index + 1})<p style={{ color: 'red', display: 'inline' }}>*</p></p><input
+                  type="text"
+                  name="ans"
+                  id={'spacing-1'}
+                  placeholder="Please enter the answer to the above question"
+                  value={faq.ans}
+                  onChange={(e) => handleInputChange(e, index, 'faq')}
+                />
               </span>
               {index > 0 && (
                 <div className='end-button'>
-                <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'faq')}>
-                  Remove
-                </button>
+                  <button className='remove-btn' type="button" onClick={() => handleRemoveField(index, 'faq')}>
+                    Remove
+                  </button>
                 </div>
               )}
             </div>
           ))}
           <div className='end-button'>
-          <button className='addSocbtn' type="button" onClick={() => handleAddField('faq')}>
-            Add FAQ
-          </button>
+            <button className='addSocbtn' type="button" onClick={() => handleAddField('faq')}>
+              Add FAQ
+            </button>
           </div>
         </div>
 
