@@ -90,7 +90,7 @@ const EventDetails = () => {
                   </li>
                   <li>
                     <b>Event Timmings : </b>
-                    {upcomingEvent.time} onwards
+                    {upcomingEvent.time} Hrs onwards
                   </li>
                   <li>
                     <b>Event Venue : </b>
