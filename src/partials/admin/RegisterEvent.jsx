@@ -141,8 +141,8 @@ const RegisterEvent = () => {
     axios
       .post(config.url, formattedEventData) // Pass the URL and data as separate arguments
       .then(function (response) {
-        alert("Event Registered Successfully!");
         sendEmails();
+        alert("Event Registered Successfully!");
         setEventData({
           title: '',
           content: '',
