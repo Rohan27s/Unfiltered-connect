@@ -62,16 +62,12 @@ const RegisterEvent = () => {
         updatedEventData[field][index][subField] = value;
       }
     } else {
-      if (index >= 0 && index < updatedEventData[field].length && name !== 'fromTime' && name !== 'toTime') {
+      if (index >= 0 && index < updatedEventData[field].length && name !== 'fromTime') {
         updatedEventData[field][index][name] = value;
       } else if (name === 'fromTime') {
         updatedEventData.fromTime = value;
         console.log(value);
 
-        updatedEventData.time = mergeTime(updatedEventData);
-      } else if (name === 'toTime') {
-        updatedEventData.toTime = value;
-        console.log(value);
         updatedEventData.time = mergeTime(updatedEventData);
       } else {
         updatedEventData[name] = value;
@@ -84,8 +80,7 @@ const RegisterEvent = () => {
 
   const mergeTime = (data) => {
     const fromTime = data.fromTime || '';
-    const toTime = data.toTime || '';
-    return `${fromTime} to ${toTime}`;
+    return `${fromTime}`;
   };
 
   const handleSelectSociety = () => {
@@ -222,8 +217,8 @@ const RegisterEvent = () => {
     const templateParams = {
       to_emails: emails.map((email) => email.email),
       subject: `New Event: ${eventData.title}`,
-      content: `    
-    ${eventData.title} is being hosted on ${eventData.date} at ${eventData.time} onwards
+      content: `
+     ${eventData.title} is being hosted by ${getSocietyNames()} on ${eventData.date} at ${eventData.time}.
   `,
     };
 
@@ -238,7 +233,20 @@ const RegisterEvent = () => {
       });
 
   };
+  function getSocietyNames(){
+    const societies = eventData.societies.map(society => society.name);
+    let formattedOutput = '';
 
+    if (societies.length === 1) {
+      formattedOutput = societies[0];
+    } else if (societies.length === 2) {
+      formattedOutput = societies.join(' and ');
+    } else if (societies.length > 2) {
+      const lastSociety = societies.pop();
+      formattedOutput = societies.join(', ') + ', and ' + lastSociety;
+    }
+    return formattedOutput;
+  }
   return (
     <div className='register-event'>
       <h1 className='admin-headings'>Register a New Event</h1>
@@ -301,6 +309,7 @@ const RegisterEvent = () => {
             Add Society
           </button> */}
         <div className='selected-societies'>
+
           {eventData.societies.map((society, index) => (
             <div key={index} className='selected-society'>
               <img className='selected-soc-images' src={society.logo} alt={society.name} />
