@@ -124,10 +124,10 @@ const RegisterEvent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formattedDate = formatDate(eventData.date);
-    const formattedTime = formatTime(eventData.time);
+    // const formattedTime = formatTime(eventData.time);
     // const mergedTime = `${eventData.fromTime} to ${eventData.toTime}`
     // const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
-    const formattedEventData = { ...eventData, date: formattedDate, time: formattedTime };
+    const formattedEventData = { ...eventData, date: formattedDate, time:eventData.time };
     console.log(formattedEventData);
     var config = {
       method: 'post',
