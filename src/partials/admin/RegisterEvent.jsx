@@ -218,7 +218,7 @@ const RegisterEvent = () => {
       to_emails: emails.map((email) => email.email),
       subject: `New Event: ${eventData.title}`,
       content: `
-     ${eventData.title} is being hosted by ${getSocietyNames()} on ${eventData.date} at ${eventData.time}.
+     ${eventData.title} is being hosted by ${getSocietyNames()} on ${eventData.date} at ${eventData.time} Hrs.
   `,
     };
 
