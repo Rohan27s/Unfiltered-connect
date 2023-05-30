@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 const RegisterSociety = ({ type, id }) => {
@@ -29,13 +29,13 @@ const RegisterSociety = ({ type, id }) => {
         method: 'get',
         url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${id}`,
       })
-      .then((response) => {
-        const sortedMembers = response.data.members.sort((a, b) => a.rank - b.rank);
-        setSocietyData({ ...response.data, members: sortedMembers });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          const sortedMembers = response.data.members.sort((a, b) => a.rank - b.rank);
+          setSocietyData({ ...response.data, members: sortedMembers });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, [id]);
   // if (type === "edit") {
@@ -99,39 +99,58 @@ const RegisterSociety = ({ type, id }) => {
       ...member,
       rank: parseInt(member.rank),
     }));
-
-    var config = {
-      method: 'post',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/societyadd',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: updatedSocietyData, // Use the updatedSocietyData
-    };
-
+    var config;
+    if (type === "create") {
+      config = {
+        method: 'post',
+        url: 'https://unfiltered-connect-backend.vercel.app/api/societyadd',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: updatedSocietyData, // Use the updatedSocietyData
+      };
+    }
+    else if (type === "edit") {
+    
+      config = {
+        method: 'put',
+        url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: updatedSocietyData, // Use the updatedSocietyData
+      };
+    }
     axios(config)
       .then(function (response) {
-        alert('Society Registered Successfully');
-        setSocietyData({
-          name: '',
-          category: '',
-          description: '',
-          cover: '',
-          members: [
-            {
-              designame: '',
-              desigholder: '',
-              number: '',
-              rank: 0,
-              photoUrl: '',
-            },
-          ],
-          Fblink: '',
-          Linkedlink: '',
-          Twitlink: '',
-          Instalink: '',
-          Youlink: '',
-        });
+        if (type === "edit") {
+          alert('Society Updated Successfully');
+        }
+        else {
+          alert('Society Registered Successfully');
+        }
+        if (type === "create") {
+          setSocietyData({
+            name: '',
+            category: '',
+            description: '',
+            cover: '',
+            members: [
+              {
+                designame: '',
+                desigholder: '',
+                number: '',
+                rank: 0,
+                photoUrl: '',
+              },
+            ],
+            Fblink: '',
+            Linkedlink: '',
+            Twitlink: '',
+            Instalink: '',
+            Youlink: '',
+          });
+        }
         formRef.current.reset();
       })
       .catch(function (error) {
