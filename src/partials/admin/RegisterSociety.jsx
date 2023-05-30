@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import axios from 'axios';
 
-const RegisterSociety = ({type,id}) => {
+const RegisterSociety = ({ type, id }) => {
   const formRef = useRef(null);
   const [societyData, setSocietyData] = useState({
     name: '',
@@ -23,6 +23,28 @@ const RegisterSociety = ({type,id}) => {
     Instalink: '',
     Youlink: '',
   });
+  useEffect(() => {
+    if (type === "edit") {
+      axios({
+        method: 'get',
+        url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${id}`,
+      })
+      .then((response) => {
+        const sortedMembers = response.data.members.sort((a, b) => a.rank - b.rank);
+        setSocietyData({ ...response.data, members: sortedMembers });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+  }, [id]);
+  // if (type === "edit") {
+
+  // }
+  // else {
+
+  // }
+
 
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
@@ -120,7 +142,7 @@ const RegisterSociety = ({type,id}) => {
 
   return (
     <div className="register-event">
-      <h1 className='admin-headings'>{type}{id}</h1>
+      {/* <h1 className='admin-headings'>{type}{id}</h1> */}
 
       <form onSubmit={handleSubmit} ref={formRef}>
 
@@ -129,7 +151,7 @@ const RegisterSociety = ({type,id}) => {
 
           <p>Name:<p style={{ color: 'red', display: 'inline' }}>*</p></p>
           <input
-          placeholder="Please enter the name of the society"
+            placeholder="Please enter the name of the society"
             type="text"
             name="name"
             value={societyData.name}
