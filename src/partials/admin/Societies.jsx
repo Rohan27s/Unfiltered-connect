@@ -4,6 +4,7 @@ import Loading from '../Loading';
 import EmptyList from '../common/EmptyList';
 import RegisterSociety from './RegisterSociety';
 import Chip from '../common/Chip';
+import './styles.css'
 const Societies = () => {
   const [societies, setSocieties] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,12 +27,34 @@ const Societies = () => {
       })
   }, [])
   const sortedResults = societies.sort((a, b) => a.name.localeCompare(b.name));
-
+function deleteSociety(id){
+  const result = window.confirm('Are you sure you want to remove this society?');
+  var config;
+  if (result) {
+    config = {
+      method: 'delete',
+      url: `https://unfiltered-connect-backend.vercel.app/api/societyfind/${id}`,
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+    axios(config)
+    .then(function (response) {
+     alert("Society removed successfully!")
+    }).catch(function (error) {
+      alert('Error! Please Try Again');
+    });
+  } else {
+    // User clicked "Cancel" or closed the dialog
+    // Do nothing or handle accordingly
+  }
+  
+}
   const results = sortedResults.map((society) => (
     <div className='blogItem-wrap soc-single-card'>
       <div className="soc-card-btns">
-        <i class="fa-regular fa-pen-to-square"  onClick={() => { setCurr(<RegisterSociety type={"edit"} id={society._id}/> ); setHeading("Edit Society Details") }} style={{ color: "green" }}></i>
-        <i class="fa-regular fa-trash-can" style={{ color: "red" }}></i>
+        <i class="fa-regular fa-pen-to-square"  onClick={() => { setCurr(<RegisterSociety type={"edit"} id={society._id}/> ); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
+        <i class="fa-regular fa-trash-can"  onClick={() => { deleteSociety(society._id)}}style={{ color: "red" }}></i>
       </div>
       <img className='blogItem-cover' src={society.cover} alt='cover' />
       <Chip label={society.category} />
@@ -54,7 +77,7 @@ const Societies = () => {
               </button>}
           </div>
 
-          <div className="admin-container">
+          <div className="admin-container" style={{background:'inherit'}}>
             {curr === null ?
               <div className='soc-card'>
                 <div className='blogList-wrap'>
