@@ -44,11 +44,7 @@ function deleteSociety(id){
     }).catch(function (error) {
       alert('Error! Please Try Again');
     });
-  } else {
-    // User clicked "Cancel" or closed the dialog
-    // Do nothing or handle accordingly
-  }
-  
+  }   
 }
   const results = sortedResults.map((society) => (
     <div className='blogItem-wrap soc-single-card'>
