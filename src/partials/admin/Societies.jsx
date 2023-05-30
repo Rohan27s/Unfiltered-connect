@@ -25,7 +25,7 @@ const Societies = () => {
       }).catch(response => {
         console.log(response)
       })
-  }, [])
+  }, [curr===null])
   const sortedResults = societies.sort((a, b) => a.name.localeCompare(b.name));
 function deleteSociety(id){
   const result = window.confirm('Are you sure you want to remove this society?');
@@ -41,6 +41,7 @@ function deleteSociety(id){
     axios(config)
     .then(function (response) {
      alert("Society removed successfully!")
+     
     }).catch(function (error) {
       alert('Error! Please Try Again');
     });
