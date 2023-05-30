@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
-const RegisterSociety = () => {
+const RegisterSociety = ({type,id}) => {
   const formRef = useRef(null);
   const [societyData, setSocietyData] = useState({
     name: '',
@@ -120,7 +120,7 @@ const RegisterSociety = () => {
 
   return (
     <div className="register-event">
-      <h1 className='admin-headings'>Register a Society</h1>
+      <h1 className='admin-headings'>{type}{id}</h1>
 
       <form onSubmit={handleSubmit} ref={formRef}>
 

@@ -41,7 +41,26 @@ body {
   background-repeat: repeat-y;
   
 }
-
+.add-soc-admin-btn{
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding-right: 7%;
+}
+.add-soc-admin-btn button{
+  padding: 10px 15px;
+  background-color: #006dff;
+  color: white;
+  border-radius: 0.3rem;
+}
+.soc-card-btns{
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  padding-right:20px ;
+  padding-top: 10px;
+  font-size: 20px;
+}
 /* .banner-detail img{
     width: 100%;
     height: 100%;
