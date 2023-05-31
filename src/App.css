@@ -53,11 +53,19 @@ body {
   color: white;
   border-radius: 0.3rem;
 }
-.soc-card-btns{
+.icon {
+  background-color: white;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+.soc-card-btns {
   display: flex;
   justify-content: end;
   gap: 20px;
-  padding-right:20px ;
+  right: 0;
+  position: absolute;
+  padding-right: 20px;
   padding-top: 10px;
   font-size: 20px;
 }
@@ -68,7 +76,7 @@ body {
 .admin-cards {
   display: flex;
   justify-content: space-evenly;
-  padding: 10% 5%;
+  padding: 5%;
   flex-wrap: wrap;
 }
 .cover {

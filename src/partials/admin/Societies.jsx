@@ -76,10 +76,10 @@ const Societies = () => {
             {curr === null ?
               <div className='admin-cards'>
                   {societies?.map((society) => (
-                    <div className='blogItem-wrap soc-single-card'>
+                    <div style={{position:'relative'}} className='blogItem-wrap soc-single-card'>
                       <div className="soc-card-btns">
-                        <i class="fa-regular fa-pen-to-square" onClick={() => { setCurr(<RegisterSociety type={"edit"} id={society._id} />); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
-                        <i class="fa-regular fa-trash-can" onClick={() => { deleteSociety(society._id) }} style={{ color: "red" }}></i>
+                        <i class="fa-regular fa-pen-to-square icon" onClick={() => { setCurr(<RegisterSociety type={"edit"} id={society._id} />); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
+                        <i class="fa-regular fa-trash-can icon" onClick={() => { deleteSociety(society._id) }} style={{ color: "red" }}></i>
                       </div>
                       <img className='blogItem-cover' src={society.cover} alt='cover' />
                       <Chip label={society.category} />
