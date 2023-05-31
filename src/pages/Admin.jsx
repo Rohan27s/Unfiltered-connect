@@ -8,6 +8,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import Societies from '../partials/admin/Societies';
 import PastEvents from '../partials/admin/PastEvents';
+import NewEvents from '../partials/admin/NewEvents';
 const Admin = () => {
   let navigate = useNavigate();
   const [isActive, setActive] = useState(false);
@@ -23,7 +24,9 @@ const Admin = () => {
 
   // Set Underline under active headings
   const handleClick = () => {
-    setCurr(<RegisterEvent />)
+    // setCurr(<RegisterEvent />)
+    setCurr(<NewEvents />)
+
     setActive(true)
     setActive1(false)
     setActive2(false)
@@ -68,7 +71,7 @@ const Admin = () => {
             </Link>
           </div>
           <ul className={`mid-admin-nav ${sidebarCollapsed ? 'collapsed' : ''}`}>
-            <li><button className={isActive ? "active" : null} onClick={handleClick}>Register New Event</button></li>
+            <li><button className={isActive ? "active" : null} onClick={handleClick}>Upcoming Events</button></li>
             <li><button className={isActive1 ? "active" : null} onClick={handleClick1}>Past Events</button></li>
             <li><button className={isActive2 ? "active" : null} onClick={handleClick2}>Societies</button></li>
           </ul>

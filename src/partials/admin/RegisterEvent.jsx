@@ -3,7 +3,7 @@ import axios from 'axios';
 import emailjs from '@emailjs/browser';
 
 
-const RegisterEvent = () => {
+const RegisterEvent = ({id,type}) => {
   const formRef = useRef(null);
   const [emails, setEmails] = useState([]);
   const [societies, setSocieties] = useState([]);
@@ -21,7 +21,20 @@ const RegisterEvent = () => {
     registerLink: '',
     faq: [{ ques: '', ans: '' }],
   });
-
+  useEffect(() => {
+    if (type === "edit") {
+      axios({
+        method: 'get',
+        url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${id}`,
+      })
+        .then((response) => {
+          setEventData({ ...response.data});
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [id]);
   //Getting the details of the registered societies
   useEffect(() => {
     axios
@@ -129,20 +142,39 @@ const RegisterEvent = () => {
     // const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
     const formattedEventData = { ...eventData, date: formattedDate, time:eventData.time };
     console.log(formattedEventData);
-    var config = {
-      method: 'post',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd', // Provide the correct URL
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: formattedEventData,
-    };
-
+    var config;
+    if (type === "create") {
+      config = {
+        method: 'post',
+        url: 'https://unfiltered-connect-backend.vercel.app/api/eventadd',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: formattedEventData, // Use the formattedEventData
+      };
+    }
+    else if (type === "edit") {
+    
+      config = {
+        method: 'put',
+        url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: formattedEventData, // Use the updatedEventData
+      };
+    }
     axios
-      .post(config.url, formattedEventData) // Pass the URL and data as separate arguments
+      .post(config) // Pass the URL and data as separate arguments
       .then(function (response) {
         sendEmails();
-        alert("Event Registered Successfully!");
+        if (type === "edit") {
+          alert('Event Updated Successfully');
+        }
+        else {
+          alert('Event Registered Successfully');
+        }
+        if (type === "create") {
         setEventData({
           title: '',
           content: '',
@@ -157,7 +189,7 @@ const RegisterEvent = () => {
           faq: [{ ques: '', ans: '' }],
         });
         formRef.current.reset();
-
+      }
       })
       .catch((error) => {
         console.log(error);
@@ -249,7 +281,7 @@ const RegisterEvent = () => {
   }
   return (
     <div className='register-event'>
-      <h1 className='admin-headings'>Register a New Event</h1>
+      {/* <h1 className='admin-headings'>Register a New Event</h1> */}
 
       <form onSubmit={handleSubmit} ref={formRef}>
 
@@ -446,7 +478,7 @@ const RegisterEvent = () => {
         </div>
 
         <br />
-        <div className='end-button'><button type="submit" id="submit-form">Publish</button></div>
+        <div className='end-button'><button type="submit" id="submit-form">{type==="edit"?"Update":"Publish"}</button></div>
       </form>
     </div>
 
