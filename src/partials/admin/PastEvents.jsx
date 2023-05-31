@@ -11,32 +11,38 @@ const PastEvents = () => {
     const [reload, setReload] = useState(false);
 
     //API call for getting all the past events
-    React.useEffect(() => {
+    useEffect(() => {
         axios.get('https://unfiltered-connect-backend.vercel.app/api/allpastevent').then((response) => {
             setPastEvent(response.data);
             setLoading(false);
+            setReload(false);
+        }).catch(response => {
+            console.log(response)
+            setReload(false);
         });
     }, [curr === null, reload === true]);
     function deletePastEvent(id) {
         const result = window.confirm('Are you sure you want to remove this past event?');
         var config;
         if (result) {
-          config = {
-            method: 'delete',
-            url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${id}`,
-            headers: {
-              'Content-Type': 'application/json',
-            }
-          };
-          axios(config)
-            .then(function (response) {
-              alert("Past Event removed successfully!");
-              setReload(true);
-            }).catch(function (error) {
-              alert('Error! Please Try Again');
-            });
+            config = {
+                method: 'delete',
+                url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${id}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+            axios(config)
+                .then(function (response) {
+                    setReload(true);
+                    alert("Past Event removed successfully!");
+                }).catch(function (error) {
+                    setReload(true);
+
+                    alert('Error! Please Try Again');
+                });
         }
-      }
+    }
     return (
         <>
             {loading ? <Loading /> :
@@ -54,7 +60,7 @@ const PastEvents = () => {
                         {curr === null ?
                             <div className="admin-cards">
                                 {pastEvent.map((items, id) => (
-                                    <div style={{position:"relative"}}className="pasteventcards w-full rounded-lg  lg:max-w-sm" key={id}>
+                                    <div style={{ position: "relative" }} className="pasteventcards w-full rounded-lg  lg:max-w-sm" key={id}>
                                         <div className="soc-card-btns">
                                             <i class="fa-regular fa-pen-to-square icon" onClick={() => { setCurr(<RegisterPastEvent type={"edit"} id={items._id} />); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
                                             <i class="fa-regular fa-trash-can icon" onClick={() => { deletePastEvent(items._id) }} style={{ color: "red" }}></i>
