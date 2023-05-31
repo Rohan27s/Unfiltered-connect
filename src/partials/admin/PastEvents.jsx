@@ -6,7 +6,7 @@ import RegisterPastEvent from './RegisterPastEvent'
 const PastEvents = () => {
     const [pastEvent, setPastEvent] = React.useState([]);
     const [loading, setLoading] = useState(true);
-    const [heading, setHeading] = useState("Reported Past Events");
+    const [heading, setHeading] = useState("Past Events");
     const [curr, setCurr] = useState(null);
     const [reload, setReload] = useState(false);
 
@@ -46,7 +46,7 @@ const PastEvents = () => {
                         {curr === null ? <button onClick={() => { setCurr(<RegisterPastEvent type={"create"} id={null} />); setHeading("Report a Past Event") }}>
                             Report Past Event
                         </button> :
-                            <button onClick={() => { setCurr(null); setHeading("Reported Past Events") }}>
+                            <button onClick={() => { setCurr(null); setHeading("Past Events") }}>
                                 Go back
                             </button>}
                     </div>
@@ -56,7 +56,7 @@ const PastEvents = () => {
                                 {pastEvent.map((items, id) => (
                                     <div style={{position:"relative"}}className="pasteventcards w-full rounded-lg  lg:max-w-sm" key={id}>
                                         <div className="soc-card-btns">
-                                            <i class="fa-regular fa-pen-to-square icon" onClick={() => { setCurr(<RegisterPastEvent type={"edit"} id={society._id} />); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
+                                            <i class="fa-regular fa-pen-to-square icon" onClick={() => { setCurr(<RegisterPastEvent type={"edit"} id={items._id} />); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
                                             <i class="fa-regular fa-trash-can icon" onClick={() => { deletePastEvent(items._id) }} style={{ color: "red" }}></i>
                                         </div>
                                         <img

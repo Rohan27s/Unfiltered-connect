@@ -150,8 +150,8 @@ const RegisterSociety = ({ type, id }) => {
             Instalink: '',
             Youlink: '',
           });
+          formRef.current.reset();
         }
-        formRef.current.reset();
       })
       .catch(function (error) {
         alert('Error! Please Try Again');
@@ -360,7 +360,7 @@ const RegisterSociety = ({ type, id }) => {
           /></span>
         <br />
         <div className='end-button'>
-          <button type="submit" id="submit-form">Submit</button></div>
+          <button type="submit" id="submit-form">{type==="edit"?"Update":"Submit"}</button></div>
       </form>
     </div>
   );

@@ -19,6 +19,20 @@ const RegisterPastEvent = ({id,type}) => {
     winners: [{ positionname: '', positionholder: '' }],
   });
   useEffect(() => {
+    if (type === "edit") {
+      axios({
+        method: 'get',
+        url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${id}`,
+      })
+        .then((response) => {
+          setEventData({ ...response.data});
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [id]);
+  useEffect(() => {  
     axios
       .get('https://unfiltered-connect-backend.vercel.app/api/societies')
       .then((response) => {
@@ -81,18 +95,37 @@ const RegisterPastEvent = ({id,type}) => {
     const formattedDate = formatDate(eventData.date);
     const updatedEventData = { ...eventData, date: formattedDate };
     console.log(eventData);
-    var config = {
-      method: 'post',
-      url: 'https://unfiltered-connect-backend.vercel.app/api/pasteventadd',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: updatedEventData,
-    };
-
+    var config;
+    if (type === "create") {
+      config = {
+        method: 'post',
+        url: 'https://unfiltered-connect-backend.vercel.app/api/pasteventadd',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: updatedEventData, // Use the updatedEventData
+      };
+    }
+    else if (type === "edit") {
+    
+      config = {
+        method: 'put',
+        url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: updatedEventData, // Use the updatedEventData
+      };
+    }
     axios(config)
       .then(function (response) {
-        alert('Past Event Registered Successfully');
+        if (type === "edit") {
+          alert('Past Event Updated Successfully');
+        }
+        else {
+          alert('Past Event Registered Successfully');
+        }
+        if (type === "create") {
         setEventData({
           title: '',
           content: '',
@@ -107,6 +140,7 @@ const RegisterPastEvent = ({id,type}) => {
           winners: [{ positionname: '', positionholder: '' }],
         });
         formRef.current.reset();
+      }
       })
       .catch(function (error) {
         alert('Error! Please Try Again');
@@ -282,6 +316,7 @@ const RegisterPastEvent = ({id,type}) => {
               required
               id='date-input'
               value={eventData.date}
+              pattern="[0-9]{2} [0-9]{2} [0-9]{4}"
               onChange={handleInputChange}
             />
           </span>
@@ -371,7 +406,7 @@ const RegisterPastEvent = ({id,type}) => {
         </div>
         <br />
         <div className='end-button'>
-          <button type="submit" className='submit-btn' id="submit-form">Submit</button>
+          <button type="submit" className='submit-btn' id="submit-form">{type==="edit"?"Update":"Submit"}</button>
         </div>
       </form>
     </div>
