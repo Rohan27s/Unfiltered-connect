@@ -74,8 +74,7 @@ const Societies = () => {
 
           <div className="admin-container" style={{ background: 'inherit' }}>
             {curr === null ?
-              <div className='soc-card'>
-                <div className='blogList-wrap'>
+              <div className='admin-cards'>
                   {societies?.map((society) => (
                     <div className='blogItem-wrap soc-single-card'>
                       <div className="soc-card-btns">
@@ -87,7 +86,6 @@ const Societies = () => {
                       <h3 style={{ marginBottom: "7px" }}>{society.name}</h3>
                     </div>
                   ))}
-                </div>
               </div> : ""}
             {curr}
           </div>

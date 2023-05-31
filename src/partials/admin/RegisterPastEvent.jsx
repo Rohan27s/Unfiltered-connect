@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-const RegisterPastEvent = () => {
+const RegisterPastEvent = ({id,type}) => {
   const formRef = useRef(null);
   const [societies, setSocieties] = useState([]);
   const [selectedSociety, setSelectedSociety] = useState({ name: "", logo: "" });
@@ -146,7 +146,7 @@ const RegisterPastEvent = () => {
 
   return (
     <div className='register-event'>
-      <h1 className='admin-headings'>Report a Past Event</h1>
+      {/* <h1 className='admin-headings'>Report a Past Event</h1> */}
 
       <form onSubmit={handleSubmit} ref={formRef}>
         <span className="full-input one-input-label">

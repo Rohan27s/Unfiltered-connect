@@ -7,6 +7,7 @@ import RegisterPastEvent from '../partials/admin/RegisterPastEvent';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import Societies from '../partials/admin/Societies';
+import PastEvents from '../partials/admin/PastEvents';
 const Admin = () => {
   let navigate = useNavigate();
   const [isActive, setActive] = useState(false);
@@ -29,7 +30,9 @@ const Admin = () => {
   }
 
   const handleClick1 = () => {
-    setCurr(<RegisterPastEvent />)
+    // setCurr(<RegisterPastEvent />)
+    setCurr(<PastEvents />)
+
     setActive(false)
     setActive1(true)
     setActive2(false)
@@ -66,7 +69,7 @@ const Admin = () => {
           </div>
           <ul className={`mid-admin-nav ${sidebarCollapsed ? 'collapsed' : ''}`}>
             <li><button className={isActive ? "active" : null} onClick={handleClick}>Register New Event</button></li>
-            <li><button className={isActive1 ? "active" : null} onClick={handleClick1}>Report Past Event</button></li>
+            <li><button className={isActive1 ? "active" : null} onClick={handleClick1}>Past Events</button></li>
             <li><button className={isActive2 ? "active" : null} onClick={handleClick2}>Societies</button></li>
           </ul>
           <div className="bottom-nav-admin">
