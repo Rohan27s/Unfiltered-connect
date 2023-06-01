@@ -77,7 +77,7 @@ const Societies = () => {
               <div className='admin-cards'>
                   {societies?.map((society) => (
                     <div style={{position:'relative'}} className='blogItem-wrap soc-single-card'>
-                      <div className="soc-card-btns">
+                      <div style={{marginBottom:"0"}}className="soc-card-btns">
                         <i class="fa-regular fa-pen-to-square icon" onClick={() => { setCurr(<RegisterSociety type={"edit"} id={society._id} />); setHeading("Update Society Details") }} style={{ color: "green" }}></i>
                         <i class="fa-regular fa-trash-can icon" onClick={() => { deleteSociety(society._id) }} style={{ color: "red" }}></i>
                       </div>

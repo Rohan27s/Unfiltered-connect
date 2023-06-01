@@ -75,8 +75,9 @@ body {
 } */
 .admin-cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: start;
   padding: 5%;
+  gap: 30px;
   flex-wrap: wrap;
 }
 .cover {
@@ -563,7 +564,8 @@ table,.about-soc-div {
 .soc-single-card {
   border-radius: 20px;
   box-shadow: 0 3px 7px 4px #888888;
-  width: 280px;
+  /* width: 280px; */
+  width: auto;
 }
 
 .about-soc-head {
@@ -857,6 +859,7 @@ article.nextSlide {
   position: relative;
   width: 100%;
   margin: auto;
+  min-height: 73vh;
   /* right: 0; */
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
@@ -883,6 +886,7 @@ article.nextSlide {
 .register-event h1 {
   font-size: 30px;
   text-align: center;
+  background: inherit;
 }
 
 .event-form li {
