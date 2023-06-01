@@ -3,7 +3,7 @@ import axios from 'axios';
 import emailjs from '@emailjs/browser';
 
 
-const RegisterEvent = ({id,type}) => {
+const RegisterEvent = ({ id, type }) => {
   const formRef = useRef(null);
   const [emails, setEmails] = useState([]);
   const [societies, setSocieties] = useState([]);
@@ -15,8 +15,9 @@ const RegisterEvent = ({id,type}) => {
     description: '',
     date: '',
     venue: '',
-    fromTime: '',
-    toTime: '',
+    // fromTime: '',
+    // toTime: '',
+    time: '',
     img: '',
     registerLink: '',
     faq: [{ ques: '', ans: '' }],
@@ -28,7 +29,7 @@ const RegisterEvent = ({id,type}) => {
         url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${id}`,
       })
         .then((response) => {
-          setEventData({ ...response.data});
+          setEventData({ ...response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -75,13 +76,8 @@ const RegisterEvent = ({id,type}) => {
         updatedEventData[field][index][subField] = value;
       }
     } else {
-      if (index >= 0 && index < updatedEventData[field].length && name !== 'fromTime') {
+      if (index >= 0 && index < updatedEventData[field].length && name) {
         updatedEventData[field][index][name] = value;
-      } else if (name === 'fromTime') {
-        updatedEventData.fromTime = value;
-        console.log(value);
-
-        updatedEventData.time = mergeTime(updatedEventData);
       } else {
         updatedEventData[name] = value;
       }
@@ -91,10 +87,6 @@ const RegisterEvent = ({id,type}) => {
   };
 
 
-  const mergeTime = (data) => {
-    const fromTime = data.fromTime || '';
-    return `${fromTime}`;
-  };
 
   const handleSelectSociety = () => {
     if (selectedSociety) {
@@ -137,11 +129,8 @@ const RegisterEvent = ({id,type}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formattedDate = formatDate(eventData.date);
-    // const formattedTime = formatTime(eventData.time);
-    // const mergedTime = `${eventData.fromTime} to ${eventData.toTime}`
-    // const mergedDateTime = mergeDateTime(formattedDate, formattedTime);
-    const formattedEventData = { ...eventData, date: formattedDate, time:eventData.time };
-    console.log(formattedEventData);
+    const formattedEventData = { ...eventData, date: formattedDate };
+  
     var config;
     if (type === "create") {
       config = {
@@ -150,53 +139,51 @@ const RegisterEvent = ({id,type}) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        data: formattedEventData, // Use the formattedEventData
+        data: formattedEventData,
       };
-    }
-    else if (type === "edit") {
-    
+    } else if (type === "edit") {
       config = {
         method: 'put',
         url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${id}`,
         headers: {
           'Content-Type': 'application/json',
         },
-        data: formattedEventData, // Use the updatedEventData
+        data: formattedEventData,
       };
     }
-    axios
-      .post(config) // Pass the URL and data as separate arguments
+  
+    axios(config)
       .then(function (response) {
         sendEmails();
         if (type === "edit") {
           alert('Event Updated Successfully');
-        }
-        else {
+        } else {
           alert('Event Registered Successfully');
         }
         if (type === "create") {
-        setEventData({
-          title: '',
-          content: '',
-          societies: [],
-          description: '',
-          date: '',
-          venue: '',
-          fromTime: '',
-          toTime: '',
-          img: '',
-          registerLink: '',
-          faq: [{ ques: '', ans: '' }],
-        });
-        formRef.current.reset();
-      }
+          setEventData({
+            title: '',
+            content: '',
+            societies: [],
+            description: '',
+            date: '',
+            venue: '',
+            time: '',
+            toTime: '',
+            img: '',
+            registerLink: '',
+            faq: [{ ques: '', ans: '' }],
+          });
+          formRef.current.reset();
+        }
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  
 
-
+  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
@@ -265,7 +252,7 @@ const RegisterEvent = ({id,type}) => {
       });
 
   };
-  function getSocietyNames(){
+  function getSocietyNames() {
     const societies = eventData.societies.map(society => society.name);
     let formattedOutput = '';
 
@@ -281,8 +268,6 @@ const RegisterEvent = ({id,type}) => {
   }
   return (
     <div className='register-event'>
-      {/* <h1 className='admin-headings'>Register a New Event</h1> */}
-
       <form onSubmit={handleSubmit} ref={formRef}>
 
         <span className="full-input one-input-label">
@@ -398,12 +383,13 @@ const RegisterEvent = ({id,type}) => {
           <p className='admin-labels'>Time: <p style={{ color: 'red', display: 'inline' }}>*</p></p>
           <input
             type="time"
-            name="fromTime"
-            value={eventData.fromTime}
+            name="time"
+            value={eventData.time}
             required
             id='time-input'
-            onChange={(e) => handleInputChange(e, null, 'fromTime')} // Updated: Use 'fromTime' field
+            onChange={(e) => setEventData({ ...eventData, time: e.target.value })} // Updated: Use 'e.target.value'
           />
+
         </span>
 
         <br />
@@ -478,7 +464,7 @@ const RegisterEvent = ({id,type}) => {
         </div>
 
         <br />
-        <div className='end-button'><button type="submit" id="submit-form">{type==="edit"?"Update":"Publish"}</button></div>
+        <div className='end-button'><button type="submit" id="submit-form">{type === "edit" ? "Update" : "Publish"}</button></div>
       </form>
     </div>
 

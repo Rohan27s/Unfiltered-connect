@@ -143,8 +143,8 @@ const PastEventDetails = () => {
                 ) : (
                   ''
                 )}
-
-                {images?.length > 0 && <div className='slider'>
+                {console.log(images)}
+                {(images?.length === 0 || images==='') ?"":<div className='slider'>
                   <SimpleImageSlider
                     width={"90%"}
                     height={"85vh"}

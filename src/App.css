@@ -41,11 +41,11 @@ body {
   background-repeat: repeat-y;
   
 }
-.add-soc-admin-btn{
+.add-soc-admin-btn {
   display: flex;
-  width: 100%;
+  width: 88.5%;
   justify-content: end;
-  padding-right: 7%;
+  /* padding-right: 0; */
 }
 .add-soc-admin-btn button{
   padding: 10px 15px;
