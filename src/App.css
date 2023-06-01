@@ -75,7 +75,7 @@ body {
 } */
 .admin-cards {
   display: flex;
-  justify-content: start;
+  justify-content: space-around;
   padding: 5%;
   gap: 30px;
   flex-wrap: wrap;
