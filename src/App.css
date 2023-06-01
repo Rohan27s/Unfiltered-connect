@@ -1141,7 +1141,9 @@ margin: 20px auto;
   justify-content: space-between;
   width: 100%;
 }
-
+.loader-admin{
+  height: 100vh;
+}
 .searchBar-wrap input[type="text"] {
   flex-grow: 1;
   padding: 0.5rem;

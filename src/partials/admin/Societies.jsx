@@ -60,7 +60,7 @@ const Societies = () => {
 
   return (
     <>
-      {loading ? <Loading /> :
+      {loading ? <div className="loader-admin"><Loading /></div>  :
         <div className="register-event">
           <h1 className='admin-headings'>{heading}</h1>
           <div className="add-soc-admin-btn">
