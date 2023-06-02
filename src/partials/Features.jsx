@@ -43,7 +43,7 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">STEP 1</div>
-                    <div className="text-gray-600">Click on "Check out the Events button on the homepage"</div>
+                    <div className="text-gray-600">Click on the “Check out the Events” button on the homepage.</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">STEP 3</div>
-                    <div className="text-gray-600">Click on "Register Now" button to finally register for the event</div>
+                    <div className="text-gray-600">Click on "Register Now" button to finally register for the event.</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
