@@ -55,7 +55,7 @@ const NewEvents = () => {
                     <h1 className='admin-headings'>{heading}</h1>
                     <div className="add-soc-admin-btn">
                         {curr === null ? <button onClick={() => { setCurr(<RegisterEvent type={"create"} id={null} />); setHeading("Register a New Event") }}>
-                           Register Event
+                        Register Upcoming Event
                         </button> :
                             <button onClick={() => { setCurr(null); setHeading("Upcoming Events") }}>
                                 Go back
