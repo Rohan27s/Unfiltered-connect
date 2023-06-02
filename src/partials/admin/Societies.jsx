@@ -65,7 +65,7 @@ const Societies = () => {
           <h1 className='admin-headings'>{heading}</h1>
           <div className="add-soc-admin-btn">
             {curr === null ? <button onClick={() => { setCurr(<RegisterSociety type={"create"} id={null} />); setHeading("Register a Society") }}>
-              Add Society
+            Register New Society
             </button> :
               <button onClick={() => { setCurr(null); setHeading("Registered Societies") }}>
                 Go back

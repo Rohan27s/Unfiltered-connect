@@ -13,7 +13,12 @@ const NewEvents = () => {
     //API call for getting all the past events
     useEffect(() => {
         axios.get('https://unfiltered-connect-backend.vercel.app/api/allevent').then((response) => {
-            setEvent(response.data);
+            const sortedEvents = response.data.sort((a, b) => {
+                const dateA = new Date(a.date.split("-").reverse().join("-"));
+                const dateB = new Date(b.date.split("-").reverse().join("-"));
+                return dateA - dateB;
+              });   
+        setEvent(sortedEvents);
             setLoading(false);
             setReload(false);
         }).catch(response => {
