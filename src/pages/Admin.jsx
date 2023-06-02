@@ -63,22 +63,22 @@ const Admin = () => {
           <div className="top-admin-nav">
             {/* Logo */}
             <button className={`sidebar-toggle ${sidebarCollapsed ? 'collapsed' : ''}`} onClick={toggleSidebar}>
-            {sidebarCollapsed?<i class="fa-solid fa-chevron-right"></i>:<i class="fa-solid fa-chevron-left"></i> }
-          </button>
+              {sidebarCollapsed ? <i class="fa-solid fa-chevron-right"></i> : <i class="fa-solid fa-chevron-left"></i>}
+            </button>
             <Link to="/" className="block logo" aria-label="Cruip">
               <img className='nav-logo' src="https://res.cloudinary.com/rohangotwal/image/upload/v1671085611/Blog/logo_cy14jc.png" alt="" />
               {sidebarCollapsed ? "" : <h2>Unfiltered Connect</h2>}
             </Link>
           </div>
           <ul className={`mid-admin-nav ${sidebarCollapsed ? 'collapsed' : ''}`}>
-            <li><button className={isActive ? "active" : null} onClick={handleClick}>Upcoming Events</button></li>
-            <li><button className={isActive1 ? "active" : null} onClick={handleClick1}>Past Events</button></li>
-            <li><button className={isActive2 ? "active" : null} onClick={handleClick2}>Societies</button></li>
+            <li><button className={isActive ? "active" : null} style={{ textTransform: "uppercase" }} onClick={handleClick}>Upcoming Events</button></li>
+            <li><button className={isActive1 ? "active" : null} style={{ textTransform: "uppercase" }} onClick={handleClick1}>Past Events</button></li>
+            <li><button className={isActive2 ? "active" : null} style={{ textTransform: "uppercase" }} onClick={handleClick2}>Societies</button></li>
           </ul>
           <div className="bottom-nav-admin">
             <button className={`mid-admin-nav ${sidebarCollapsed ? 'logout collapsed' : 'logout'}`} onClick={handleLogout}>Logout</button>
           </div>
-          
+
         </div>
         <div className="admin-container">
           {curr}
