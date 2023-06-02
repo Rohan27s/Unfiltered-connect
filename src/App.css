@@ -1453,6 +1453,12 @@ textarea {
   .table-soc {
     overflow-x: scroll;
   }
+  .eventcards {
+    box-shadow: 5px 4px 4px #a09f9f;
+    height: auto;
+    width: 250px;
+    background: white;
+}
 
   .social-media-overlay {
     padding: 0.5rem;
