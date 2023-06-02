@@ -66,7 +66,7 @@ const PastEvents = () => {
                         {curr === null ?
                             <div className="admin-cards">
                                 {pastEvent.map((items, id) => (
-                                    <div style={{ position: "relative",borderRadius:"20px" }} className="pasteventcards w-full rounded-lg  lg:max-w-sm" key={id}>
+                                    <div style={{ position: "relative",borderRadius:"20px",marginLeft:"auto",marginRight:"auto" }} className="pasteventcards w-full rounded-lg  lg:max-w-sm" key={id}>
                                         <div className="soc-card-btns">
                                             <i class="fa-regular fa-pen-to-square icon" onClick={() => { setCurr(<RegisterPastEvent type={"edit"} id={items._id} />); setHeading("Update Past Event") }} style={{ color: "green" }}></i>
                                             <i class="fa-regular fa-trash-can icon" onClick={() => { deletePastEvent(items._id) }} style={{ color: "red" }}></i>
