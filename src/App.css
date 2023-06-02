@@ -859,8 +859,8 @@ article.nextSlide {
   margin: auto;
   min-height: 73vh;
   /* right: 0; */
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%);
+  /* background-color: #4158D0; */
+  /* background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 21%, #FFCC70 100%); */
 }
 .main-admin{
   background-color: #4158D0;
