@@ -4,31 +4,43 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 function SignIn() {
   let navigate = useNavigate();   
   const [auth, setAuth] = useState({
     email:"",
     password:""
   });
-  //Saving login details in the auth useState
-  const handleValue=(e)=>{
-    const { name, value } = e.target;
-      setAuth({
-          ...auth,
-          [name]: value,
-      });
-  }
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    if(auth.email==="admin" && auth.password==="SocialLife@008"){
-      let path = `/adminPanel`; 
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true") {
+      let path = `/adminPanel`;
       navigate(path);
     }
-    else{
+  }, []);
+
+  const handleValue = (e) => {
+    const { name, value } = e.target;
+    setAuth({
+      ...auth,
+      [name]: value,
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (auth.email === "admin" && auth.password === "SocialLife@008") {
+      localStorage.setItem("isLoggedIn", "true");
+      let path = `/adminPanel`;
+      navigate(path);
+    } else {
+      localStorage.setItem("isLoggedIn", "false");
       alert("Enter Valid Email/Password");
     }
-  }
+  };
+  
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Header />
