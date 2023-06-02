@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-const RegisterPastEvent = ({id,type}) => {
+const RegisterPastEvent = ({ id, type }) => {
   const formRef = useRef(null);
   const [societies, setSocieties] = useState([]);
   const [selectedSociety, setSelectedSociety] = useState({ name: "", logo: "" });
@@ -25,14 +25,38 @@ const RegisterPastEvent = ({id,type}) => {
         url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${id}`,
       })
         .then((response) => {
-          setEventData({ ...response.data});
+          const formattedDate = formatDateAdmin(response.data.date); // Assuming formatDate is a function that converts the date to "YYYY-MM-DD" format
+          console.log(formattedDate);
+          const eventData = {
+            ...response.data,
+            date: formattedDate
+          };
+
+          setEventData(eventData);
         })
         .catch((error) => {
           console.log(error);
         });
     }
   }, [id]);
-  useEffect(() => {  
+  function formatDateAdmin(dateString) {
+    const parts = dateString.split('-');
+    if (parts.length !== 3) {
+      // Invalid date format
+      return '';
+    }
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Months are zero-based
+    const year = parseInt(parts[2], 10);
+    const date = new Date(year, month, day);
+    if (isNaN(date.getTime())) {
+      // Invalid date
+      return '';
+    }
+    const formattedDate = date.toISOString().split('T')[0];
+    return formattedDate;
+  }
+  useEffect(() => {
     axios
       .get('https://unfiltered-connect-backend.vercel.app/api/societies')
       .then((response) => {
@@ -107,7 +131,7 @@ const RegisterPastEvent = ({id,type}) => {
       };
     }
     else if (type === "edit") {
-    
+
       config = {
         method: 'put',
         url: `https://unfiltered-connect-backend.vercel.app/api/pasteventfind/${id}`,
@@ -126,21 +150,21 @@ const RegisterPastEvent = ({id,type}) => {
           alert('Past Event Registered Successfully');
         }
         if (type === "create") {
-        setEventData({
-          title: '',
-          content: '',
-          societies: [{ name: '', logo: '' }],
-          sliderImage: [{ img: '' }],
-          reportpdf: '',
-          description: '',
-          time: '',
-          date: '',
-          venue: '',
-          img: '',
-          winners: [{ positionname: '', positionholder: '' }],
-        });
-        formRef.current.reset();
-      }
+          setEventData({
+            title: '',
+            content: '',
+            societies: [{ name: '', logo: '' }],
+            sliderImage: [{ img: '' }],
+            reportpdf: '',
+            description: '',
+            time: '',
+            date: '',
+            venue: '',
+            img: '',
+            winners: [{ positionname: '', positionholder: '' }],
+          });
+          formRef.current.reset();
+        }
       })
       .catch(function (error) {
         alert('Error! Please Try Again');
@@ -288,7 +312,7 @@ const RegisterPastEvent = ({id,type}) => {
         <span className="full-input one-input-label">
           <p className='admin-labels'>Report:</p>
           <input
-          placeholder="Please enter the Report URL"
+            placeholder="Please enter the Report URL"
             type="url"
             name="reportpdf"
             value={eventData.reportpdf}
@@ -300,7 +324,7 @@ const RegisterPastEvent = ({id,type}) => {
         <h3>Description:<p style={{ color: 'red', display: 'inline' }}>*</p></h3>
         <textarea
           name="description"
-          placeholder="Please enter the description" 
+          placeholder="Please enter the description"
           value={eventData.description}
           onChange={handleInputChange}
           required
@@ -356,12 +380,12 @@ const RegisterPastEvent = ({id,type}) => {
         </div>
 
         {eventData.winners.map((winner, index) => (
-          <div   key={`winner-${index}`} className="society-names">
-            <div  id={'spacing-1'} className="split-input-columns">
-              <span  className="full-input one-input-label">
+          <div key={`winner-${index}`} className="society-names">
+            <div id={'spacing-1'} className="split-input-columns">
+              <span className="full-input one-input-label">
                 <p className='admin-labels'>Position({index + 1}):</p>
                 <input
-                id='date-input'
+                  id='date-input'
                   type="text"
                   name="positionname"
                   placeholder="Please enter the position "
@@ -374,7 +398,7 @@ const RegisterPastEvent = ({id,type}) => {
                 <input
                   type="text"
                   name="positionholder"
-                  
+
                   placeholder="Please enter the position holder's name"
                   value={winner.positionholder}
                   onChange={(e) => handleInputChange(e, index, 'winners', 'positionholder')}
@@ -396,7 +420,7 @@ const RegisterPastEvent = ({id,type}) => {
         ))}
         <div className='end-button'>
           <button
-          id='spacing'
+            id='spacing'
             type="button"
             className='addSocbtn'
             onClick={() => handleAddField('winners')}
@@ -406,7 +430,7 @@ const RegisterPastEvent = ({id,type}) => {
         </div>
         <br />
         <div className='end-button'>
-          <button type="submit" className='submit-btn' id="submit-form">{type==="edit"?"Update":"Submit"}</button>
+          <button type="submit" className='submit-btn' id="submit-form">{type === "edit" ? "Update" : "Submit"}</button>
         </div>
       </form>
     </div>
