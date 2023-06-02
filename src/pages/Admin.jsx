@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import RegisterEvent from '../partials/admin/RegisterEvent';
 import RegisterSociety from '../partials/admin/RegisterSociety';
@@ -9,6 +9,7 @@ import Footer from '../partials/Footer';
 import Societies from '../partials/admin/Societies';
 import PastEvents from '../partials/admin/PastEvents';
 import NewEvents from '../partials/admin/NewEvents';
+
 const Admin = () => {
   let navigate = useNavigate();
   const [isActive, setActive] = useState(false);
@@ -16,8 +17,17 @@ const Admin = () => {
   const [isActive2, setActive2] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false); // Track the state of sidebar collapse
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn !== "true") {
+      let path = `/admin`;
+      navigate(path);
+    }
+  }, []);
+
   // Redirect to admin login
   const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", "false");
     let path = `/admin`;
     navigate(path);
   }
@@ -78,7 +88,6 @@ const Admin = () => {
           <div className="bottom-nav-admin">
             <button className={`mid-admin-nav ${sidebarCollapsed ? 'logout collapsed' : 'logout'}`} onClick={handleLogout}>Logout</button>
           </div>
-
         </div>
         <div className="admin-container">
           {curr}
