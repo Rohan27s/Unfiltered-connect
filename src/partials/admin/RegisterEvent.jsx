@@ -15,8 +15,6 @@ const RegisterEvent = ({ id, type }) => {
     description: '',
     date: '',
     venue: '',
-    // fromTime: '',
-    // toTime: '',
     time: '',
     img: '',
     registerLink: '',
@@ -29,13 +27,38 @@ const RegisterEvent = ({ id, type }) => {
         url: `https://unfiltered-connect-backend.vercel.app/api/eventfind/${id}`,
       })
         .then((response) => {
-          setEventData({ ...response.data });
+          // setEventData({ ...response.data });
+          const formattedDate = formatDateAdmin(response.data.date); // Assuming formatDate is a function that converts the date to "YYYY-MM-DD" format
+console.log(formattedDate);
+          const eventData = {
+            ...response.data,
+            date: formattedDate
+          };
+
+          setEventData(eventData);
         })
         .catch((error) => {
           console.log(error);
         });
     }
   }, [id]);
+  function formatDateAdmin(dateString) {
+    const parts = dateString.split('-');
+    if (parts.length !== 3) {
+      // Invalid date format
+      return '';
+    }
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Months are zero-based
+    const year = parseInt(parts[2], 10);
+    const date = new Date(year, month, day);
+    if (isNaN(date.getTime())) {
+      // Invalid date
+      return '';
+    }
+    const formattedDate = date.toISOString().split('T')[0];
+    return formattedDate;
+  }
   //Getting the details of the registered societies
   useEffect(() => {
     axios
@@ -130,7 +153,7 @@ const RegisterEvent = ({ id, type }) => {
     e.preventDefault();
     const formattedDate = formatDate(eventData.date);
     const formattedEventData = { ...eventData, date: formattedDate };
-  
+
     var config;
     if (type === "create") {
       config = {
@@ -151,13 +174,14 @@ const RegisterEvent = ({ id, type }) => {
         data: formattedEventData,
       };
     }
-  
+    console.log(formattedEventData);
     axios(config)
       .then(function (response) {
-        sendEmails();
         if (type === "edit") {
           alert('Event Updated Successfully');
         } else {
+          sendEmails();
+
           alert('Event Registered Successfully');
         }
         if (type === "create") {
@@ -181,9 +205,9 @@ const RegisterEvent = ({ id, type }) => {
         console.log(error);
       });
   };
-  
 
-  
+
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
