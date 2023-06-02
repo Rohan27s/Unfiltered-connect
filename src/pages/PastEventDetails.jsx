@@ -64,15 +64,6 @@ const PastEventDetails = () => {
                 />
                 <div className="overlay">
                   <div className="pastEvent">
-                    {/* <div className="soc-names">
-                      <span>
-                        <img
-                          className="soc-event-avatar"
-                          src={pastevent.Logo}
-                          alt="cover"
-                        />
-                      </span>
-                    </div> */}
                     <div className="soc-names">
                       {pastevent.societies.map((society, index) => (
                         <React.Fragment key={society.name}>
