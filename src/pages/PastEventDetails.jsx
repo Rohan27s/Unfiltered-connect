@@ -42,7 +42,10 @@ const PastEventDetails = () => {
         console.log(response);
       });
   }, []);
-
+  function isEmpty(value) {
+    // Check if the value is an empty string, null, or undefined
+    return value === "" || value === null || typeof value === "undefined";
+  }
   return (
     <>
       {loading ? (
@@ -115,7 +118,9 @@ const PastEventDetails = () => {
                     <b>Event Venue :</b> {pastevent.venue}
                   </li>
                 </ul>
-                {pastevent.winners.length > 0 ? (
+              
+
+                {!(isEmpty(pastevent.winners[0].positionname) && isEmpty(pastevent.winners[0].positionholder))? (
                   <>
                     <h2 className="winner-head"> Winner Details
                     </h2>
@@ -123,20 +128,23 @@ const PastEventDetails = () => {
                       className="oneline position-main"
                       style={{ display: 'flex' }}
                     >
-                      {pastevent.winners.map((position) => {
-                        return <>
-                          <span className='positions'>
-                            <p className="position-holder">
-                              {position.positionholder}
-                            </p>
-                            <p className="position-name">
-                              {position.positionname}
-                            </p>
+                      <>
+                      <>
+                        {pastevent.winners.map((position) => {
+                          return <>
+                            <span className='positions'>
+                              <p className="position-holder">
+                                {position.positionholder}
+                              </p>
+                              <p className="position-name">
+                                {position.positionname}
+                              </p>
 
-                          </span>
-                        </>
-                      })}
-
+                            </span>
+                          </>
+                        })}
+                      </>
+                      </>
                     </div>
 
                   </>
@@ -144,7 +152,7 @@ const PastEventDetails = () => {
                   ''
                 )}
                 {console.log(images)}
-                {(images?.length === 0 || images==='') ?"":<div className='slider'>
+                {(images?.length === 0 || images === '') ? "" : <div className='slider'>
                   <SimpleImageSlider
                     width={"90%"}
                     height={"85vh"}
