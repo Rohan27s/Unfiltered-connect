@@ -30,7 +30,7 @@ function HeroHome() {
           <div className="text-center pb-12 md:pb-16">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Experience every<br/> <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-500">Event happening around.</span></h1>
             <div className="max-w-3xl mx-auto">
-              <p className="text-xl text-black 600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">We have got all of your events covered. </p>
+              <p className="text-xl text-black 600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">We have all your events covered. </p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
                 <div>
                   <a className="home-a btn mx-3 text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="/events">Check out the Events</a>
