@@ -42,6 +42,7 @@ const SocietyDetails = () => {
 
             <div className="about-soc">
               <h1>Core Team</h1>
+              <div className="table-soc">
               <table style={{ width: '100%', textAlign: 'center' }}>
                 <thead>
                   <tr>
@@ -69,6 +70,7 @@ const SocietyDetails = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
           <div className="social-media-overlay">
