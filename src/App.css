@@ -43,9 +43,9 @@ body {
 }
 .add-soc-admin-btn {
   display: flex;
-  width: 88.5%;
+  width: 100%;
   justify-content: end;
-  /* padding-right: 0; */
+  padding-right: calc(5% + 22px);
 }
 .add-soc-admin-btn button{
   padding: 10px 15px;
