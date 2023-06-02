@@ -69,14 +69,12 @@ body {
   padding-top: 10px;
   font-size: 20px;
 }
-/* .banner-detail img{
-    width: 100%;
-    height: 100%;
-} */
 .admin-cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   padding: 5%;
+  width: 100%;
+  margin: auto;
   gap: 30px;
   flex-wrap: wrap;
 }
