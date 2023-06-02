@@ -16,7 +16,10 @@ const Admin = () => {
   const [isActive1, setActive1] = useState(false);
   const [isActive2, setActive2] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false); // Track the state of sidebar collapse
-
+  const hasWindow = typeof window !== 'undefined';
+  const width1 = hasWindow ? window.innerWidth : null;
+  const height1 = hasWindow ? window.innerHeight : null;
+  let width, height;
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn !== "true") {

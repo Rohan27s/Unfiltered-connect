@@ -1431,6 +1431,54 @@ textarea {
   table {
     overflow: scroll;
   }
+  .main-admin.collapsed .admin-nav {
+    width: 0;
+}
+.sidebar-toggle {
+  display: block;
+  margin-top: auto;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
+  height: 50px;
+  background: none;
+  border: none;
+  padding: 10px;
+  top: 0;
+  color: white;
+  background: black;
+  right: -50px;
+  cursor: pointer;
+  text-align: center;
+}
+  .nav-logo {
+    width: 65px;
+}
+  .top-admin-nav {
+    width: 100%;
+  }
+  .admin-nav {
+    width: 60vw;
+    position: fixed;
+    height: 82vh;
+    background-color: rgb(237 159 129 / 107%);
+}
+.default-admin {
+  display: flex;
+  justify-content: center;
+  height: 82vh;
+  /* background: transparent; */
+  width: 82%;
+  position: fixed;
+  text-align: center;
+  align-items: center;
+}
+  .main-admin h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0;
+    width: 100%;
+  }
 
   .faqs .faq .faq-question {
     position: relative;
@@ -1453,12 +1501,13 @@ textarea {
   .table-soc {
     overflow-x: scroll;
   }
+
   .eventcards {
     box-shadow: 5px 4px 4px #a09f9f;
     height: auto;
     width: 250px;
     background: white;
-}
+  }
 
   .social-media-overlay {
     padding: 0.5rem;
@@ -1642,13 +1691,14 @@ textarea {
   }
 
   .default-admin h1 {
-    font-size: 74px;
-    position: relative;
+    font-size: 35px;
+    position: absolute;
     text-align: center;
-    margin-top: 20vh;
-    height: 100vh;
+    /* left: 0; */
+    /* margin-top: -17vh; */
+    margin: auto;
     font-family: 'Dancing Script', cursive;
-  }
+}
 
   .admin-container {
     width: 100%;
