@@ -145,8 +145,8 @@ const PastEventDetails = () => {
                 
                 {(isEmpty(images[0]) && isEmpty(images[0])) ? "" : <div className='slider'>
                   <SimpleImageSlider
-                    width={"90%"}
-                    height={"85vh"}
+                    width={"97%"}
+                    height={height}
                     images={images}
                     showBullets={true}
                     showNavs={true}
