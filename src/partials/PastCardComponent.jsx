@@ -9,8 +9,14 @@ export default function PastCardComponent() {
     //API call for getting all the past events
     React.useEffect(() => {
         axios.get('https://unfiltered-connect-backend.vercel.app/api/allpastevent').then((response) => {
-            setPastEvent(response.data);
             setLoading(false);
+            const sortedEvents = response.data.sort((a, b) => {
+                const dateA = new Date(a.date.split("-").reverse().join("-"));
+                const dateB = new Date(b.date.split("-").reverse().join("-"));
+                return dateA - dateB;
+              });
+            //   console.log(sortedEvents);
+            setPastEvent(sortedEvents.reverse());
 
         });
     }, []);
