@@ -359,7 +359,7 @@ td {
 
 .faqs .faq .faq-question {
   position: relative;
-  font-size: 20px;
+  font-size: 16px;
   padding-right: 80px;
   font-weight: 500;
   text-align: start;
@@ -1432,6 +1432,24 @@ textarea {
     overflow: scroll;
   }
 
+  .faqs .faq .faq-question {
+    position: relative;
+    font-size: 16px;
+    padding-right: 20px;
+    font-weight: 500;
+    text-align: start;
+    transition: all 0.4s ease;
+  }
+
+  .faqs .faq {
+    margin: 0px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  }
+
   .table-soc {
     overflow-x: scroll;
   }
@@ -1645,7 +1663,7 @@ textarea {
 
   .eventcards {
     box-shadow: 5px 4px 4px #a09f9f;
-    height: 428px;
+    height: auto;
     width: 250px;
     background: white;
   }
