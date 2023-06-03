@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../Loading';
-import EmptyList from '../common/EmptyList';
 import RegisterSociety from './RegisterSociety';
 import Chip from '../common/Chip';
 import './styles.css'

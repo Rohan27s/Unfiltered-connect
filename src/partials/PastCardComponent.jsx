@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Loading from "./Loading";
 // Past Events Component
 export default function PastCardComponent() {
-    const [pastEvent, setPastEvent] = React.useState([]);
+    const [pastEvent, setPastEvent] = useState([]);
     const [loading, setLoading] = useState(true);
     //API call for getting all the past events
-    React.useEffect(() => {
+    useEffect(() => {
         axios.get('https://unfiltered-connect-backend.vercel.app/api/allpastevent').then((response) => {
             setLoading(false);
             const sortedEvents = response.data.sort((a, b) => {

@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import RegisterEvent from '../partials/admin/RegisterEvent';
-import RegisterSociety from '../partials/admin/RegisterSociety';
 import Default from '../partials/admin/Default';
-import RegisterPastEvent from '../partials/admin/RegisterPastEvent';
-import Header from '../partials/Header';
-import Footer from '../partials/Footer';
 import Societies from '../partials/admin/Societies';
 import PastEvents from '../partials/admin/PastEvents';
 import NewEvents from '../partials/admin/NewEvents';
@@ -37,7 +32,6 @@ const Admin = () => {
 
   // Set Underline under active headings
   const handleClick = () => {
-    // setCurr(<RegisterEvent />)
     setCurr(<NewEvents />)
 
     setActive(true)
@@ -46,7 +40,6 @@ const Admin = () => {
   }
 
   const handleClick1 = () => {
-    // setCurr(<RegisterPastEvent />)
     setCurr(<PastEvents />)
 
     setActive(false)
@@ -55,7 +48,6 @@ const Admin = () => {
   }
 
   const handleClick2 = () => {
-    // setCurr(<RegisterSociety />)
     setCurr(<Societies />)
 
     setActive(false)

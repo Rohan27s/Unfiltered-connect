@@ -38,13 +38,6 @@ const RegisterSociety = ({ type, id }) => {
         });
     }
   }, [id]);
-  // if (type === "edit") {
-
-  // }
-  // else {
-
-  // }
-
 
   const handleInputChange = (e, index, field, subField) => {
     const { name, value } = e.target;
