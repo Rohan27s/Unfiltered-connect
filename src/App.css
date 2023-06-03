@@ -1529,7 +1529,84 @@ textarea {
   .table-soc {
     overflow-x: scroll;
   }
+  .register-event {
+    padding: 15px 0;
+}
 
+.main-admin form {
+  margin: auto;
+  width: 90%;
+}
+.full-input p {
+  /* margin-right: 10px; */
+  font-size: 16px;
+  width: 183px;
+}
+.admin-labels {
+  width: 153px !important;
+}
+.main-admin input, textarea {
+  border-radius: 7px !important;
+  /* margin-bottom: 20px; */
+  width: 100%;
+  padding: 7px;
+}
+.addSocbtn {
+  background-color: #006dff;
+  color: white;
+  padding: 6px 0px;
+  border-radius: 0.3rem;
+  width: 108px;
+  font-size: 12px;
+}
+.remove-btn {
+  background-color: rgba(255, 0, 0, 0.593);
+  padding: 6px 0px;
+  width: 83px;
+  border-radius: 0.3rem;
+  color: white;
+  margin-top: 10px;
+  font-size: 12px;
+
+}
+.main-admin h3 {
+  font-size: 16px;
+  width: 50%;
+  /* display: flex; */
+  /* align-items: center; */
+}
+.main-admin textarea {
+  min-height: 160px;
+}
+.split-input-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  margin: 17px 0px;
+  width: 100%;
+}
+#date-input {
+  margin-left: 0;
+  /* width: 85%; */
+}
+#time-input {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+.selected-society {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-left: 0;
+  justify-content: space-between;
+}
+#society-input {
+  width: 48.5% !important;
+  margin-left: -15px;
+}
   .eventcards {
     box-shadow: 5px 4px 4px #a09f9f;
     height: auto;
