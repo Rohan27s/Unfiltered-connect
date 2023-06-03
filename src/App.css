@@ -1458,9 +1458,9 @@ textarea {
     width: 100%;
   }
   .admin-nav {
-    width: 60vw;
+    width: 83vw;
     position: fixed;
-    height: 82vh;
+    height: 100vh;
     background-color: rgb(237 159 129 / 107%);
 }
 .default-admin {
