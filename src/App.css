@@ -1431,48 +1431,61 @@ textarea {
   table {
     overflow: scroll;
   }
+
   .main-admin.collapsed .admin-nav {
     width: 0;
-}
-.sidebar-toggle {
-  display: block;
-  margin-top: auto;
-  position: absolute;
-  width: 50px;
-  z-index: 1;
-  height: 50px;
-  background: none;
-  border: none;
-  padding: 10px;
-  top: 0;
-  color: white;
-  background: black;
-  right: -50px;
-  cursor: pointer;
-  text-align: center;
-}
+  }
+
+  .sidebar-toggle {
+    display: block;
+    margin-top: auto;
+    position: absolute;
+    width: 50px;
+    z-index: 1;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 10px;
+    top: 0;
+    color: white;
+    background: black;
+    right: -50px;
+    cursor: pointer;
+    text-align: center;
+  }
+
   .nav-logo {
     width: 65px;
-}
+  }
+
   .top-admin-nav {
     width: 100%;
   }
+
   .admin-nav {
     width: 83vw;
     position: fixed;
     height: 100vh;
     background-color: rgb(237 159 129 / 107%);
-}
-.default-admin {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  /* background: transparent; */
-  width: 100%;
-  position: fixed;
-  text-align: center;
-  align-items: center;
-}
+  }
+
+  .default-admin {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    /* background: transparent; */
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    align-items: center;
+  }
+
+  .admin-headings {
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px !important;
+    margin: -4px auto 20px auto;
+  }
+
   .main-admin h2 {
     font-size: 18px;
     font-weight: 500;
@@ -1496,6 +1509,21 @@ textarea {
     border-radius: 10px;
     border: 2px solid gray;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .add-soc-admin-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .add-soc-admin-btn button {
+    padding: 7px 10px;
+    background-color: #006dff;
+    color: white;
+    border-radius: 0.3rem;
+    font-size: 14px;
   }
 
   .table-soc {
@@ -1698,7 +1726,7 @@ textarea {
     /* margin-top: -17vh; */
     margin: auto;
     font-family: 'Dancing Script', cursive;
-}
+  }
 
   .admin-container {
     width: 100%;
