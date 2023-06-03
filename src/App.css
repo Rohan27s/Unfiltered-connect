@@ -1466,9 +1466,9 @@ textarea {
 .default-admin {
   display: flex;
   justify-content: center;
-  height: 82vh;
+  height: 100vh;
   /* background: transparent; */
-  width: 82%;
+  width: 100%;
   position: fixed;
   text-align: center;
   align-items: center;
@@ -1703,6 +1703,7 @@ textarea {
   .admin-container {
     width: 100%;
     margin: auto;
+    min-height: 100vh;
   }
 
   .soc-banner {
